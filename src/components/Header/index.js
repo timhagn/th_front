@@ -4,15 +4,15 @@ import styled from 'styled-components'
 import Logo from './Logo'
 import Profile from './Profile'
 import '../Utils/variables'
-import {DarkBackground} from "../Utils/variables";
+import { DarkBackground } from "../Utils/variables";
 
-const Header = ({ siteTitle, className }) => (
+const Header = ({ className }) => (
     <header className={className}>
       <StyledHeaderWrapper id="navbar">
         <Link to="/">
           <Logo />
         </Link>
-        <div></div>
+        <nav></nav>
         <Link to="https://github.com/timhagn"
               id="profile-link"
               target="_blank"
@@ -32,6 +32,9 @@ const StyledHeaderWrapper = styled.div`
 `
 
 const StyledHeader = styled(Header)`
+  position: fixed;
+  top: 0;
+  z-index: 2;
   width: 100vw;
   display: flex;
   justify-content: center;
