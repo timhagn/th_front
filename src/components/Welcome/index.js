@@ -37,13 +37,13 @@ const WelcomeImage = ({ className, children }) => (
     />
 )
 
-// TODO: look into cover / size.
+// TODO: look into cover / size (wrapper div?).
 const StyledImage = styled(Img)`
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;  
+  //width: 100vw;
+  //height: auto;  
 `
 
 const StyledContainer = styled.div`
