@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import Image from '../components/image'
+import 'typeface-rubik'
 
 const IndexPage = () => (
   <Layout>
