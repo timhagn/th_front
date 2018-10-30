@@ -5301,7 +5301,7 @@ gatsby-transformer-sharp@^2.1.4:
     probe-image-size "^4.0.0"
     sharp "^0.21.0"
 
-gatsby@^2.0.19:
+gatsby@^2.0.32:
   version "2.0.32"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.32.tgz#ec087623f96905f3539e00758bff86d5315ea14d"
   integrity sha512-DOTz3qtwTqfHp5eLoWVYImai03CWxdFwQyJt9NmskoufGFQB+Q6xqoveG9lm020/9EKtnB/qOJ0QnWHdwN6E0g==

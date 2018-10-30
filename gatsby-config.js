@@ -7,9 +7,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-drupal',
       options: {
-        baseUrl: 'http://th_back.web.test/',
+        // baseUrl: 'http://th_back.web.test/',
+        baseUrl: `https://be.timhagn.com/`,
+        apiBase: `jsonapi`,
+        rateLimit: 1000,
       },
     },
+    'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -32,6 +36,5 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-styled-components',
   ],
 }
