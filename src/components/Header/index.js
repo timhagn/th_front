@@ -3,7 +3,6 @@ import Link from '../Utils/Link'
 import styled from 'styled-components'
 import Logo from './Logo'
 import Profile from './Profile'
-import '../Utils/Constants'
 import { DarkBackground } from "../Utils/Constants";
 import media from "styled-media-query";
 
@@ -39,6 +38,7 @@ const StyledHeaderWrapper = styled.div`
   ${media.lessThan("medium")`
     height: 75px;
     width: 414px;
+    margin: 0 17px;
   `}
 `
 
@@ -50,7 +50,7 @@ const StyledHeader = styled(Header)`
   display: flex;
   justify-content: center;
   flex-grow: 1;
-  background-color: ${DarkBackground};
+  background-color: ${ DarkBackground };
 `
 
 export default StyledHeader

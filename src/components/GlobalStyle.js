@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import media from "styled-media-query";
 import './Utils/Constants'
+import { HeadingColor } from "./Utils/Constants";
 
 const GlobalStyle = createGlobalStyle`
   *, html, body {
@@ -15,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 900;
     line-height: 73px;
     text-align: center;
-    color: #BCD1DE;
+    color: ${ HeadingColor };
     margin-bottom: 73px;
     
     ${media.lessThan("medium")`
@@ -23,6 +24,8 @@ const GlobalStyle = createGlobalStyle`
       line-height: 46px;
     `}
   }
+  
+  
 `
 
 export default GlobalStyle
