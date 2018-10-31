@@ -45,7 +45,6 @@ const WelcomeContent = ({ className }) => (
        const imageData = Width > 640 ?
            data.desktop.childImageSharp.fluid :
            data.mobile.childImageSharp.fluid
-       console.log(data)
        const strippedText = stripGutenbergTags(data.welcomeNode.field_body.value)
        return (
              <div className={className}>

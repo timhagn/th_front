@@ -3,21 +3,28 @@ import Link from '../Utils/Link'
 import styled from 'styled-components'
 import media from "styled-media-query"
 import {
-  DarkBackground,
-  WrapperMaxWidthDesktop,
-  WrapperMaxWidthMobile
+  BtnLinkBackground,
+  DarkHeadingColor,
 } from "../Utils/Constants"
+
+const onClick = (e) => {
+  const elements = document.getElementsByClassName('nav-link-active')
+  Array.prototype.forEach
+      .call(elements, element => element.classList.remove('nav-link-active'))
+  e.target.classList.add('nav-link-active')
+  return true
+}
 
 const NavBar = ({ className }) => (
     <nav className={className}>
       <ul>
         <li>
-          <StyledNavLink to="#about_me">
+          <StyledNavLink onClick={onClick} to="#about_me">
             about me
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="#projects">
+          <StyledNavLink onClick={onClick} to="#projects">
             projects
           </StyledNavLink>
         </li>
@@ -26,7 +33,18 @@ const NavBar = ({ className }) => (
 )
 
 const StyledNavLink = styled(Link)`
-  height: 37px;
+  height: 73px;
+  font-weight: 700;
+  text-align: left;
+  color: ${ DarkHeadingColor };
+  
+  &:hover {
+    color: ${ BtnLinkBackground };
+  }
+  
+  ${media.lessThan("medium")`
+    height: 37px;
+  `}
 `
 
 const StyledNavBar = styled(NavBar)`
@@ -36,10 +54,13 @@ const StyledNavBar = styled(NavBar)`
     flex-direction: row;
     align-items: flex-start;
     
-    
     li {
       list-style: none;
-      padding: 0 9px 0 8px;
+      padding: 0 13px;
+      
+      ${media.lessThan("medium")`
+        padding: 0 9px 0 8px;        
+      `}
     }
   }
 `

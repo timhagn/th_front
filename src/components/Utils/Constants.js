@@ -1,13 +1,19 @@
 /**
  * Basic Sizes.
  */
-export const Width = window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth
+let thisWidth = 640
+let thisHeight = 480
+if (typeof window !== `undefined`) {
+  thisWidth = window.innerWidth
+      || document.documentElement.clientWidth
+      || document.body.clientWidth
 
-export const Height = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight
+  thisHeight = window.innerHeight
+      || document.documentElement.clientHeight
+      || document.body.clientHeight
+}
+export const Width = thisWidth
+export const Height = thisHeight
 
 export const WrapperMaxWidthDesktop = 955
 export const WrapperMaxWidthMobile = 414

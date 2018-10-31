@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 import media from "styled-media-query";
 import './Utils/Constants'
 import {
+  BtnLinkBackground,
   DarkHeadingColor,
   DarkTextColor,
   LightHeadingColor,
@@ -72,6 +73,14 @@ const GlobalStyle = createGlobalStyle`
   
   .light-text {
     color: ${ LightTextColor };
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .nav-link-active {
+    color: ${ BtnLinkBackground };
   }
 `
 
