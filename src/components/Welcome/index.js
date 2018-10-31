@@ -2,60 +2,71 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { Width } from "../Utils/Constants";
+import StyledWelcomeContent from './WelcomeContent'
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `StaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.app/gatsby-image
- * - `StaticQuery`: https://gatsby.app/staticquery
+/**
+ * The Welcome Section displays the Hero Image and all content therein.
+ * @param className String    From styled components
  */
-
-const WelcomeImage = ({ className, children }) => (
+const WelcomeSection = ({ className }) => (
     <StaticQuery query={graphql`
       query {
-        placeholderImage: file(relativePath: { eq: "welcome-bg-desktop.jpg" }) {
+        desktop: file(relativePath: { eq: "welcome-bg-desktop.jpg" }) {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid_tracedSVG
+            fluid(quality: 90, maxWidth: 4160) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        mobile: file(relativePath: { eq: "welcome-bg-mobile.jpg" }) {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 640) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }
     `}
-    render={ data =>
+    render={ data => {
+      // Switch Image according to size on desktop / mobile.
+      const imageData = Width > 640 ?
+          data.desktop.childImageSharp.fluid :
+          data.mobile.childImageSharp.fluid
+      return (
         <section className={className} id='welcome-section'>
-          <StyledImage fluid={data.placeholderImage.childImageSharp.fluid} />
+          <StyledWelcomeBackgroundImage fluid={imageData}/>
           <StyledContainer>
-            {children}
+            <StyledWelcomeContent />
           </StyledContainer>
         </section>
+      )
+      }
     }
     />
 )
 
-// TODO: look into cover / size (wrapper div?).
-const StyledImage = styled(Img)`
+const StyledWelcomeBackgroundImage = styled(Img)`
   position: absolute;
   left: 0;
   top: 0;
-  //width: 100vw;
-  //height: auto;  
+  width: 100vw;
+  height: auto;  
 `
 
 const StyledContainer = styled.div`
   position: absolute;
   left: 0;
-  top: 0;
+  top: 104px;
+  width: 100vw;
+  height: 100vh;  
 `
 
-const StyledWelcomeSection = styled(WelcomeImage)`
+const StyledWelcomeSection = styled(WelcomeSection)`
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 `
 
 export default StyledWelcomeSection

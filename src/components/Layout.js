@@ -1,14 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import StyledHeader from './Header/index'
 import StyledWelcomeSection from './Welcome/index'
-import './layout.css'
 import Image from "./Image";
 
-const Layout = ({ children }) => {
+const Layout = () => {
+  // For fCC Testing.
   const fccScript = `
     (function(document, script) {
       const projectName = 'portfolio';
@@ -27,7 +26,7 @@ const Layout = ({ children }) => {
       }
     `}
       render={data => (
-          <>
+          <React.Fragment>
             <Helmet
                 title={data.site.siteMetadata.title}
                 meta={[
@@ -47,11 +46,13 @@ const Layout = ({ children }) => {
             </Helmet>
             <StyledHeader />
             <StyledWelcomeSection id="welcome-section">
+              <div>
               <h1>Hi people</h1>
               <p>Welcome to your new Gatsby site.</p>
               <p>Now go build something great.</p>
               <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
                 <Image />
+              </div>
               </div>
             </StyledWelcomeSection>
             <div
@@ -62,16 +63,12 @@ const Layout = ({ children }) => {
                   paddingTop: 0,
                 }}
             >
-              {children}
+
             </div>
-          </>
+          </React.Fragment>
       )}
   />
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

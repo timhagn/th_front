@@ -3,9 +3,14 @@ import Link from '../Utils/Link'
 import styled from 'styled-components'
 import Logo from './Logo'
 import Profile from './Profile'
-import '../Utils/variables'
-import { DarkBackground } from "../Utils/variables";
+import '../Utils/Constants'
+import { DarkBackground } from "../Utils/Constants";
 
+/**
+ * This Styled Component wraps the Logo, the Navbar and the Profile Link.
+ *
+ * @param className String    From styled components
+ */
 const Header = ({ className }) => (
     <header className={className}>
       <StyledHeaderWrapper id="navbar">
