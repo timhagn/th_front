@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import media from "styled-media-query";
 import { Width } from "../Utils/Constants";
 import { stripGutenbergTags } from "../Utils/HelperFunctions";
 
@@ -26,14 +27,14 @@ const WelcomeContent = ({ className }) => (
         desktop: file(relativePath: { eq: "welcome-ge-desktop.png" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 4160) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid
             }
           }
         }
         mobile: file(relativePath: { eq: "welcome-ge-mobile.png" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 640) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -58,7 +59,7 @@ const WelcomeContent = ({ className }) => (
 )
 
 const StyledWelcomeImage = styled(Img)`
-  width: 30%;
+  width: 50%;
   height: auto;
 `
 
@@ -68,7 +69,11 @@ const StyledWelcomeContent = styled(WelcomeContent)`
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 130px;
+  margin-top: calc(130px + 104px);
+  
+  ${media.lessThan("medium")`
+    margin-top: calc(78px + 75px);
+  `}
 `
 
 export default StyledWelcomeContent

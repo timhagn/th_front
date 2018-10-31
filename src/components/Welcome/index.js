@@ -50,20 +50,20 @@ const StyledWelcomeBackgroundImage = styled(Img)`
   position: absolute;
   left: 0;
   top: 0;
-  width: 100vw;
-  height: auto;  
+  width: 100%;
+  height: 100vh;
 `
 
 const StyledContainer = styled.div`
   position: absolute;
   left: 0;
-  top: 104px;
-  width: 100vw;
+  top: 0;
+  width: 100%;
   height: 100vh;  
 `
 
 const StyledWelcomeSection = styled(WelcomeSection)`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;

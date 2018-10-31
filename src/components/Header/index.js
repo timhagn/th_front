@@ -5,6 +5,7 @@ import Logo from './Logo'
 import Profile from './Profile'
 import '../Utils/Constants'
 import { DarkBackground } from "../Utils/Constants";
+import media from "styled-media-query";
 
 /**
  * This Styled Component wraps the Logo, the Navbar and the Profile Link.
@@ -30,17 +31,22 @@ const Header = ({ className }) => (
 
 const StyledHeaderWrapper = styled.div`
   height: 104px;
-  min-width: 955px;
+  width: 955px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
+  ${media.lessThan("medium")`
+    height: 75px;
+    width: 414px;
+  `}
 `
 
 const StyledHeader = styled(Header)`
   position: fixed;
   top: 0;
   z-index: 2;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-grow: 1;

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import media from "styled-media-query";
 import './Utils/Constants'
 
 const GlobalStyle = createGlobalStyle`
@@ -16,6 +17,11 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     color: #BCD1DE;
     margin-bottom: 73px;
+    
+    ${media.lessThan("medium")`
+      font-size: 39px;
+      line-height: 46px;
+    `}
   }
 `
 
