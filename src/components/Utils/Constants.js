@@ -13,12 +13,18 @@ export const WrapperMaxWidthDesktop = 955
 export const WrapperMaxWidthMobile = 414
 export const WrapperMarginsMobile = 17
 
+export const DefaultMargin = 130
+export const LargeMargin = 78
+export const SmallMargin = 17
+export const DefaultMarginMobile = 39
+
 /**
  * Base Colors.
  */
 export const DarkBackground = '#00446f'
 export const BtnLinkBackground = '#07d8ae'
 export const DarkTextColor = '#bcd1de'
+export const LightTextColor = '#656b6f'
 export const DarkLinkHoverVisited = '#00f9c7'
 export const DarkHeadingColor = '#bcd1de'
 export const LightHeadingColor = '#00446f'

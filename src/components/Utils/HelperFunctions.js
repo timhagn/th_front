@@ -13,3 +13,7 @@ export const stripGutenbergTags = drupalText => {
   }
   return ''
 }
+
+export const getMenuLinks = async () => {
+  // TODO: create menu links from Drupal.
+}

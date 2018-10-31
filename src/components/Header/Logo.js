@@ -8,6 +8,7 @@ const Logo = styled.div`
   width: 83px;
   padding-bottom: 73px;
   margin-right: 13px;
+  
   &:hover {
     background: url('${logoHover}') no-repeat;
   }

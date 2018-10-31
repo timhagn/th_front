@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import StyledHeader from './Header/index'
 import StyledWelcomeSection from './Welcome/index'
-import Image from "./Image";
 
 const Layout = () => {
   // For fCC Testing.
@@ -45,16 +44,7 @@ const Layout = () => {
               <script type="text/javascript">{fccScript}</script>
             </Helmet>
             <StyledHeader />
-            <StyledWelcomeSection id="welcome-section">
-              <div>
-              <h1>Hi people</h1>
-              <p>Welcome to your new Gatsby site.</p>
-              <p>Now go build something great.</p>
-              <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-                <Image />
-              </div>
-              </div>
-            </StyledWelcomeSection>
+            <StyledWelcomeSection id="welcome-section" />
             <div
                 style={{
                   margin: '0 auto',
