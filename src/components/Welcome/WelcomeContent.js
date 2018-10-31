@@ -61,6 +61,9 @@ const WelcomeContent = ({ className }) => (
 const StyledWelcomeImage = styled(Img)`
   width: 50%;
   height: auto;
+  ${media.greaterThan("large")`
+    width: 30%;
+  `}
 `
 
 const StyledWelcomeContent = styled(WelcomeContent)`

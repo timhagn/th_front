@@ -50,7 +50,7 @@ const StyledWelcomeBackgroundImage = styled(Img)`
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
+  width: auto;
   height: 100vh;
 `
 
