@@ -2,8 +2,9 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { Width } from "../Utils/Constants";
+import {DefaultMargin, LargeMargin, Width} from "../Utils/Constants";
 import StyledWelcomeContent from './WelcomeContent'
+import media from "styled-media-query";
 
 /**
  * The Welcome Section displays the Hero Image and all content therein.
@@ -58,8 +59,12 @@ const StyledContainer = styled.div`
   position: absolute;
   left: 0;
   top: 0;
+  padding-top: calc(104px + ${ DefaultMargin }px);
   width: 100%;
-  height: 100vh;  
+  height: 100vh;
+  ${media.lessThan("medium")`
+    padding-top: calc(75px + ${ LargeMargin }px);
+  `}
 `
 
 const StyledWelcomeSection = styled(WelcomeSection)`
