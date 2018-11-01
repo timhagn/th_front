@@ -3,7 +3,11 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import media from "styled-media-query";
-import {LargeMargin, Width} from "../Utils/Constants";
+import {
+  DefaultMargin,
+  LargeMargin,
+  Width
+} from "../Utils/Constants";
 import { stripGutenbergTags } from "../Utils/HelperFunctions";
 
 /**
@@ -71,7 +75,7 @@ const StyledWelcomeContent = styled(WelcomeContent)`
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: calc(130px + 104px);
+  margin-top: calc(${ DefaultMargin } + 104px);
   
   ${media.lessThan("medium")`
     margin-top: calc(${ LargeMargin }px + 75px);

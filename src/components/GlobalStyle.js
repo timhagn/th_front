@@ -5,6 +5,7 @@ import {
   BtnLinkBackground,
   DarkHeadingColor,
   DarkTextColor,
+  DefaultMarginAndFontSizeMobile,
   LightHeadingColor,
   LightTextColor,
   SmallMargin
@@ -30,13 +31,13 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: 73px;
     
     ${media.lessThan("medium")`
-      font-size: 39px;
+      font-size: ${ DefaultMarginAndFontSizeMobile }px;
       line-height: 46px;
     `}
   }
   
   h2 {
-    font-size: 39px;
+    font-size: ${ DefaultMarginAndFontSizeMobile }px;
     font-weight: 900;
     text-align: left;
     margin-bottom: 26px;

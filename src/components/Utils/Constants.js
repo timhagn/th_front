@@ -22,7 +22,7 @@ export const WrapperMarginsMobile = 17
 export const DefaultMargin = 130
 export const LargeMargin = 78
 export const SmallMargin = 17
-export const DefaultMarginMobile = 39
+export const DefaultMarginAndFontSizeMobile = 39
 
 /**
  * Base Colors.

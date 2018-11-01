@@ -7,6 +7,8 @@ import {
   DarkHeadingColor,
 } from "../Utils/Constants"
 
+
+// TODO: look into timeout...
 const onClick = (e) => {
   const elements = document.getElementsByClassName('nav-link-active')
   Array.prototype.forEach

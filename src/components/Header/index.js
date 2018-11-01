@@ -8,6 +8,7 @@ import Profile from './Profile'
 import StyledNavBar from "./NavBar"
 import {
   DarkBackground,
+  WrapperMarginsMobile,
   WrapperMaxWidthDesktop,
   WrapperMaxWidthMobile
 } from "../Utils/Constants"
@@ -46,7 +47,7 @@ const StyledHeaderWrapper = styled.div`
   ${media.lessThan("medium")`
     height: 75px;
     width: ${ WrapperMaxWidthMobile }px;
-    margin: 0 17px;
+    margin: 0 ${ WrapperMarginsMobile }px;
   `}
 `
 
