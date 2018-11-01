@@ -17,3 +17,12 @@ export const stripGutenbergTags = drupalText => {
 export const getMenuLinks = async () => {
   // TODO: create menu links from Drupal.
 }
+
+/**
+ * Add event listener to every link removing every other nav-link-active...
+ */
+export const removeActive = () => {
+  const anchors = document.getElementsByTagName('a')
+  Array.prototype.forEach
+      .call(anchors, element => element.classList.remove('nav-link-active'))
+}

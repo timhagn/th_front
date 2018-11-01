@@ -1,17 +1,20 @@
 import React from 'react'
 import Link from '../Utils/Link'
 import styled from 'styled-components'
-import media from "styled-media-query"
+import media from 'styled-media-query'
 
 import Logo from './Logo'
 import Profile from './Profile'
-import StyledNavBar from "./NavBar"
+import StyledNavBar from './NavBar'
 import {
   DarkBackground,
+  HeaderHeight,
+  HeaderHeightMobile,
   WrapperMarginsMobile,
   WrapperMaxWidthDesktop,
   WrapperMaxWidthMobile
-} from "../Utils/Constants"
+} from '../Utils/Constants'
+import { removeActive } from '../Utils/HelperFunctions'
 
 
 
@@ -23,7 +26,7 @@ import {
 const Header = ({ className }) => (
     <header className={className}>
       <StyledHeaderWrapper id="navbar">
-        <Link to="/">
+        <Link onClick={removeActive} to="/">
           <Logo />
         </Link>
         <StyledNavBar />
@@ -38,14 +41,14 @@ const Header = ({ className }) => (
 )
 
 const StyledHeaderWrapper = styled.div`
-  height: 104px;
+  height: ${ HeaderHeight }px;
   width: ${ WrapperMaxWidthDesktop }px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   
   ${media.lessThan("medium")`
-    height: 75px;
+    height: ${ HeaderHeightMobile }px;
     width: ${ WrapperMaxWidthMobile }px;
     margin: 0 ${ WrapperMarginsMobile }px;
   `}

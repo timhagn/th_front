@@ -2,7 +2,13 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import {DefaultMargin, LargeMargin, Width} from "../Utils/Constants";
+import {
+  DefaultMargin,
+  HeaderHeight,
+  HeaderHeightMobile,
+  LargeMargin,
+  Width
+} from "../Utils/Constants";
 import StyledWelcomeContent from './WelcomeContent'
 import media from "styled-media-query";
 
@@ -15,7 +21,7 @@ const WelcomeSection = ({ className }) => (
       query {
         desktop: file(relativePath: { eq: "welcome-bg-desktop.jpg" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 4160) {
+            fluid(quality: 100, maxWidth: 4160) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -59,11 +65,11 @@ const StyledContainer = styled.div`
   position: absolute;
   left: 0;
   top: 0;
-  padding-top: calc(104px + ${ DefaultMargin }px);
+  padding-top: calc(${ HeaderHeight }px + ${ DefaultMargin }px);
   width: 100%;
   height: 100vh;
   ${media.lessThan("medium")`
-    padding-top: calc(75px + ${ LargeMargin }px);
+    padding-top: calc(${ HeaderHeightMobile }px + ${ LargeMargin }px);
   `}
 `
 

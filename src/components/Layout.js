@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import StyledHeader from './Header/index'
 import StyledWelcomeSection from './Welcome/index'
-import Link from "./Utils/Link";
+import Link from './Utils/Link'
 
 const Layout = () => {
   // For fCC Testing.
@@ -12,6 +12,7 @@ const Layout = () => {
     (function(document, script) {
       const projectName = 'portfolio';
       localStorage.setItem('example_project', 'Personal Portfolio');
+      
     }(document, 'script'))
   `
   return (
@@ -50,7 +51,6 @@ const Layout = () => {
               <div className="project-title">
                 <Link to="/">Test</Link>
               </div>
-
             </section>
           </React.Fragment>
       )}
