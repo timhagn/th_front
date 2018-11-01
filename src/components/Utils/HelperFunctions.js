@@ -19,7 +19,7 @@ export const getMenuLinks = async () => {
 }
 
 /**
- * Add event listener to every link removing every other nav-link-active...
+ * Add event listener to link removing every other nav-link-active.
  */
 export const removeActive = () => {
   const anchors = document.getElementsByTagName('a')
