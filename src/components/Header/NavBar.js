@@ -6,13 +6,12 @@ import {
   BtnLinkBackground,
   DarkHeadingColor,
 } from "../Utils/Constants"
+import { removeActive } from "../Utils/HelperFunctions";
 
 
 // TODO: look into timeout...
 const onClick = (e) => {
-  const elements = document.getElementsByClassName('nav-link-active')
-  Array.prototype.forEach
-      .call(elements, element => element.classList.remove('nav-link-active'))
+  removeActive()
   e.target.classList.add('nav-link-active')
   return true
 }
