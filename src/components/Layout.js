@@ -7,6 +7,9 @@ import StyledWelcomeSection from './Welcome/index'
 import StyledAboutSection from './About/index'
 import Link from './Utils/Link'
 
+/**
+ * This describes the overall layout of the portfolio Page.
+ */
 const Layout = () => {
   // For fCC Testing.
   const fccScript = `
