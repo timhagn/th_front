@@ -25,6 +25,7 @@ export const HeaderHeightMobile = 75;
 export const DefaultMargin = 130
 export const LargeMargin = 78
 export const SmallMargin = 17
+export const GridGapBottomMargin = 26
 export const DefaultMarginAndFontSizeMobile = 39
 
 /**

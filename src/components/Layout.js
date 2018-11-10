@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import StyledHeader from './Header/index'
 import StyledWelcomeSection from './Welcome/index'
+import StyledAboutSection from './About/index'
 import Link from './Utils/Link'
 
 const Layout = () => {
@@ -47,7 +48,8 @@ const Layout = () => {
             </Helmet>
             <StyledHeader />
             <StyledWelcomeSection id="welcome-section" />
-            <section id="projects" style={{height: 100}}>
+            <StyledAboutSection id="about_me" />
+            <section id="projects">
               <div className="project-title">
                 <Link to="/">Test</Link>
               </div>
