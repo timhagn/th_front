@@ -42,7 +42,7 @@ const WelcomeSection = ({ className }) => (
           data.mobile.childImageSharp.fluid
       return (
         <section className={className} id='welcome-section'>
-          <StyledWelcomeBackgroundImage fluid={imageData}/>
+          <StyledWelcomeBackgroundImage fluid={imageData} />
           <StyledContainer>
             <StyledWelcomeContent />
           </StyledContainer>

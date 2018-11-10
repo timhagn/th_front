@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import media from "styled-media-query";
 import {
   DefaultMarginAndFontSizeMobile,
-  GridGapBottomMargin
+  GridGapLineHeightBottomMargin
 } from "../Utils/Constants";
 import { stripGutenbergTags } from "../Utils/HelperFunctions";
 
@@ -70,7 +70,7 @@ const StyledAboutImage = styled(Img)`
 const StyledAboutContent = styled(AboutContent)`
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-gap: ${ GridGapBottomMargin }px; 
+  grid-gap: ${ GridGapLineHeightBottomMargin }px; 
   
   ${media.lessThan("medium")`
     display: block;

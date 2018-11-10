@@ -5,7 +5,7 @@ import {
   BtnLinkBackground,
   DarkHeadingColor,
   DarkTextColor,
-  DefaultMarginAndFontSizeMobile, GridGapBottomMargin,
+  DefaultMarginAndFontSizeMobile, GridGapLineHeightBottomMargin,
   LightHeadingColor,
   LightTextColor,
   SmallMargin
@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-weight: 300;
     font-style: normal;
-    line-height: ${ GridGapBottomMargin }px;
+    line-height: ${ GridGapLineHeightBottomMargin }px;
   }
   
   h1 {
@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${ DefaultMarginAndFontSizeMobile }px;
     font-weight: 900;
     text-align: left;
-    margin-bottom: ${ GridGapBottomMargin }px;
+    margin-bottom: ${ GridGapLineHeightBottomMargin }px;
     color: ${ DarkHeadingColor };
     
     ${media.lessThan("medium")`
@@ -65,7 +65,7 @@ const GlobalStyle = createGlobalStyle`
   p {
     text-align: left;
     color: ${ DarkTextColor };
-    margin-bottom: ${ GridGapBottomMargin }px;
+    margin-bottom: ${ GridGapLineHeightBottomMargin }px;
     
     ${media.lessThan("medium")`
       line-height: 23px;

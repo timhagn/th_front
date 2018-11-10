@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import StyledHeader from './Header/index'
 import StyledWelcomeSection from './Welcome/index'
 import StyledAboutSection from './About/index'
+import StyledCopyrightSection from './Footer/index'
 import Link from './Utils/Link'
 
 /**
@@ -57,6 +58,7 @@ const Layout = () => {
                 <Link to="/">Test</Link>
               </div>
             </section>
+            <StyledCopyrightSection />
           </React.Fragment>
       )}
   />
