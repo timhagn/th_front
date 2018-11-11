@@ -230,7 +230,7 @@ class BackgroundImage extends React.Component {
       let bgImage = ``
       if (image.base64) bgImage = image.base64
       if (image.tracedSVG) bgImage = image.tracedSVG
-      if (image.src) bgImage = image.src
+      if (this.state.isVisible) bgImage = image.src
 
       //console.log(bgImage)
 
@@ -241,9 +241,10 @@ class BackgroundImage extends React.Component {
               style={{
                 position: `relative`,
                 overflow: `hidden`,
-                backgroundImage: `url(${ bgImage })`,
+                backgroundImage: `url('${ bgImage }')`,
                 backgroundRepeat: `no-repeat`,
                 backgroundSize: `cover`,
+                transition: `background 0.2s ease-in-out`,
                 ...style,
                 // ...imageStyle,
               }}
