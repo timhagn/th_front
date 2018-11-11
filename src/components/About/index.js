@@ -8,7 +8,7 @@ import {
   WrapperMaxWidthMobile
 } from "../Utils/Constants"
 import StyledAboutContent from './AboutContent'
-import media from "styled-media-query"
+import { media } from '../Utils/Constants'
 
 /**
  * The About Section displays the correctly positioned about content therein.

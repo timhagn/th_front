@@ -10,7 +10,7 @@ import {
   Width
 } from "../Utils/Constants";
 import StyledWelcomeContent from './WelcomeContent'
-import media from "styled-media-query"
+import { media } from '../Utils/Constants'
 
 /**
  * The Welcome Section displays the Hero Image and all content therein.

@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql, StaticQuery} from "gatsby"
 import styled from "styled-components"
-import media from "styled-media-query"
+import { media } from '../Utils/Constants'
 import {
   DefaultMargin,
   LargeMargin,

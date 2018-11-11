@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '../Utils/Link'
 import styled from 'styled-components'
-import media from "styled-media-query"
+import { media } from '../Utils/Constants'
 import {
   BtnLinkBackground,
   DarkHeadingColor,

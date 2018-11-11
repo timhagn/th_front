@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import media from "styled-media-query"
+import { media } from '../Utils/Constants'
 
 import profile from '../../images/github-01.svg'
 import profileHover from '../../images/github-hover-01.svg'

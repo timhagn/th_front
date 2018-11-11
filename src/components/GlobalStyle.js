@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import media from "styled-media-query"
-import './Utils/Constants'
+import { media } from './Utils/Constants'
 import {
   BtnLinkBackground,
   DarkHeadingColor,

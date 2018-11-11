@@ -1,3 +1,5 @@
+import { generateMedia } from "styled-media-query"
+
 /**
  * Basic Sizes.
  */
@@ -39,3 +41,15 @@ export const DarkLinkHoverVisited = '#00f9c7'
 export const DarkHeadingColor = '#bcd1de'
 export const LightHeadingColor = '#00446f'
 
+/**
+ * Media breakpoints
+ * @type {Object}
+ */
+const customBreakpoints = {
+  huge: '1440px',
+  large: '1170px',
+  medium: '801px',
+  small: '450px',
+}
+
+export const media = generateMedia(customBreakpoints)
