@@ -1,4 +1,4 @@
-![TH](https://be.timhagn.com/themes/custom/thstark/logo.svg)
+![TH](https://be.timhagn.com/themes/custom/thstark/logo.svg =250x)
 #Front End to Tim Hagn's Portfolio Site.
 
 ## Important for now:
@@ -14,6 +14,6 @@
 
 ### Made with:
 
-![Gatsby](https://www.gatsbyjs.org/monogram.svg)
+![Gatsby](https://www.gatsbyjs.org/monogram.svg =250x)
 ##Gatsby v2
 
