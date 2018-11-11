@@ -26,11 +26,14 @@ import { removeActive } from '../Utils/HelperFunctions'
 const Header = ({ className }) => (
     <header className={className}>
       <StyledHeaderWrapper id="navbar">
-        <Link onClick={removeActive} to="/">
+        <Link aria-label="Tim Hagn's Logo and Back-link to Home Page"
+              onClick={removeActive}
+              to="/">
           <Logo />
         </Link>
         <StyledNavBar />
-        <Link to="https://github.com/timhagn"
+        <Link aria-label="Link to Tim Hagn's GitHub Profile"
+              to="https://github.com/timhagn"
               id="profile-link"
               target="_blank"
               rel="noopener noreferrer">

@@ -25,14 +25,14 @@ const ProjectsSection = ({ className }) => (
         desktop: file(relativePath: { eq: "seamless-bg-desktop.jpg" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 4160) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         mobile: file(relativePath: { eq: "seamless-bg-mobile.jpg" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 640) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
