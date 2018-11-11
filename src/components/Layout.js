@@ -2,11 +2,12 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import StyledHeader from './Header/index'
-import StyledWelcomeSection from './Welcome/index'
-import StyledAboutSection from './About/index'
-import StyledCopyrightSection from './Footer/index'
-import Link from './Utils/Link'
+import StyledHeader from './Header'
+import StyledWelcomeSection from './Welcome'
+import StyledAboutSection from "./About"
+import StyledProjectsSection from "./Projects"
+import StyledCopyrightSection from "./Footer"
+
 
 /**
  * This describes the overall layout of the portfolio Page.
@@ -19,6 +20,18 @@ const Layout = () => {
       localStorage.setItem('example_project', 'Personal Portfolio');
       
     }(document, 'script'))
+  `
+  // TODO: Find a better way to to this... Doesn't work in FF
+  const smoothScroll = `
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+  
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
   `
   return (
   <StaticQuery
@@ -49,15 +62,12 @@ const Layout = () => {
               <html lang="en"/>
               <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
               <script type="text/javascript">{fccScript}</script>
+              <script type="text/javascript">{smoothScroll}</script>
             </Helmet>
             <StyledHeader />
-            <StyledWelcomeSection id="welcome-section" />
-            <StyledAboutSection id="about_me" />
-            <section id="projects">
-              <div className="project-title">
-                <Link to="/">Test</Link>
-              </div>
-            </section>
+            <StyledWelcomeSection />
+            <StyledAboutSection />
+            <StyledProjectsSection />
             <StyledCopyrightSection />
           </React.Fragment>
       )}

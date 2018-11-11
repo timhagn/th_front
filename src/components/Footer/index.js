@@ -10,6 +10,7 @@ import {
   GridGapLineHeightBottomMargin,
   Width
 } from "../Utils/Constants"
+import BackgroundImage from "../Utils/BackgroundImage";
 
 /**
  * This Styled Component wraps the Footer.
@@ -40,11 +41,21 @@ const CopyrightSection = ({ className }) => (
       const imageData = Width > 640 ?
           data.desktop.childImageSharp.fluid :
           data.mobile.childImageSharp.fluid
+
+      // TODO: same as in Projects - see to it,
+      // that BackgroundImage renders correctly : ).
+
       return (
-          <footer className={className}>
-            <StyledCopyrightBackgroundImage fluid={imageData} />
+          <BackgroundImage Tag="section"
+                           className={className}
+                           fluid={imageData}
+                           style={{
+                             backgroundPosition: `top`,
+                             marginTop: `-1px`,
+                           }} >
+            {/*<StyledCopyrightBackgroundImage fluid={imageData} />*/}
             <StyledParagraph>&copy; Tim Hagn</StyledParagraph>
-          </footer>
+          </BackgroundImage>
       )
       }
     }
