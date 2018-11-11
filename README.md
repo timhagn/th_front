@@ -1,8 +1,4 @@
 ![TH](https://be.timhagn.com/themes/custom/thstark/logo.svg)
-.. image:: https://be.timhagn.com/themes/custom/thstark/logo.svg
-   :width: 150 px
-   :scale: 50 %
-   :alt: TH
 #Front End to Tim Hagn's Portfolio Site.
 
 ## Important for now:
@@ -21,8 +17,4 @@
 ![Gatsby](https://www.gatsbyjs.org/monogram.svg)
 ##Gatsby v2
 
-.. image:: https://www.gatsbyjs.org/monogram.svg
-   :width: 150 px
-   :scale: 50 %
-   :alt: Gatsby
 
