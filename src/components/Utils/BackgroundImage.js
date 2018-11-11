@@ -86,12 +86,13 @@ const noscriptImg = props => {
 }
 
 const Img = React.forwardRef((props, ref) => {
-  const { style, onLoad, onError, ...otherProps } = props
+  const { style, onLoad, onError, alt, ...otherProps } = props
 
   return <img
       {...otherProps}
       onLoad={onLoad}
       onError={onError}
+      alt={alt}
       ref={ref}
       style={{
         position: `absolute`,
@@ -226,13 +227,13 @@ class BackgroundImage extends React.Component {
       const image = fluid
 
       // Set the backgroundImage according to images available.
-      // TODO: base64 isn't set as url(), or is it?
+      // TODO: better transition
       let bgImage = ``
-      if (image.base64) bgImage = image.base64
-      if (image.tracedSVG) bgImage = image.tracedSVG
+      if (image.tracedSVG) bgImage = `'${ image.tracedSVG }'`
+      if (image.base64 && !image.tracedSVG) bgImage = image.base64
       if (this.state.isVisible) bgImage = image.src
 
-      //console.log(bgImage)
+      // console.log(bgImage)
 
       return (
           <Tag
@@ -241,12 +242,11 @@ class BackgroundImage extends React.Component {
               style={{
                 position: `relative`,
                 overflow: `hidden`,
-                backgroundImage: `url('${ bgImage }')`,
+                backgroundImage: `url(${ bgImage })`,
                 backgroundRepeat: `no-repeat`,
                 backgroundSize: `cover`,
                 transition: `background 0.2s ease-in-out`,
                 ...style,
-                // ...imageStyle,
               }}
               ref={this.handleRef}
               key={`fluid-${JSON.stringify(image.srcSet)}`}
@@ -278,7 +278,10 @@ class BackgroundImage extends React.Component {
                     alt={!this.state.isVisible ? alt : ``}
                     title={title}
                     src={image.tracedSVG}
-                    style={imagePlaceholderStyle}
+                    style={{...imagePlaceholderStyle,
+                      // Prevent Gatsby Image from being shown, as we only need it for the Backgrounds.
+                      display: `none`,
+                    }}
                 />
             )}
 
@@ -356,11 +359,26 @@ class BackgroundImage extends React.Component {
         delete divStyle.display
       }
 
+      // Set the backgroundImage according to images available.
+      // TODO: better transition
+      let bgImage = ``
+      if (image.tracedSVG) bgImage = `'${ image.tracedSVG }'`
+      if (image.base64 && !image.tracedSVG) bgImage = image.base64
+      if (this.state.isVisible) bgImage = image.src
+
       return (
           <Tag
               id={id}
               className={`${className ? className : ``} gatsby-image-wrapper`}
-              style={divStyle}
+              style={{
+                position: `relative`,
+                overflow: `hidden`,
+                backgroundImage: `url(${ bgImage })`,
+                backgroundRepeat: `no-repeat`,
+                backgroundSize: `cover`,
+                transition: `background 0.2s ease-in-out`,
+                ...divStyle,
+              }}
               ref={this.handleRef}
               key={`fixed-${JSON.stringify(image.srcSet)}`}
           >
@@ -370,7 +388,10 @@ class BackgroundImage extends React.Component {
                     alt={!this.state.isVisible ? alt : ``}
                     title={title}
                     src={image.base64}
-                    style={imagePlaceholderStyle}
+                    style={{...imagePlaceholderStyle,
+                      // Prevent Gatsby Image from being shown, as we only need it for the Backgrounds.
+                      display: `none`,
+                    }}
                 />
             )}
 
@@ -380,7 +401,10 @@ class BackgroundImage extends React.Component {
                     alt={!this.state.isVisible ? alt : ``}
                     title={title}
                     src={image.tracedSVG}
-                    style={imagePlaceholderStyle}
+                    style={{...imagePlaceholderStyle,
+                      // Prevent Gatsby Image from being shown, as we only need it for the Backgrounds.
+                      display: `none`,
+                    }}
                 />
             )}
 
@@ -400,7 +424,10 @@ class BackgroundImage extends React.Component {
 
             {/* Once the image is visible, start downloading the image */}
             {this.state.isVisible && (
-                <picture>
+                <picture style={{
+                  // Prevent Gatsby Image from being shown, as we only need it for the Backgrounds.
+                  display: `none`,
+                }}>
                   {image.srcSetWebp && (<source
                       type={`image/webp`}
                       srcSet={image.srcSetWebp}

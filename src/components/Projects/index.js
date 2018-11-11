@@ -1,6 +1,5 @@
 import React from 'react'
 import {graphql, StaticQuery} from "gatsby"
-import Img from "gatsby-image"
 import styled from "styled-components"
 import media from "styled-media-query"
 import {
@@ -11,7 +10,6 @@ import {
   Width, WrapperMaxWidthDesktop
 } from "../Utils/Constants"
 import Button from "../Utils/Button";
-import { getBackgroundSrc } from "../Utils/HelperFunctions"
 import BackgroundImage from '../Utils/BackgroundImage'
 
 /**
@@ -43,12 +41,6 @@ const ProjectsSection = ({ className }) => (
        const imageData = Width > 640 ?
            data.desktop.childImageSharp.fluid :
            data.mobile.childImageSharp.fluid
-       // No more needed if BackgroundImage is finished : )
-
-       // const backgroundSource = getBackgroundSrc(imageData, Width)
-       // const containerBackground = {
-       //   backgroundImage: `url(${ backgroundSource })`
-       // }
        return (
            <BackgroundImage id="projects"
                             Tag="section"
@@ -57,7 +49,6 @@ const ProjectsSection = ({ className }) => (
                             style={{
                               backgroundPosition: `bottom`
                             }}>
-             {/*<StyledProjectsBackgroundImage fluid={imageData}/>*/}
              <StyledProjectContainer>
                <StyledProject className="project-title">
                  <h2>Projects</h2>
@@ -70,15 +61,6 @@ const ProjectsSection = ({ className }) => (
      }
     />
 )
-
-const StyledProjectsBackgroundImage = styled(Img)`
-  img, picture > img {
-    height: auto !important;
-    object-fit: contain !important;
-    overflow: hidden;
-    box-sizing: border-box;
-  }
-`
 
 const StyledProject = styled.div`
   position: relative;

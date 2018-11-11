@@ -1,6 +1,5 @@
 import React from 'react'
 import {graphql, StaticQuery} from "gatsby"
-import Img from "gatsby-image"
 import styled from "styled-components"
 import media from "styled-media-query"
 import {
@@ -53,7 +52,6 @@ const CopyrightSection = ({ className }) => (
                              backgroundPosition: `top`,
                              marginTop: `-1px`,
                            }} >
-            {/*<StyledCopyrightBackgroundImage fluid={imageData} />*/}
             <StyledParagraph>&copy; Tim Hagn</StyledParagraph>
           </BackgroundImage>
       )
@@ -61,12 +59,6 @@ const CopyrightSection = ({ className }) => (
     }
     />
 )
-
-const StyledCopyrightBackgroundImage = styled(Img)`
-  position: absolute;
-  left: 0;
-  top: 0;
-`
 
 const StyledParagraph = styled.p`
   position: absolute;
