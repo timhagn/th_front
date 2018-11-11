@@ -80,6 +80,10 @@ const StyledWelcomeContent = styled(WelcomeContent)`
   ${media.lessThan("medium")`
     margin-top: calc(${ LargeMargin }px + 75px);
   `}
+  
+  ${media.lessThan("small")`
+    margin-top: calc(${ LargeMargin }px);
+  `}
 `
 
 export default StyledWelcomeContent

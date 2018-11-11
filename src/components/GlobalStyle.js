@@ -5,7 +5,8 @@ import {
   BtnLinkBackground,
   DarkHeadingColor,
   DarkTextColor,
-  DefaultMarginAndFontSizeMobile, GridGapLineHeightBottomMargin,
+  DefaultMarginAndFontSizeMobile, GridGapLineHeightBottomMargin, HeaderHeight,
+  HeaderHeightMobile,
   LightHeadingColor,
   LightTextColor,
   SmallMargin
@@ -20,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 300;
     font-style: normal;
     line-height: ${ GridGapLineHeightBottomMargin }px;
+    border: none;
   }
   
   h1 {
@@ -83,6 +85,25 @@ const GlobalStyle = createGlobalStyle`
   
   .nav-link-active {
     color: ${ BtnLinkBackground };
+  }
+  
+  // Quickfix for FF's faulty anchor-scroll behavior.
+  *[id]:before { 
+    display: block; 
+    content: " "; 
+    margin-top: -${ HeaderHeight }px; 
+    height: ${ HeaderHeight }px; 
+    visibility: hidden; 
+    
+    ${media.lessThan("medium")`
+      margin-top: -${ HeaderHeightMobile }px; 
+      height: ${ HeaderHeightMobile }px; 
+    `}
+    
+    //  ${media.lessThan("small")`
+    //   margin-top: calc(-${ HeaderHeightMobile }px - 75px);
+    //   height: calc(${ HeaderHeightMobile }px + 75px);
+    // `}
   }
 `
 

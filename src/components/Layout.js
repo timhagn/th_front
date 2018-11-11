@@ -21,12 +21,12 @@ const Layout = () => {
       
     }(document, 'script'))
   `
-  // TODO: Find a better way to to this... Doesn't work in FF
+  // And a little smooth scrolling.
   const smoothScroll = `
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-  
+
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
