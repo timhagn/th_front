@@ -2,13 +2,13 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import media from "styled-media-query";
+import media from "styled-media-query"
 import {
   DefaultMargin,
   LargeMargin,
   Width
-} from "../Utils/Constants";
-import { stripGutenbergTags } from "../Utils/HelperFunctions";
+} from "../Utils/Constants"
+import { stripGutenbergTags } from "../Utils/HelperFunctions"
 
 /**
  * The Welcome Content displays the children of the Welcome Screen.

@@ -16,6 +16,9 @@ yarn
 cd ./node_modules/styled-media-query/
 yarn
 yarn build
+# Copy gatsby-source-drupal from gatsby repo.
+echo "Fetching gatsby-source-drupal from gatsby repo..."
+gatsby-dev -s --packages gatsby-source-drupal
 # Now restore sharp.node
 echo "Finally restoring sharp.node..."
 cd ../..

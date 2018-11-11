@@ -6,7 +6,7 @@ import {
   BtnLinkBackground,
   DarkHeadingColor,
 } from "../Utils/Constants"
-import { removeActive } from "../Utils/HelperFunctions";
+import { removeActive } from "../Utils/HelperFunctions"
 
 
 // TODO: look into timeout...

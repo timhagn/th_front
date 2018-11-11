@@ -9,7 +9,7 @@ import {
   GridGapLineHeightBottomMargin,
   Width
 } from "../Utils/Constants"
-import BackgroundImage from "../Utils/BackgroundImage";
+import BackgroundImage from "../Utils/BackgroundImage"
 
 /**
  * This Styled Component wraps the Footer.

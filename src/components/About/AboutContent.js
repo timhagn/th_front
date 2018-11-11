@@ -2,12 +2,12 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import media from "styled-media-query";
+import media from "styled-media-query"
 import {
   DefaultMarginAndFontSizeMobile,
   GridGapLineHeightBottomMargin
 } from "../Utils/Constants";
-import { stripGutenbergTags } from "../Utils/HelperFunctions";
+import { stripGutenbergTags } from "../Utils/HelperFunctions"
 
 /**
  * The About Content displays the children of the About Screen.

@@ -1,11 +1,5 @@
-<p align="center">
-  <a href="https://timhagn.com">
-    <img alt="TH" src="https://be.timhagn.com/themes/custom/thstark/logo.svg" width="150" />
-  </a>
-</p>
-<h1 align="center">
-  Front End to Tim Hagn's Portfolio Site.
-</h1>
+![TH](https://be.timhagn.com/themes/custom/thstark/logo.svg)
+#Front End to Tim Hagn's Portfolio Site.
 
 ## Important for now:
 
@@ -14,17 +8,12 @@
 
 ## Fixing Errors:
 
-* Use sharp.node from the same gatsby repo.  
+* Now has a quickfix script: `fix_sharp.sh` which does the above for you.
+* Uses sharp.node, package.json & yarn.lock from the fix folder  
 
 
 ### Made with:
 
-<p align="center">
-  <a href="https://gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby v2
-</h1>
+![Gatsby](https://www.gatsbyjs.org/monogram.svg)
+##Gatsby v2
 

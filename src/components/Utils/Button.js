@@ -5,7 +5,7 @@ import {
   BtnLinkBackground,
   DarkBackground,
   DefaultMarginAndFontSizeMobile
-} from "./Constants";
+} from "./Constants"
 
 const BaseButton = ({ className, children, to, ...other }) => (
   <Link className={className} to={to} {...other}>

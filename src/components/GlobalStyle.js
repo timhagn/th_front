@@ -1,16 +1,18 @@
 import { createGlobalStyle } from 'styled-components'
-import media from "styled-media-query";
+import media from "styled-media-query"
 import './Utils/Constants'
 import {
   BtnLinkBackground,
   DarkHeadingColor,
   DarkTextColor,
-  DefaultMarginAndFontSizeMobile, GridGapLineHeightBottomMargin, HeaderHeight,
+  DefaultMarginAndFontSizeMobile,
+  GridGapLineHeightBottomMargin,
+  HeaderHeight,
   HeaderHeightMobile,
   LightHeadingColor,
   LightTextColor,
   SmallMargin
-} from "./Utils/Constants";
+} from "./Utils/Constants"
 
 const GlobalStyle = createGlobalStyle`
   *, html, body {

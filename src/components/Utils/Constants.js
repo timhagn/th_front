@@ -19,8 +19,8 @@ export const WrapperMaxWidthDesktop = 955
 export const WrapperMaxWidthMobile = 414
 export const WrapperMarginsMobile = 17
 
-export const HeaderHeight = 104;
-export const HeaderHeightMobile = 75;
+export const HeaderHeight = 104
+export const HeaderHeightMobile = 75
 
 export const DefaultMargin = 130
 export const LargeMargin = 78

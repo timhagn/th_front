@@ -4,12 +4,14 @@ import styled from "styled-components"
 import media from "styled-media-query"
 import {
   DefaultMargin,
-  LargeMargin,
   DefaultMarginAndFontSizeMobile,
   // GridGapLineHeightBottomMargin,
-  Width, WrapperMaxWidthDesktop
+  Width,
+  WrapperMaxWidthDesktop,
+  WrapperMaxWidthMobile,
+  WrapperMarginsMobile
 } from "../Utils/Constants"
-import Button from "../Utils/Button";
+import Button from "../Utils/Button"
 import BackgroundImage from '../Utils/BackgroundImage'
 
 /**
@@ -73,18 +75,17 @@ const StyledProjectContainer = styled.div`
   margin: ${ DefaultMargin }px auto; 
   
   ${media.lessThan("medium")`
-    top: ${ LargeMargin }px;
+    max-width: ${ WrapperMaxWidthMobile }px;
+    margin: ${ DefaultMarginAndFontSizeMobile }px ${ WrapperMarginsMobile }px;
   `}
+  
+  
 `
 
 const StyledProjectsSection = styled(ProjectsSection)`
   position: relative;
   overflow: hidden;
   width: 100%;
-  
-  ${media.lessThan("medium")`
-    // height: calc(${ LargeMargin }px + ${ DefaultMarginAndFontSizeMobile }px + 23px);
-  `}
 `
 
 export default StyledProjectsSection

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import logo from '../../images/logo-01.svg'
 import logoHover from '../../images/logo-light-hover-01.svg'
-import media from "styled-media-query";
+import media from "styled-media-query"
 
 const Logo = styled.div`
   background: url('${logo}') no-repeat;
