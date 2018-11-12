@@ -3,7 +3,6 @@ import {graphql, StaticQuery} from "gatsby"
 import styled from "styled-components"
 import { media } from '../Utils/Constants'
 import {
-  DefaultMargin,
   LargeMargin,
   DefaultMarginAndFontSizeMobile,
   GridGapLineHeightBottomMargin,

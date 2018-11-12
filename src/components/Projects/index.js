@@ -11,8 +11,8 @@ import {
   WrapperMaxWidthMobile,
   WrapperMarginsMobile
 } from "../Utils/Constants"
-import Button from "../Utils/Button"
 import BackgroundImage from '../Utils/BackgroundImage'
+import StyledProjects from "./Projects";
 
 /**
  * This Styled Component wraps the Project Section.
@@ -53,9 +53,7 @@ const ProjectsSection = ({ className }) => (
                             }}>
              <StyledProjectContainer>
                <h2>Projects</h2>
-               <StyledProject className="project-title">
-                 <Button to="/">Test</Button>
-               </StyledProject>
+               <StyledProjects />
              </StyledProjectContainer>
            </BackgroundImage>
        )

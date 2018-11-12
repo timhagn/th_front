@@ -87,7 +87,7 @@ const GlobalStyle = createGlobalStyle`
   .nav-link-active {
     color: ${ BtnLinkBackground };
   }
-  
+    
   // Quickfix for FF's faulty anchor-scroll behavior.
   *[id]:before { 
     display: block; 
