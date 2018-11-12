@@ -34,7 +34,7 @@ const ProjectButtons = ({ className, projectData }) => {
                   `${projectTitle} Code Link` }>
         { projectCodeLinkTitle ?
             projectCodeLinkTitle :
-            `See ${ projectTitle }'s Code` }
+            `${ projectTitle }'s Code` }
       </StyledProjectButton> :
       ''
   return (
