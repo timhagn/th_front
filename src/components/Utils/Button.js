@@ -15,7 +15,7 @@ const BaseButton = ({ className, children, to, ...other }) => (
 
 const Button = styled(BaseButton)`
   padding: 11px;
-  min-height: ${ DefaultMarginAndFontSizeMobile }px;
+  max-height: ${ DefaultMarginAndFontSizeMobile }px;
   background-color: ${ DarkBackground };
   color: ${ BtnLinkBackground };
   border-style: none;

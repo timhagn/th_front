@@ -49,11 +49,15 @@ const ProjectsSection = ({ className }) => (
                             className={className}
                             fluid={imageData}
                             style={{
-                              backgroundPosition: `bottom`
+                              backgroundPosition: `bottom`,
+                              backgroundSize: `cover`,
+                              backgroundRepeat: `repeat-y`
                             }}>
              <StyledProjectContainer>
                <h2>Projects</h2>
+               <div>
                <StyledProjects />
+               </div>
              </StyledProjectContainer>
            </BackgroundImage>
        )
@@ -62,14 +66,8 @@ const ProjectsSection = ({ className }) => (
     />
 )
 
-const StyledProject = styled.div`
-  position: relative;
-  margin: 0 auto;
-`
-
 const StyledProjectContainer = styled.div`
   position: relative;
-
   max-width: ${ WrapperMaxWidthMobile }px;
   margin: ${ DefaultMarginAndFontSizeMobile }px ${ WrapperMarginsMobile }px;
   

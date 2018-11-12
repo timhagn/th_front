@@ -1,12 +1,14 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { media } from '../Utils/Constants'
 import {
-  DefaultMarginAndFontSizeMobile,
+  // DefaultMarginAndFontSizeMobile,
   GridGapLineHeightBottomMargin
 } from "../Utils/Constants";
+import {stripGutenbergTags} from "../Utils/HelperFunctions";
+import StyledProject from "./Project";
 
 /**
  * Displays the Projects.
@@ -16,7 +18,7 @@ import {
 const Projects = ({ className }) => (
     <StaticQuery query={graphql`
       query {
-        projects: allNodeProject {
+        projects: allNodeProject (limit: 3) {
           edges {
             node {
               id
@@ -61,20 +63,32 @@ const Projects = ({ className }) => (
       }
     `}
      render={ data => {
-       console.log(data)
-       const title = `test`//data.aboutNode.title
-       const strippedText = `texttest`//stripGutenbergTags(data.aboutNode.field_body.value)
-       // const aboutImageData = data.aboutNode.relationships
-       //     .field_additional_image.localFile.childImageSharp.fluid
+       const defaultLink = `https://timhagn.com`,
+             defaultLinkTitle = `timhagn.com`
+
+       const projects = data.projects.edges.map((item, key) => {
+         const projectData = {
+           projectImageData:
+               item.node.relationships.field_project_image !== null ?
+               item.node.relationships.field_project_image[0]
+                   .localFile.childImageSharp.fluid :
+               data.dummyImage.childImageSharp.fluid,
+           projectTitle: item.node.title,
+           projectText: stripGutenbergTags(item.node.body.value).slice(0, 250),
+           projectLink: item.node.field_project_link !== null ?
+               item.node.field_project_link.uri : defaultLink,
+           projectLinkTitle: item.node.field_project_link !== null ?
+               item.node.field_project_link.title : defaultLinkTitle,
+           projectCodeLink: item.node.field_project_git_link !== null ?
+               item.node.field_project_git_link.uri : defaultLink,
+           projectCodeLinkTitle: item.node.field_project_git_link !== null ?
+               item.node.field_project_git_link.title : defaultLinkTitle,
+         }
+         return <StyledProject key={key} projectData={projectData} />
+       })
        return (
            <div className={className}>
-             <article>
-               <h2 className="light-heading">{title}</h2>
-               <p className="light-text">
-                 {strippedText}
-               </p>
-             </article>
-             {/*<StyledAboutImage fluid={aboutImageData}/>*/}
+             {projects}
            </div>
        )
        }
@@ -82,17 +96,9 @@ const Projects = ({ className }) => (
     />
 )
 
-const StyledAboutImage = styled(Img)`
-  width: 100%;
-  height: auto;
-  ${media.lessThan("medium")`
-     margin-top: ${ DefaultMarginAndFontSizeMobile }px;
-  `}
-`
-
 const StyledProjects = styled(Projects)`
   display: grid;
-  grid-template-columns: 3fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: ${ GridGapLineHeightBottomMargin }px; 
   
   ${media.lessThan("medium")`

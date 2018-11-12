@@ -7,21 +7,18 @@ import {SmallMargin} from "../Utils/Constants";
 /**
  * Generates the Buttons for an individual Project.
  * @param className
- * @param projectTitle
- * @param projectLink
- * @param projectLinkTitle
- * @param projectCodeLink
- * @param projectCodeLinkTitle
+ * @param projectData
  * @return {*}
  * @constructor
  */
-const ProjectButtons = ({ className,
-                          projectTitle,
-                          projectLink,
-                          projectLinkTitle,
-                          projectCodeLink,
-                          projectCodeLinkTitle
-                        }) => {
+const ProjectButtons = ({ className, projectData }) => {
+  const {
+    projectTitle,
+    projectLink,
+    projectLinkTitle,
+    projectCodeLink,
+    projectCodeLinkTitle,
+  } = projectData
   const projectLinkButton = projectLink ?
       <StyledProjectButton to={ projectLink }
               aria-label={ projectLinkTitle ?
@@ -41,19 +38,15 @@ const ProjectButtons = ({ className,
       </StyledProjectButton> :
       ''
   return (
-      <React.Fragment className={className}>
+      <div className={className}>
         {projectLinkButton}
         {projectCodeLinkButton}
-      </React.Fragment>
+      </div>
   )
 }
 
 ProjectButtons.propTypes = {
-  projectTitle: PropTypes.string.isRequired,
-  projectLink: PropTypes.string.isRequired,
-  projectLinkTitle: PropTypes.string,
-  projectCodeLink: PropTypes.string,
-  projectCodeLinkTitle: PropTypes.string,
+  projectData: PropTypes.object.isRequired,
 }
 
 const StyledProjectButton = styled(Button)`
@@ -64,7 +57,6 @@ const StyledProjectButton = styled(Button)`
 
 const StyledProjectButtons = styled(ProjectButtons)`
   display: flex;
-  flex-direction: column;
 `
 
 export default StyledProjectButtons
