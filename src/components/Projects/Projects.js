@@ -63,8 +63,7 @@ const Projects = ({ className }) => (
       }
     `}
      render={ data => {
-       const defaultLink = `https://timhagn.com`,
-             defaultLinkTitle = `timhagn.com`
+       const defaultLink = `https://timhagn.com`
 
        const projects = data.projects.edges.map((item, key) => {
          const projectData = {
