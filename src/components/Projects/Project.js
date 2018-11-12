@@ -2,7 +2,11 @@ import React from 'react'
 import PropTypes from "prop-types"
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import {media, SmallMargin} from '../Utils/Constants'
+import {
+  DefaultMarginAndFontSizeMobile,
+  media,
+  SmallMargin
+} from '../Utils/Constants'
 import StyledProjectButtons from './ProjectButton'
 
 /**
@@ -49,6 +53,11 @@ const StyledProject = styled(Project)`
   
   ${media.lessThan("medium")`
     display: block;
+    margin-bottom: ${ DefaultMarginAndFontSizeMobile  }px;
+    
+    p {
+      min-height: auto;
+    }
   `}
 `
 

@@ -95,7 +95,7 @@ const GlobalStyle = createGlobalStyle`
     margin-top: -${ HeaderHeight }px; 
     height: ${ HeaderHeight }px; 
     visibility: hidden; 
-
+    
     ${media.lessThan("medium")`
       margin-top: -${ HeaderHeightMobile }px; 
       height: ${ HeaderHeightMobile }px; 

@@ -78,11 +78,11 @@ const Projects = ({ className }) => (
            projectLink: item.node.field_project_link !== null ?
                item.node.field_project_link.uri : defaultLink,
            projectLinkTitle: item.node.field_project_link !== null ?
-               item.node.field_project_link.title : defaultLinkTitle,
+               item.node.field_project_link.title : '',
            projectCodeLink: item.node.field_project_git_link !== null ?
                item.node.field_project_git_link.uri : defaultLink,
            projectCodeLinkTitle: item.node.field_project_git_link !== null ?
-               item.node.field_project_git_link.title : defaultLinkTitle,
+               item.node.field_project_git_link.title : '',
          }
          return <StyledProject key={key} projectData={projectData} />
        })

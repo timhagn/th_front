@@ -49,9 +49,7 @@ const ProjectsSection = ({ className }) => (
                             className={className}
                             fluid={imageData}
                             style={{
-                              backgroundPosition: `bottom`,
-                              backgroundSize: `cover`,
-                              backgroundRepeat: `repeat-y`
+
                             }}>
              <StyledProjectContainer>
                <h2>Projects</h2>
@@ -87,6 +85,12 @@ const StyledProjectsSection = styled(ProjectsSection)`
   position: relative;
   overflow: hidden;
   width: 100%;
+  background-position: bottom;
+  background-repeat: repeat-y !important;
+
+  ${media.lessThan("medium")`
+    background-size: contain !important;
+  `}
 `
 
 export default StyledProjectsSection
