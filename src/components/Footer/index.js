@@ -62,24 +62,18 @@ const CopyrightSection = ({ className }) => (
 
 const StyledParagraph = styled.p`
   position: absolute;
-  top: ${ DefaultMargin * 2 }px;
-  margin-top: -${ DefaultMargin }px;  
+  top: 0;
   width: 100%;
   text-align: center;
-  
-  ${media.lessThan("medium")`
-    top: ${ LargeMargin * 2 }px;
-    margin-top: -${ LargeMargin }px;
-  `}
 `
 
 const StyledCopyrightSection = styled(CopyrightSection)`
   position: relative;
   overflow: hidden;
-  height: calc(${ DefaultMargin }px * 2 + ${ GridGapLineHeightBottomMargin }px);
+  height: calc(${ LargeMargin }px + ${ GridGapLineHeightBottomMargin }px);
   
   ${media.lessThan("medium")`
-    height: calc(${ LargeMargin }px + ${ DefaultMarginAndFontSizeMobile }px + 23px);
+    height: calc(${ DefaultMarginAndFontSizeMobile }px + 23px);
   `}
 `
 

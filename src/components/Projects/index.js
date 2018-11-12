@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql, StaticQuery} from "gatsby"
 import styled from "styled-components"
-import { media } from '../Utils/Constants'
+import {LargeMargin, media} from '../Utils/Constants'
 import {
   DefaultMargin,
   DefaultMarginAndFontSizeMobile,
@@ -15,7 +15,7 @@ import Button from "../Utils/Button"
 import BackgroundImage from '../Utils/BackgroundImage'
 
 /**
- * This Styled Component wraps the Footer.
+ * This Styled Component wraps the Project Section.
  *
  * @param className String    From styled components
  */
@@ -52,8 +52,8 @@ const ProjectsSection = ({ className }) => (
                               backgroundPosition: `bottom`
                             }}>
              <StyledProjectContainer>
+               <h2>Projects</h2>
                <StyledProject className="project-title">
-                 <h2>Projects</h2>
                  <Button to="/">Test</Button>
                </StyledProject>
              </StyledProjectContainer>
@@ -71,12 +71,17 @@ const StyledProject = styled.div`
 
 const StyledProjectContainer = styled.div`
   position: relative;
-  max-width: ${ WrapperMaxWidthDesktop }px;
-  margin: ${ DefaultMargin }px auto; 
+
+  max-width: ${ WrapperMaxWidthMobile }px;
+  margin: ${ DefaultMarginAndFontSizeMobile }px ${ WrapperMarginsMobile }px;
   
-  ${media.lessThan("medium")`
-    max-width: ${ WrapperMaxWidthMobile }px;
-    margin: ${ DefaultMarginAndFontSizeMobile }px ${ WrapperMarginsMobile }px;
+  ${media.greaterThan("medium")`
+    max-width: ${ WrapperMaxWidthDesktop }px;
+    margin: ${ DefaultMargin }px auto; 
+    
+    h2 {
+      margin-bottom: ${ LargeMargin }px;
+    }
   `}
   
   
