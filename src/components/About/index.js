@@ -21,13 +21,17 @@ const AboutSection = ({ className }) => (
 )
 
 const StyledAboutSection = styled(AboutSection)`
-  max-width: ${ WrapperMaxWidthDesktop }px;
   position: relative;
-  margin: ${ DefaultMargin }px auto;
+  max-width: ${ WrapperMaxWidthMobile }px;
+  margin: ${ DefaultMarginAndFontSizeMobile }px ${ WrapperMarginsMobile }px;
   
-  ${media.lessThan("medium")`
-    max-width: ${ WrapperMaxWidthMobile }px;
-    margin: ${ DefaultMarginAndFontSizeMobile }px ${ WrapperMarginsMobile }px;
+  ${media.greaterThan("small")`
+    margin: ${ DefaultMarginAndFontSizeMobile }px auto;
+  `}
+  
+  ${media.greaterThan("medium")`
+    max-width: ${ WrapperMaxWidthDesktop }px;
+    margin: ${ DefaultMargin }px auto;
   `}
 `
 

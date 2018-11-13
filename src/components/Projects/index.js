@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from "styled-components"
 
-import {LargeMargin, media} from '../Utils/Constants'
+import { media } from '../Utils/Constants'
 import {
+  LargeMargin,
   DefaultMargin,
   DefaultMarginAndFontSizeMobile,
   WrapperMaxWidthDesktop,
@@ -32,6 +33,10 @@ const StyledProjectContainer = styled.div`
   max-width: ${ WrapperMaxWidthMobile }px;
   margin: ${ DefaultMarginAndFontSizeMobile }px ${ WrapperMarginsMobile }px;
   
+  ${media.greaterThan("small")`
+    margin: ${ DefaultMarginAndFontSizeMobile }px auto;
+  `}
+  
   ${media.greaterThan("medium")`
     max-width: ${ WrapperMaxWidthDesktop }px;
     margin: ${ DefaultMargin }px auto; 
@@ -46,12 +51,6 @@ const StyledProjectsSection = styled(ProjectsSection)`
   position: relative;
   overflow: hidden;
   width: 100%;
-  background-position: bottom;
-  background-repeat: repeat-y !important;
-
-  ${media.lessThan("medium")`
-    background-size: contain !important;
-  `}
 `
 
 export default StyledProjectsSection
