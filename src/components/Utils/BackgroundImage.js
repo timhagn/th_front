@@ -224,10 +224,7 @@ class BackgroundImage extends React.Component {
       ...imgStyle,
     }
 
-    console.log(className)
     const backgroundStyles = getBackgroundStyles(className)
-    console.log(backgroundStyles)
-
 
     if (fluid) {
       const image = fluid
@@ -238,9 +235,6 @@ class BackgroundImage extends React.Component {
       if (image.tracedSVG) bgImage = `'${ image.tracedSVG }'`
       if (image.base64 && !image.tracedSVG) bgImage = image.base64
       if (this.state.isVisible) bgImage = image.src
-
-
-      // console.log(bgImage)
 
       return (
           <Tag

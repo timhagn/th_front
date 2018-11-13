@@ -17,13 +17,13 @@ import {
 import { removeActive } from '../Utils/HelperFunctions'
 
 
-
 /**
  * This Styled Component wraps the Logo, the Navbar and the Profile Link.
  *
  * @param className String    From styled components
+ * @param notFound
  */
-const Header = ({ className }) => (
+const Header = ({ className, notFound }) => (
     <header className={className}>
       <StyledHeaderWrapper id="navbar">
         <Link aria-label="Tim Hagn's Logo and Back-link to Home Page"
@@ -31,7 +31,7 @@ const Header = ({ className }) => (
               to="/">
           <Logo />
         </Link>
-        <StyledNavBar />
+        <StyledNavBar prefix={notFound} />
         <Link aria-label="Link to Tim Hagn's GitHub Profile"
               to="https://github.com/timhagn"
               id="profile-link"

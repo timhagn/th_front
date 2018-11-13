@@ -1,11 +1,14 @@
 import React from 'react'
-import Layout from '../components/Layout'
+import 'typeface-rubik'
+
+import GlobalStyle from '../components/GlobalStyle'
+import NotFoundContainer from '../components/NotFoundContainer'
 
 const NotFoundPage = () => (
-  <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
+    <React.Fragment>
+      <NotFoundContainer />
+      <GlobalStyle />
+    </React.Fragment>
 )
 
 export default NotFoundPage

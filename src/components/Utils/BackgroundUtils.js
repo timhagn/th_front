@@ -5,23 +5,24 @@
  * @param className string
  */
 const getStyle = className => {
-  const styleSheets = window.document.styleSheets;
+  const styleSheets = typeof window !== `undefined` ?
+      window.document.styleSheets : []
   for (let i = 0; i < styleSheets.length; i++) {
-    const classes = styleSheets[i].rules || styleSheets[i].cssRules;
+    const classes = styleSheets[i].rules || styleSheets[i].cssRules
     if (!classes)
       continue;
     for (let x = 0; x < classes.length; x++) {
       if (classes[x].selectorText === className) {
         let ret;
         if(classes[x].cssText){
-          ret = classes[x].cssText;
+          ret = classes[x].cssText
         } else {
-          ret = classes[x].style.cssText;
+          ret = classes[x].style.cssText
         }
         if(ret.indexOf(classes[x].selectorText) === -1){
-          ret = `${classes[x].selectorText}{${ret}}`;
+          ret = `${classes[x].selectorText}{${ret}}`
         }
-        return ret;
+        return ret
       }
     }
   }
@@ -31,20 +32,21 @@ const getStyle = className => {
  * Gets rules from a css Text.
  *
  * @param styleContent
- * @return {CSSRuleList}
+ * @return {*}
  */
 const rulesForCssText = function (styleContent) {
-  const doc = document.implementation.createHTMLDocument(""),
-        styleElement = document.createElement("style");
+  if (typeof document !== `undefined`) {
+    const doc = document.implementation.createHTMLDocument(""),
+        styleElement = document.createElement("style")
 
-  styleElement.textContent = styleContent;
-  // the style will only be parsed once it is added to a document
-  doc.body.appendChild(styleElement);
+    styleElement.textContent = styleContent
+    // the style will only be parsed once it is added to a document
+    doc.body.appendChild(styleElement)
 
-  console.log(styleElement.sheet)
-
-  return styleElement.sheet.cssRules;
-};
+    return styleElement.sheet.cssRules
+  }
+  return {}
+}
 
 /**
  * Filters out Background Rules for a given class Name.
@@ -77,7 +79,7 @@ const getBackgroundStylesForSingleClass = className => {
  * @return {*}
  */
 const getBackgroundStyles = className => {
-  if (className.includes(' ')) {
+  if (typeof(window) !== 'undefined' && className.includes(' ')) {
     const classes = className.split(' ')
     let classObjects = []
     classes.forEach(item =>

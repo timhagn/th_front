@@ -1,12 +1,14 @@
 import React from 'react'
+import 'typeface-rubik'
 
 import GlobalStyle from '../components/GlobalStyle'
-import Layout from '../components/Layout'
-import 'typeface-rubik'
+import MainPage from '../components'
+// import NotFoundContainer from '../components/NotFoundContainer'
 
 const IndexPage = () => (
     <React.Fragment>
-      <Layout />
+      <MainPage />
+      {/*<NotFoundContainer/>*/}
       <GlobalStyle />
     </React.Fragment>
 )

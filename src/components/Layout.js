@@ -3,15 +3,11 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import StyledHeader from './Header'
-import StyledWelcomeSection from './Welcome'
-import StyledAboutSection from "./About"
-import StyledBottomSection from "./StyledBottomSection";
-
 
 /**
  * This describes the overall layout of the portfolio Page.
  */
-const Layout = () => {
+const Layout = ({ notFound = false, children }) => {
   // For fCC Testing.
   const fccScript = `
     (function(document, script) {
@@ -63,10 +59,8 @@ const Layout = () => {
               <script type="text/javascript">{fccScript}</script>
               <script type="text/javascript">{smoothScroll}</script>
             </Helmet>
-            <StyledHeader />
-            <StyledWelcomeSection />
-            <StyledAboutSection />
-            <StyledBottomSection />
+            <StyledHeader notFound={notFound ? '/' : ''}/>
+            {children}
           </React.Fragment>
       )}
   />

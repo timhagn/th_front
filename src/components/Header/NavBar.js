@@ -16,16 +16,16 @@ const onClick = (e) => {
   return true
 }
 
-const NavBar = ({ className }) => (
+const NavBar = ({ className, prefix = '' }) => (
     <nav className={className}>
       <ul>
         <li>
-          <StyledNavLink onClick={onClick} to="#about_me">
+          <StyledNavLink onClick={onClick} to={`${prefix}#about_me`}>
             about me
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink onClick={onClick} to="#projects">
+          <StyledNavLink onClick={onClick} to={`${prefix}#projects`}>
             projects
           </StyledNavLink>
         </li>
