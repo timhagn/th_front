@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import getBackgroundStyles from './BackgroundUtils'
 
 // Handle legacy names for image queries.
 const convertProps = props => {
@@ -223,6 +224,11 @@ class BackgroundImage extends React.Component {
       ...imgStyle,
     }
 
+    console.log(className)
+    const backgroundStyles = getBackgroundStyles(className)
+    console.log(backgroundStyles)
+
+
     if (fluid) {
       const image = fluid
 
@@ -232,6 +238,7 @@ class BackgroundImage extends React.Component {
       if (image.tracedSVG) bgImage = `'${ image.tracedSVG }'`
       if (image.base64 && !image.tracedSVG) bgImage = image.base64
       if (this.state.isVisible) bgImage = image.src
+
 
       // console.log(bgImage)
 
@@ -247,18 +254,11 @@ class BackgroundImage extends React.Component {
                 backgroundSize: `cover`,
                 transition: `background 0.2s ease-in-out`,
                 ...style,
+                ...backgroundStyles
               }}
               ref={this.handleRef}
               key={`fluid-${JSON.stringify(image.srcSet)}`}
           >
-            {/* Preserve the aspect ratio. */}
-            {/*<Tag*/}
-                {/*style={{*/}
-                  {/*width: `100%`,*/}
-                  {/*paddingBottom: `${100 / image.aspectRatio}%`,*/}
-                {/*}}*/}
-            {/*/>*/}
-
             {/* Show the blurry base64 image. */}
             {image.base64 && (
                 <Img

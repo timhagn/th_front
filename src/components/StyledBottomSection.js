@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import BackgroundImage from './Utils/BackgroundImage'
 import StyledCopyrightSection from './Footer'
 import StyledProjectsSection from './Projects'
-import { Width } from './Utils/Constants'
+import { Width, media } from './Utils/Constants'
 
 const BottomSection = ({ className }) => (
     <StaticQuery query={graphql`
@@ -35,10 +35,10 @@ const BottomSection = ({ className }) => (
           <BackgroundImage Tag="section"
                            className={className}
                            fluid={imageData}
-                           style={{
-                             backgroundRepeat: `repeat-y`,
-                             // backgroundSize: `contain`
-                           }}>
+                           // style={{
+                           //   backgroundRepeat: `repeat-y`,
+                           // }}
+          >
             <StyledProjectsSection />
             <StyledCopyrightSection />
           </BackgroundImage>
@@ -50,6 +50,11 @@ const BottomSection = ({ className }) => (
 
 const StyledBottomSection = styled(BottomSection)`
   width: 100%;
+  background-repeat: repeat-y;
+  
+  ${media.lessThan("medium")`
+    background-size: contain !important;
+  `}
 `
 
 export default StyledBottomSection
