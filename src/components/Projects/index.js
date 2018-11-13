@@ -1,17 +1,14 @@
 import React from 'react'
-import {graphql, StaticQuery} from "gatsby"
 import styled from "styled-components"
+
 import {LargeMargin, media} from '../Utils/Constants'
 import {
   DefaultMargin,
   DefaultMarginAndFontSizeMobile,
-  // GridGapLineHeightBottomMargin,
-  Width,
   WrapperMaxWidthDesktop,
   WrapperMaxWidthMobile,
   WrapperMarginsMobile
 } from "../Utils/Constants"
-import BackgroundImage from '../Utils/BackgroundImage'
 import StyledProjects from "./Projects";
 
 /**
@@ -20,48 +17,14 @@ import StyledProjects from "./Projects";
  * @param className String    From styled components
  */
 const ProjectsSection = ({ className }) => (
-    <StaticQuery query={graphql`
-      query {
-        desktop: file(relativePath: { eq: "seamless-bg-desktop.jpg" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 4160) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        mobile: file(relativePath: { eq: "seamless-bg-mobile.jpg" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 640) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-      }
-    `}
-     render={data => {
-       // Switch Image according to size on desktop / mobile.
-       const imageData = Width > 640 ?
-           data.desktop.childImageSharp.fluid :
-           data.mobile.childImageSharp.fluid
-       return (
-           <BackgroundImage id="projects"
-                            Tag="section"
-                            className={className}
-                            fluid={imageData}
-                            style={{
-
-                            }}>
-             <StyledProjectContainer>
-               <h2>Projects</h2>
-               <div>
-               <StyledProjects />
-               </div>
-             </StyledProjectContainer>
-           </BackgroundImage>
-       )
-       }
-     }
-    />
+     <section className={className} id="projects">
+       <StyledProjectContainer>
+         <h2>Projects</h2>
+         <div>
+         <StyledProjects />
+         </div>
+       </StyledProjectContainer>
+     </section>
 )
 
 const StyledProjectContainer = styled.div`
@@ -77,8 +40,6 @@ const StyledProjectContainer = styled.div`
       margin-bottom: ${ LargeMargin }px;
     }
   `}
-  
-  
 `
 
 const StyledProjectsSection = styled(ProjectsSection)`

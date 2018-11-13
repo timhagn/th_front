@@ -5,8 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import StyledHeader from './Header'
 import StyledWelcomeSection from './Welcome'
 import StyledAboutSection from "./About"
-import StyledProjectsSection from "./Projects"
-import StyledCopyrightSection from "./Footer"
+import StyledBottomSection from "./StyledBottomSection";
 
 
 /**
@@ -67,8 +66,7 @@ const Layout = () => {
             <StyledHeader />
             <StyledWelcomeSection />
             <StyledAboutSection />
-            <StyledProjectsSection />
-            <StyledCopyrightSection />
+            <StyledBottomSection />
           </React.Fragment>
       )}
   />
