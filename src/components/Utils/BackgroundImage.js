@@ -162,6 +162,9 @@ class BackgroundImage extends React.Component {
       seenBefore,
     }
 
+    // Get background(-*) styles from CSS (e.g. Styled Components).
+    this.backgroundStyles = getBackgroundStyles(this.props.className)
+
     this.imageRef = React.createRef()
     this.handleImageLoaded = this.handleImageLoaded.bind(this)
     this.handleRef = this.handleRef.bind(this)
@@ -174,6 +177,7 @@ class BackgroundImage extends React.Component {
         this.handleImageLoaded()
       }
     }
+
   }
 
   handleRef(ref) {
@@ -224,7 +228,6 @@ class BackgroundImage extends React.Component {
       ...imgStyle,
     }
 
-    const backgroundStyles = getBackgroundStyles(className)
 
     if (fluid) {
       const image = fluid
@@ -248,7 +251,7 @@ class BackgroundImage extends React.Component {
                 backgroundSize: `cover`,
                 transition: `background 0.2s ease-in-out`,
                 ...style,
-                ...backgroundStyles
+                ...this.backgroundStyles,
               }}
               ref={this.handleRef}
               key={`fluid-${JSON.stringify(image.srcSet)}`}
@@ -372,6 +375,7 @@ class BackgroundImage extends React.Component {
                 backgroundSize: `cover`,
                 transition: `background 0.2s ease-in-out`,
                 ...divStyle,
+                ...this.backgroundStyles,
               }}
               ref={this.handleRef}
               key={`fixed-${JSON.stringify(image.srcSet)}`}

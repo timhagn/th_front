@@ -1,5 +1,5 @@
 /**
- * Gets styles by a classname.
+ * Gets styles by a class name.
  *
  * @notice The className must be 1:1 the same as in the CSS
  * @param className string
@@ -37,7 +37,7 @@ const getStyle = className => {
 const rulesForCssText = function (styleContent) {
   if (typeof document !== `undefined`) {
     const doc = document.implementation.createHTMLDocument(""),
-        styleElement = document.createElement("style")
+          styleElement = document.createElement("style")
 
     styleElement.textContent = styleContent
     // the style will only be parsed once it is added to a document
@@ -56,7 +56,7 @@ const rulesForCssText = function (styleContent) {
 const getBackgroundStylesForSingleClass = className => {
   const style = getStyle(`.${className}`)
   const cssStyleRules = rulesForCssText(style)
-  console.log(className, style, cssStyleRules)
+  // console.log(className, style, cssStyleRules)
   if (cssStyleRules.length > 0 &&
       typeof(cssStyleRules[0].style) !== 'undefined') {
     // Filter out background(-*) rules that contain a definition.
