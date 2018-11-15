@@ -85,7 +85,8 @@ const GlobalStyle = createGlobalStyle`
   }
   
   .nav-link-active {
-    color: ${ BtnLinkBackground };
+    // Have to use important as styled-components would overwrite it.
+    color: ${ BtnLinkBackground } !important;
   }
     
   // Quickfix for FF's faulty anchor-scroll behavior.
