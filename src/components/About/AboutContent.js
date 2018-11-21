@@ -29,7 +29,7 @@ const AboutContent = ({ className }) => (
               localFile {
                 childImageSharp {
                   fluid(quality: 90, maxWidth: 960) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }

@@ -36,7 +36,7 @@ const NotFoundContent = ({ className }) => (
         notFoundImage: file(relativePath: { eq: "404-image.png" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 890) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

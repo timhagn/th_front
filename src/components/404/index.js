@@ -22,14 +22,14 @@ const NotFound = ({ className }) => (
         desktop: file(relativePath: { eq: "welcome-bg-desktop.jpg" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 4160) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         mobile: file(relativePath: { eq: "welcome-bg-mobile.jpg" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 640) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

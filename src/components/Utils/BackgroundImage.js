@@ -239,7 +239,7 @@ class BackgroundImage extends React.Component {
       if (image.base64 && !image.tracedSVG) bgImage = image.base64
       if (this.state.isVisible) bgImage = image.src
 
-      console.log(this.backgroundStyles)
+      // console.log(this.backgroundStyles)
 
       return (
           <Tag

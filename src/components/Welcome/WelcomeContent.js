@@ -31,14 +31,14 @@ const WelcomeContent = ({ className }) => (
         desktop: file(relativePath: { eq: "welcome-ge-desktop.png" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 4160) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         mobile: file(relativePath: { eq: "welcome-ge-mobile.png" }) {
           childImageSharp {
             fluid(quality: 90, maxWidth: 640) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

@@ -44,7 +44,7 @@ const Projects = ({ className }) => (
                   localFile {
                     childImageSharp {
                       fluid(quality: 90, maxWidth: 960) {
-                        ...GatsbyImageSharpFluid
+                        ...GatsbyImageSharpFluid_withWebp
                       }
                     }
                   }
@@ -56,7 +56,7 @@ const Projects = ({ className }) => (
         dummyImage: file(relativePath: { eq: "DUMMY.jpg" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 960) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

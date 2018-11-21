@@ -21,9 +21,8 @@ const Project = ({ className, projectData }) => {
     projectTitle,
     projectText,
   } = projectData;
-  // fCC bundle.js has a bug: .project-tile instead of .project-title
   return (
-      <article className={`project-title project-tile ${className}`} >
+      <article className={`project-tile ${className}`} >
         <StyledImageContainer>
           <StyledProjectImage fluid={projectImageData}/>
         </StyledImageContainer>

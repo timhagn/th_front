@@ -18,15 +18,17 @@ const Layout = ({ notFound = false, children }) => {
   `
   // And a little smooth scrolling.
   const smoothScroll = `
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault()
-        console.log('why?')
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+    (function(document) {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault()
+
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          })
         })
       })
-    })
+    }(document))
   `
   return (
   <StaticQuery
@@ -56,12 +58,8 @@ const Layout = ({ notFound = false, children }) => {
             >
               <html lang="en"/>
               <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-              <script dangerouslySetInnerHTML={{
-                __html: fccScript,
-              }} />
-              <script dangerouslySetInnerHTML={{
-                __html: smoothScroll,
-              }} />
+              <script type="text/javascript">{notFound ? `` : fccScript}</script>
+              <script type="text/javascript">{smoothScroll}</script>
             </Helmet>
             <StyledHeader notFound={notFound ? '/' : ''}/>
             {children}
