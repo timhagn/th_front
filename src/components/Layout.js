@@ -11,8 +11,8 @@ const Layout = ({ notFound = false, children }) => {
   // For fCC Testing.
   const fccScript = `
     (function(document, script) {
-      const projectName = 'portfolio';
-      localStorage.setItem('example_project', 'Personal Portfolio');
+      const projectName = 'portfolio'
+      localStorage.setItem('example_project', 'Personal Portfolio')
       
     }(document, 'script'))
   `
@@ -20,13 +20,13 @@ const Layout = ({ notFound = false, children }) => {
   const smoothScroll = `
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
+        e.preventDefault()
+        console.log('why?')
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
-        });
-      });
-    });
+        })
+      })
+    })
   `
   return (
   <StaticQuery
@@ -56,8 +56,12 @@ const Layout = ({ notFound = false, children }) => {
             >
               <html lang="en"/>
               <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-              <script type="text/javascript">{fccScript}</script>
-              <script type="text/javascript">{smoothScroll}</script>
+              <script dangerouslySetInnerHTML={{
+                __html: fccScript,
+              }} />
+              <script dangerouslySetInnerHTML={{
+                __html: smoothScroll,
+              }} />
             </Helmet>
             <StyledHeader notFound={notFound ? '/' : ''}/>
             {children}

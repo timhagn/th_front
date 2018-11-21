@@ -8,8 +8,8 @@ rm -rf .cache
 rm -rf public
 # Now copy backuped dependency lists and lock file
 echo "Copying old conf & lock files..."
-cp ./fix/package.json .
-cp ./fix/yarn.lock .
+#cp ./fix/package.json .
+#cp ./fix/yarn.lock .
 # Run yarn (install) in main and build styled-media-query
 echo "Running yarn & building styled-media-query..."
 yarn
