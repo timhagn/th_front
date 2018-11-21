@@ -6,9 +6,3 @@ yarn-error.log
 # Build directory
 /public
 .DS_Store
-
-# IntelliJ project files
-.idea
-*.iml
-out
-gen

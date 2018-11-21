@@ -1,7 +1,7 @@
 /**
  * Gets styles by a class name.
  *
- * @notice The className must be 1:1 the same as in the CSS
+ * @notice The className has to exactly match the CSS class
  * @param className string
  */
 const getStyle = className => {

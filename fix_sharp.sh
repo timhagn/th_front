@@ -19,7 +19,7 @@ yarn build
 # Copy gatsby-source-drupal from gatsby repo.
 echo "Fetching gatsby-source-drupal from gatsby repo..."
 gatsby-dev -s --packages gatsby-source-drupal
-# Now restore sharp.node
-echo "Finally restoring sharp.node..."
-cd ../..
-cp ./fix/sharp.node ./node_modules/sharp/build/Release/sharp.node
+# Now restore sharp.node (not necessary atm).
+# echo "Finally restoring sharp.node..."
+# cd ../..
+# cp ./fix/sharp.node ./node_modules/sharp/build/Release/sharp.node

@@ -239,6 +239,8 @@ class BackgroundImage extends React.Component {
       if (image.base64 && !image.tracedSVG) bgImage = image.base64
       if (this.state.isVisible) bgImage = image.src
 
+      console.log(this.backgroundStyles)
+
       return (
           <Tag
               id={id}
@@ -247,7 +249,7 @@ class BackgroundImage extends React.Component {
                 position: `relative`,
                 overflow: `hidden`,
                 backgroundImage: `url(${ bgImage })`,
-                backgroundRepeat: `no-repeat`,
+                // backgroundRepeat: `no-repeat`,
                 backgroundSize: `cover`,
                 transition: `background 0.2s ease-in-out`,
                 ...style,
@@ -371,7 +373,7 @@ class BackgroundImage extends React.Component {
                 position: `relative`,
                 overflow: `hidden`,
                 backgroundImage: `url(${ bgImage })`,
-                backgroundRepeat: `no-repeat`,
+                // backgroundRepeat: `no-repeat`,
                 backgroundSize: `cover`,
                 transition: `background 0.2s ease-in-out`,
                 ...divStyle,
