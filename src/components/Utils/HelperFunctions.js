@@ -1,3 +1,5 @@
+// import cheerio from 'cheerio'
+
 /**
  * Strips the WordPress and Paragraph Tags from a given Drupal Node's Body.
  *
@@ -6,11 +8,22 @@
  * @return String             The matched inner Text.
  */
 export const stripGutenbergTags = drupalText => {
-  const gutenbergRegEx = /.*<p>(.*)<\/p>.*/
-  const result = drupalText.match(gutenbergRegEx)
-  if (Array.isArray(result) && result[1]) {
-    return result[1]
-  }
+  // Use cheerio first to try getting the inner paragraph's html.
+  // console.log(drupalText)
+  // const gutenText = cheerio.load(drupalText)('p')
+  // gutenText.find('br').replaceWith('-br-')
+  // const result = gutenText.text()
+  // if (result) {
+  //   return result.replace('-br-', '<br>')
+  // }
+  // else {
+    const gutenbergRegEx = /<p>((.|\n)*?)<\/p>/
+    const regExResult = drupalText.match(gutenbergRegEx)
+
+    if (Array.isArray(regExResult) && regExResult.length > 0) {
+      return regExResult[1]
+    }
+  // }
   return ''
 }
 

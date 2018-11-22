@@ -2,10 +2,13 @@
 # Script to "fix" NODE_VERSION..." errors for the moment
 
 # First remove cached versions
-echo "Removing cached files..."
-rm -rf node_modules
-rm -rf .cache
-rm -rf public
+
+if [ -n "$1" ]; then
+    echo "Removing cached files..."
+    rm -rf node_modules
+    rm -rf .cache
+    rm -rf public
+fi
 # Now copy backuped dependency lists and lock file
 echo "Copying old conf & lock files..."
 #cp ./fix/package.json .

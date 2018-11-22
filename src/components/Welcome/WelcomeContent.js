@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { media } from '../Utils/Constants'
+import {media, WrapperMarginsMobile} from '../Utils/Constants'
 import {
   DefaultMargin,
   LargeMargin,
@@ -78,11 +78,11 @@ const StyledWelcomeContent = styled(WelcomeContent)`
   margin-top: calc(${ DefaultMargin } + 104px);
   
   ${media.lessThan("medium")`
-    margin-top: calc(${ LargeMargin }px + 75px);
+    margin: calc(${ LargeMargin }px + 75px) ${ WrapperMarginsMobile }px 0;
   `}
   
   ${media.lessThan("small")`
-    margin-top: calc(${ LargeMargin }px);
+    margin: calc(${ LargeMargin }px) ${ WrapperMarginsMobile }px 0;
   `}
 `
 
