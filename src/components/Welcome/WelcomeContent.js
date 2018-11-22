@@ -2,8 +2,10 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import {media, WrapperMarginsMobile} from '../Utils/Constants'
 import {
+  media,
+  GridGapLineHeightBottomMargin,
+  WrapperMarginsMobile,
   DefaultMargin,
   LargeMargin,
   Width
@@ -82,7 +84,11 @@ const StyledWelcomeContent = styled(WelcomeContent)`
   `}
   
   ${media.lessThan("small")`
-    margin: calc(${ LargeMargin }px) ${ WrapperMarginsMobile }px 0;
+    margin: ${ LargeMargin }px ${ WrapperMarginsMobile }px 0;
+  `}
+  
+  ${media.lessThan("321px")`
+    margin: ${ GridGapLineHeightBottomMargin }px ${ WrapperMarginsMobile }px 0;
   `}
 `
 
