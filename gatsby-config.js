@@ -13,7 +13,6 @@ module.exports = {
         // rateLimit: 1000,
       },
     },
-    'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -75,6 +74,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-styled-components',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-offline',
