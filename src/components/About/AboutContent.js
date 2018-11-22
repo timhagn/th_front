@@ -2,11 +2,12 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { media } from '../Utils/Constants'
 import {
+  media,
+  WrapperMarginsMobile,
   DefaultMarginAndFontSizeMobile,
   GridGapLineHeightBottomMargin
-} from "../Utils/Constants";
+} from '../Utils/Constants'
 import { stripGutenbergTags } from "../Utils/HelperFunctions"
 
 /**
@@ -62,6 +63,7 @@ const AboutContent = ({ className }) => (
 const StyledAboutImage = styled(Img)`
   width: 100%;
   height: auto;
+  
   ${media.lessThan("medium")`
      margin-top: ${ DefaultMarginAndFontSizeMobile }px;
   `}
@@ -71,6 +73,10 @@ const StyledAboutContent = styled(AboutContent)`
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-gap: ${ GridGapLineHeightBottomMargin }px; 
+  
+  ${media.lessThan("large")`
+     margin: 0 ${ WrapperMarginsMobile }px;
+  `}
   
   ${media.lessThan("medium")`
     display: block;

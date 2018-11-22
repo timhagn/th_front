@@ -2,13 +2,14 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 // import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { media } from '../Utils/Constants'
 import {
+  media,
+  WrapperMarginsMobile,
   // DefaultMarginAndFontSizeMobile,
   GridGapLineHeightBottomMargin
-} from "../Utils/Constants";
-import {stripGutenbergTags} from "../Utils/HelperFunctions";
-import StyledProject from "./Project";
+} from '../Utils/Constants'
+import { stripGutenbergTags } from '../Utils/HelperFunctions'
+import StyledProject from './Project'
 
 /**
  * Displays the Projects.
@@ -99,6 +100,10 @@ const StyledProjects = styled(Projects)`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: ${ GridGapLineHeightBottomMargin }px; 
+  
+  ${media.lessThan("large")`
+     margin: 0 ${ WrapperMarginsMobile }px;
+  `}
   
   ${media.lessThan("medium")`
     display: block;

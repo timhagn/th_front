@@ -50,10 +50,13 @@ const StyledHeaderWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   
+  ${media.lessThan("large")`
+     margin: 0 ${ WrapperMarginsMobile }px;
+  `}
+  
   ${media.lessThan("medium")`
     height: ${ HeaderHeightMobile }px;
     width: ${ WrapperMaxWidthMobile }px;
-    margin: 0 ${ WrapperMarginsMobile }px;
   `}
 `
 
