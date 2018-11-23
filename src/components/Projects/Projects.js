@@ -98,7 +98,7 @@ const Projects = ({ className }) => (
 
 const StyledProjects = styled(Projects)`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: ${ GridGapLineHeightBottomMargin }px; 
   
   ${media.lessThan("large")`
