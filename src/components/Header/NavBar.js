@@ -1,12 +1,13 @@
 import React from 'react'
+import {graphql, StaticQuery} from 'gatsby'
 import Link from '../Utils/Link'
 import styled from 'styled-components'
 import { media } from '../Utils/Constants'
 import {
   BtnLinkBackground,
   DarkHeadingColor,
-} from "../Utils/Constants"
-import { removeActive } from "../Utils/HelperFunctions"
+} from '../Utils/Constants'
+import { removeActive } from '../Utils/HelperFunctions'
 
 
 // TODO: look into timeout...
@@ -16,22 +17,55 @@ const onClick = (e) => {
   return true
 }
 
+/**
+ * This component queries Drupal for the portfolio-menu and displays the links.
+ *
+ * @param className
+ * @param prefix
+ * @return {*}
+ * @constructor
+ */
 const NavBar = ({ className, prefix = '' }) => (
-    <nav className={className}>
-      <ul>
-        <li>
-          <StyledNavLink onClick={onClick} to={`${prefix}#about_me`}>
-            about me
-          </StyledNavLink>
-        </li>
-        <li>
-          <StyledNavLink onClick={onClick} to={`${prefix}#projects`}>
-            projects
-          </StyledNavLink>
-        </li>
-      </ul>
-    </nav>
+    <StaticQuery query={graphql`
+      query {
+        Drupal {
+          portfolioMenu: menuByName(name: "portfolio-menu") {
+            name
+            description
+            links {
+              description
+              expanded
+              label
+              url {
+                routed
+                path
+              }
+            }
+          }
+
+        }
+      }
+    `}
+    render={ data => {
+      const menuLinks = data.Drupal.portfolioMenu.links.map((link, index) => (
+          <li key={`menu-lin-${index}`}>
+            <StyledNavLink onClick={onClick} to={`${prefix}${link.url.path}`}>
+              {link.label}
+            </StyledNavLink>
+          </li>
+      ))
+      return(
+        <nav className={className}>
+          <ul>
+            {menuLinks}
+          </ul>
+        </nav>
+      )
+      }
+    }
+    />
 )
+
 
 const StyledNavLink = styled(Link)`
   height: 73px;
