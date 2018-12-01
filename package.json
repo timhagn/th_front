@@ -35,7 +35,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "dist": "gatsby build && cp -r public dist",
+    "dist": "gatsby build && rm -rf dist && cp -r public dist",
     "develop": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
