@@ -8,7 +8,7 @@ import {
   DefaultMarginAndFontSizeMobile,
   GridGapLineHeightBottomMargin
 } from '../Utils/Constants'
-import { stripGutenbergTags } from "../Utils/HelperFunctions"
+// import { stripGutenbergTags } from "../Utils/HelperFunctions"
 
 /**
  * The About Content displays the children of the About Screen.
@@ -41,7 +41,7 @@ const AboutContent = ({ className }) => (
     `}
      render={ data => {
        const title = data.aboutNode.title
-       const strippedText = stripGutenbergTags(data.aboutNode.field_body.value)
+       const strippedText = data.aboutNode.field_body.value
        const aboutImageData = data.aboutNode.relationships
            .field_additional_image.localFile.childImageSharp.fluid
        return (

@@ -17,7 +17,7 @@ export const stripGutenbergTags = drupalText => {
   //   return result.replace('-br-', '<br>')
   // }
   // else {
-    const gutenbergRegEx = /<p>((.|\n)*?)<\/p>/
+    const gutenbergRegEx = /.*<p>((.|\n)*?)<\/p>.*/
     const regExResult = drupalText.match(gutenbergRegEx)
 
     if (Array.isArray(regExResult) && regExResult.length > 0) {

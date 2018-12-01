@@ -8,7 +8,7 @@ import {
   // DefaultMarginAndFontSizeMobile,
   GridGapLineHeightBottomMargin
 } from '../Utils/Constants'
-import { stripGutenbergTags } from '../Utils/HelperFunctions'
+// import { stripGutenbergTags } from '../Utils/HelperFunctions'
 import StyledProject from './Project'
 
 /**
@@ -74,7 +74,7 @@ const Projects = ({ className }) => (
                    .localFile.childImageSharp.fluid :
                data.dummyImage.childImageSharp.fluid,
            projectTitle: item.node.title,
-           projectText: stripGutenbergTags(item.node.body.value).slice(0, 250),
+           projectText: item.node.body.value.slice(0, 250),
            projectLink: item.node.field_project_link !== null ?
                item.node.field_project_link.uri : defaultLink,
            projectLinkTitle: item.node.field_project_link !== null ?

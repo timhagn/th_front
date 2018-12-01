@@ -10,7 +10,7 @@ import {
   LargeMargin,
   Width
 } from "../Utils/Constants"
-import { stripGutenbergTags } from "../Utils/HelperFunctions"
+// import { stripGutenbergTags } from "../Utils/HelperFunctions"
 
 /**
  * The Welcome Content displays the children of the Welcome Screen.
@@ -51,7 +51,7 @@ const WelcomeContent = ({ className }) => (
        const imageData = Width > 640 ?
            data.desktop.childImageSharp.fluid :
            data.mobile.childImageSharp.fluid
-       const strippedText = stripGutenbergTags(data.welcomeNode.field_body.value)
+       const strippedText = data.welcomeNode.field_body.value
        return (
              <div className={className}>
                <h1>{strippedText}</h1>
