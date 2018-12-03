@@ -6,7 +6,7 @@ import {
   media,
   WrapperMarginsMobile,
   // DefaultMarginAndFontSizeMobile,
-  GridGapLineHeightBottomMargin
+  GridGapLineHeightBottomMargin, LargeMargin
 } from '../Utils/Constants'
 // import { stripGutenbergTags } from '../Utils/HelperFunctions'
 import StyledProject from './Project'
@@ -19,7 +19,7 @@ import StyledProject from './Project'
 const Projects = ({ className }) => (
     <StaticQuery query={graphql`
       query {
-        projects: allNodeProject (limit: 3) {
+        projects: allNodeProject {
           edges {
             node {
               id
@@ -36,7 +36,7 @@ const Projects = ({ className }) => (
                 uri
                 title
               }
-              field_project_git_link {
+              field_project_source_link {
                 uri
                 title
               }
@@ -64,26 +64,28 @@ const Projects = ({ className }) => (
       }
     `}
      render={ data => {
-       const defaultLink = `https://timhagn.com`
+       // const defaultLink = `https://timhagn.com`
+       console.log(data.projects)
 
        const projects = data.projects.edges.map((item, key) => {
          const projectData = {
            projectImageData:
                item.node.relationships.field_project_image !== null ?
-               item.node.relationships.field_project_image[0]
+               item.node.relationships.field_project_image
                    .localFile.childImageSharp.fluid :
                data.dummyImage.childImageSharp.fluid,
            projectTitle: item.node.title,
-           projectText: item.node.body.value.slice(0, 250),
+           projectText: item.node.body.processed,
            projectLink: item.node.field_project_link !== null ?
-               item.node.field_project_link.uri : defaultLink,
+               item.node.field_project_link.uri : '',
            projectLinkTitle: item.node.field_project_link !== null ?
                item.node.field_project_link.title : '',
-           projectCodeLink: item.node.field_project_git_link !== null ?
-               item.node.field_project_git_link.uri : defaultLink,
-           projectCodeLinkTitle: item.node.field_project_git_link !== null ?
-               item.node.field_project_git_link.title : '',
+           projectCodeLink: item.node.field_project_source_link !== null ?
+               item.node.field_project_source_link.uri : '',
+           projectCodeLinkTitle: item.node.field_project_source_link !== null ?
+               item.node.field_project_source_link.title : '',
          }
+         console.log(projectData)
          return <StyledProject key={key} projectData={projectData} />
        })
        return (
@@ -99,7 +101,7 @@ const Projects = ({ className }) => (
 const StyledProjects = styled(Projects)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: ${ GridGapLineHeightBottomMargin }px; 
+  grid-gap: ${ GridGapLineHeightBottomMargin }px;
   
   ${media.lessThan("large")`
      margin: 0 ${ WrapperMarginsMobile }px;

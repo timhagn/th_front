@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import {
-  DefaultMarginAndFontSizeMobile,
+  DefaultMarginAndFontSizeMobile, LargeMargin,
   media,
   SmallMargin
 } from '../Utils/Constants'
@@ -27,7 +27,10 @@ const Project = ({ className, projectData }) => {
           <StyledProjectImage fluid={projectImageData}/>
         </StyledImageContainer>
         <h3>{projectTitle}</h3>
-        <p>{projectText}</p>
+        <p className="project-text-content"
+           dangerouslySetInnerHTML={{
+          __html: projectText,
+        }} />
         <StyledProjectButtons projectData={projectData} />
       </article>
   )
@@ -44,18 +47,31 @@ const StyledProjectImage = styled(Img)`
 
 const StyledImageContainer = styled.div`
   margin-bottom: ${ SmallMargin }px;
+  min-height: 180px;
 `
 
 const StyledProject = styled(Project)`
-  p {
-    min-height: 200px;
+  p.project-text-content {
+    min-height: 150px;
+    a {
+      font-weight: 500;
+      color: #07D8AE;
+      transition: all 400ms;
+      &:hover {
+        color: #00f9c7;
+      }
+      &:visited {
+        color: #00f9c7;
+      }
+    }
   }
+  margin-bottom: ${ LargeMargin }px;
   
   ${media.lessThan("medium")`
     display: block;
     margin-bottom: ${ DefaultMarginAndFontSizeMobile  }px;
     
-    p {
+    p.project-text-content {
       min-height: auto;
     }
   `}

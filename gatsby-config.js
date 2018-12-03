@@ -39,6 +39,7 @@ module.exports = {
               maxWidth: 640,
             },
           },
+          'gatsby-remark-external-links',
           'gatsby-remark-prismjs',
         ],
       },

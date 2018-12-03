@@ -19,24 +19,24 @@ const ProjectButtons = ({ className, projectData }) => {
     projectCodeLink,
     projectCodeLinkTitle,
   } = projectData
-  const projectLinkButton = projectLink ?
+  const projectLinkButton = projectLink &&
       <StyledProjectButton to={ projectLink }
               aria-label={ projectLinkTitle ?
                   projectLinkTitle :
-                  `${projectTitle} Page Link` }>
+                  `${projectTitle} Page Link` }
+              target="_blank">
         {projectLinkTitle ? projectLinkTitle : `Project Page` }
-      </StyledProjectButton> :
-      ''
-  const projectCodeLinkButton = projectCodeLink ?
+      </StyledProjectButton>
+  const projectCodeLinkButton = projectCodeLink &&
       <StyledProjectButton to={ projectCodeLink }
-              aria-label={ projectCodeLinkTitle ?
-                  projectCodeLinkTitle :
-                  `${projectTitle} Code Link` }>
+                           aria-label={ projectCodeLinkTitle ?
+                               projectCodeLinkTitle :
+                               `${projectTitle} Code Link` }
+                           target="_blank">
         { projectCodeLinkTitle ?
             projectCodeLinkTitle :
             `${ projectTitle }'s Code` }
-      </StyledProjectButton> :
-      ''
+      </StyledProjectButton>
   return (
       <div className={className}>
         {projectLinkButton}
@@ -53,6 +53,7 @@ const StyledProjectButton = styled(Button)`
   font-size: 14px;
   font-weight: 700;
   margin-right: ${ SmallMargin }px;
+  transition: all 400ms;
 `
 
 const StyledProjectButtons = styled(ProjectButtons)`
