@@ -13,16 +13,19 @@ import StyledProjectButtons from './ProjectButton'
  * Displays a single Project.
  *
  * @param className String    From styled components
+ * @param id
  * @param projectData
  */
-const Project = ({ className, projectData }) => {
+const Project = ({ className, id, projectData }) => {
   const {
     projectImageData,
     projectTitle,
     projectText,
   } = projectData;
+  // console.log(id)
   return (
-      <article className={`project-tile ${className}`} >
+      <article id={id}
+               className={`project-tile ${className}`} >
         <StyledImageContainer>
           <StyledProjectImage fluid={projectImageData}/>
         </StyledImageContainer>
@@ -52,7 +55,7 @@ const StyledImageContainer = styled.div`
 
 const StyledProject = styled(Project)`
   p.project-text-content {
-    min-height: 160px;
+    min-height: 170px;
     a {
       font-weight: 500;
       color: #07D8AE;

@@ -230,7 +230,6 @@ class BackgroundImage extends React.Component {
       ...imgStyle,
     }
 
-
     if (fluid) {
       const image = fluid
 
@@ -257,11 +256,12 @@ class BackgroundImage extends React.Component {
               style={{
                 position: `relative`,
                 overflow: `hidden`,
-                backgroundColor: bgImage === `` ? bgColor : `transparent`,
+                backgroundColor: bgColor,
                 backgroundImage: `url(${ bgImage })`,
                 // backgroundRepeat: `no-repeat`,
                 backgroundSize: `cover`,
                 transition: `background 0.2s ease-in-out`,
+                // transitionDelay: transitionDelay,
                 // zIndex: -1,
                 ...style,
                 ...this.backgroundStyles,

@@ -30,7 +30,10 @@ export const mapProjects = (projects, dummyImage, projectsToShow = 3) =>
           item.node.field_project_source_link.title : '',
     }
     // console.log(projectData)
-    return <StyledProject key={key} projectData={projectData} />
+    return <StyledProject
+        id={`styled-project-${key}`}
+        key={`styled-project-${key}`}
+        projectData={projectData} />
   })
 
 /**

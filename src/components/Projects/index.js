@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from "styled-components"
 
-import { media } from '../Utils/Constants'
+import {
+  DarkLinkHoverVisited,
+  LightHeadingColor,
+  media
+} from '../Utils/Constants'
 import {
   LargeMargin,
   DefaultMargin,
@@ -23,13 +27,33 @@ class ProjectsSection extends React.Component {
     super(props)
     this.state = {
       projectsToShow: 3,
+      showMoreStyle: {}
     }
   }
 
   handleClick = event => {
-    console.log(this.state.projectsToShow)
+    // console.log(this.state.projectsToShow)
     this.setState({
       projectsToShow: this.state.projectsToShow + 3,
+      showMoreStyle: {
+        backgroundColor: DarkLinkHoverVisited,
+        color: LightHeadingColor,
+      }
+    }, () => {
+      if (typeof window !== 'undefined') {
+        const nextProject = document.querySelector(`#styled-project-${this.state.projectsToShow - 3}`)
+        if (nextProject) {
+          nextProject.scrollIntoView({
+            behavior: 'smooth',
+          })
+        }
+        else {
+          this.setState({
+            projectsToShow: this.state.projectsToShow - 3,
+            showMoreStyle: {}
+          })
+        }
+      }
     })
   }
 
@@ -40,7 +64,8 @@ class ProjectsSection extends React.Component {
             <h2>Projects</h2>
             <StyledLoader>
               <StyledProjects projectsToShow={this.state.projectsToShow}/>
-              <ShowMoreButton onClick={this.handleClick}/>
+              <ShowMoreButton onClick={this.handleClick}
+                              style={this.state.showMoreStyle}/>
             </StyledLoader>
           </StyledProjectContainer>
         </StyledProjectsSection>
@@ -53,7 +78,6 @@ const StyledLoader = styled.div`
 `
 
 const StyledProjectContainer = styled.div`
-  //position: relative;
   max-width: ${ WrapperMaxWidthMobile }px;
   margin: ${ DefaultMarginAndFontSizeMobile }px ${ WrapperMarginsMobile }px;
   

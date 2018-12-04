@@ -41,6 +41,8 @@ export const DarkLinkHoverVisited = `#00f9c7`
 export const DarkHeadingColor = `#bcd1de`
 export const LightHeadingColor = `#00446f`
 
+export const BlueBackground = `#040e18`
+
 /**
  * Media breakpoints
  * @type {Object}

@@ -8,7 +8,7 @@ import {
  * "Loads" more projects.
  */
 const ShowMore = ({ className, onClick, children, ...other }) => (
-    <button className={className} onClick={onClick} {...other}>
+    <button id="show-more" className={className} onClick={onClick} {...other}>
       show more
     </button>
 )
