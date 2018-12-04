@@ -162,6 +162,8 @@ class BackgroundImage extends React.Component {
       seenBefore,
     }
 
+    this.bgImage = ``
+
     // Get background(-*) styles from CSS (e.g. Styled Components).
     this.backgroundStyles = getBackgroundStyles(this.props.className)
 
@@ -233,18 +235,43 @@ class BackgroundImage extends React.Component {
       const image = fluid
 
       // Set the backgroundImage according to images available.
-      // TODO: better transition
-      let bgImage = ``
-      if (image.tracedSVG) bgImage = `'${ image.tracedSVG }'`
-      if (image.base64 && !image.tracedSVG) bgImage = image.base64
-      if (this.state.isVisible) bgImage = image.src
+      let bgImage = this.bgImage,
+          nextImage = ``
+      if (image.tracedSVG) nextImage = `'${ image.tracedSVG }'`
+      if (image.base64 && !image.tracedSVG) nextImage = image.base64
+      if (this.state.isVisible) nextImage = image.src
+      // Switch bgImage & nextImage and opacity accordingly.
+      bgImage = bgImage === `` ? nextImage : ``
+      const afterOpacity = nextImage !== bgImage ? 1 : 0
 
-      // console.log(this.backgroundStyles)
+      // console.log('bgImage: ' + bgImage, '\nnextImage: ' + nextImage,
+      //     '\nafterOpacity: ' + afterOpacity, bgColor)
+
+      this.bgImage = bgImage
 
       return (
+        <>
+          <style dangerouslySetInnerHTML={{
+            __html:
+              `.my-special-div:after {
+                  background: url(${nextImage}) repeat;
+                  content: "";
+                  opacity: ${afterOpacity};
+                  width: 100%;
+                  height: 100%;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  transition: opacity 0.25s ease-in-out;
+                  -webkit-transition: opacity 0.25s ease-in-out;
+                  -moz-transition: opacity 0.25s ease-in-out;
+                  -o-transition: opacity 0.25s ease-in-out;
+              }`
+          }}>
+          </style>
           <Tag
               id={id}
-              className={`${className ? className : ``} gatsby-image-wrapper`}
+              className={`${className ? className : ``} my-special-div gatsby-image-wrapper`}
               style={{
                 position: `relative`,
                 overflow: `hidden`,
@@ -285,21 +312,21 @@ class BackgroundImage extends React.Component {
             )}
 
             {/* Show a solid background color. */}
-            {bgColor && (
-                <Tag
-                    title={title}
-                    style={{
-                      backgroundColor: bgColor,
-                      position: `absolute`,
-                      top: 0,
-                      bottom: 0,
-                      opacity: !this.state.imgLoaded ? 1 : 0,
-                      transitionDelay: `0.35s`,
-                      right: 0,
-                      left: 0,
-                    }}
-                />
-            )}
+            {/*{bgColor && (*/}
+                {/*<Tag*/}
+                    {/*title={title}*/}
+                    {/*style={{*/}
+                      {/*backgroundColor: bgColor,*/}
+                      {/*position: `absolute`,*/}
+                      {/*top: 0,*/}
+                      {/*bottom: 0,*/}
+                      {/*opacity: !this.state.imgLoaded ? 1 : 0,*/}
+                      {/*transitionDelay: `0.35s`,*/}
+                      {/*right: 0,*/}
+                      {/*left: 0,*/}
+                    {/*}}*/}
+                {/*/>*/}
+            {/*)}*/}
 
             {/* Once the image is visible (or the browser doesn't support IntersectionObserver), start downloading the image */}
             {this.state.isVisible && (
@@ -340,6 +367,7 @@ class BackgroundImage extends React.Component {
             )}
             {children}
           </Tag>
+        </>
       )
     }
 
@@ -359,13 +387,38 @@ class BackgroundImage extends React.Component {
       }
 
       // Set the backgroundImage according to images available.
-      // TODO: better transition
-      let bgImage = ``
-      if (image.tracedSVG) bgImage = `'${ image.tracedSVG }'`
-      if (image.base64 && !image.tracedSVG) bgImage = image.base64
-      if (this.state.isVisible) bgImage = image.src
+      let bgImage = ``,
+          nextImage = ``
+      if (image.tracedSVG) nextImage = `'${ image.tracedSVG }'`
+      if (image.base64 && !image.tracedSVG) nextImage = image.base64
+      if (this.state.isVisible) nextImage = image.src
+      // Switch bgImage & nextImage and opacity accordingly.
+      bgImage = bgImage === `` ? nextImage : ``
+      const afterOpacity = nextImage !== bgImage ? 1 : 0
+
+      // console.log(this.backgroundStyles)
 
       return (
+        <>
+          <style dangerouslySetInnerHTML={{
+            __html:
+                `.my-special-div:after {
+                background: url(${nextImage}) repeat;
+                content: "";
+                opacity: ${afterOpacity};
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                /* TRANSISITION */
+                transition: opacity 1s ease-in-out;
+                -webkit-transition: opacity 1s ease-in-out;
+                -moz-transition: opacity 1s ease-in-out;
+                -o-transition: opacity 1s ease-in-out;
+            }`
+          }}>
+          </style>
           <Tag
               id={id}
               className={`${className ? className : ``} gatsby-image-wrapper`}
@@ -468,6 +521,7 @@ class BackgroundImage extends React.Component {
                 />
             )}
           </Tag>
+        </>
       )
     }
 

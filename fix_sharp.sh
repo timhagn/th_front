@@ -3,14 +3,14 @@
 
 # First remove cached versions
 
-if [ -n "$1" ]; then
+if [[ -n "$1" ]]; then
     echo "Removing cached files..."
     rm -rf node_modules
     rm -rf .cache
     rm -rf public
 fi
 # Now copy backuped dependency lists and lock file
-echo "Copying old conf & lock files..."
+#echo "Copying old conf & lock files..."
 #cp ./fix/package.json .
 #cp ./fix/yarn.lock .
 # Run yarn (install) in main and build styled-media-query
