@@ -4,7 +4,7 @@ import styled from "styled-components"
 import {
   DarkLinkHoverVisited,
   LightHeadingColor,
-  media
+  media, Width
 } from '../Utils/Constants'
 import {
   LargeMargin,
@@ -42,7 +42,7 @@ class ProjectsSection extends React.Component {
     }, () => {
       if (typeof window !== 'undefined') {
         const nextProject = document.querySelector(`#styled-project-${this.state.projectsToShow - 3}`)
-        if (nextProject) {
+        if (Width > 801 && nextProject) {
           nextProject.scrollIntoView({
             behavior: 'smooth',
           })

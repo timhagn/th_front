@@ -54,8 +54,14 @@ const StyledImageContainer = styled.div`
 `
 
 const StyledProject = styled(Project)`
-  p.project-text-content {
+  margin-bottom: ${ LargeMargin }px;
+  
+  .project-text-content {
     min-height: 170px;
+    p {
+      margin-bottom: 0;
+    }
+    
     a {
       font-weight: 500;
       color: #07D8AE;
@@ -67,8 +73,7 @@ const StyledProject = styled(Project)`
         color: #00f9c7;
       }
     }
-  }
-  margin-bottom: ${ LargeMargin }px;
+  }  
   
   ${media.lessThan("medium")`
     display: block;

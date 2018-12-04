@@ -87,16 +87,15 @@ const Projects = ({ className, projectsToShow = 3 }) => (
 )
 
 const StyledProjects = styled(Projects)`
-  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: ${ GridGapLineHeightBottomMargin }px;
+  display: block;
   
-  ${media.lessThan("large")`
-     margin: 0 ${ WrapperMarginsMobile }px;
+  ${media.greaterThan("medium")`
+    display: grid;
+    margin: 0 ${ WrapperMarginsMobile }px;
   `}
-  
-  ${media.lessThan("medium")`
-    display: block;
+  ${media.greaterThan("large")`
+    grid-gap: ${ GridGapLineHeightBottomMargin }px;
   `}
 `
 
