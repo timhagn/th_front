@@ -49,7 +49,7 @@ ProjectButtons.propTypes = {
   projectData: PropTypes.object.isRequired,
 }
 
-const StyledProjectButton = styled(Button)`
+export const StyledProjectButton = styled(Button)`
   font-size: 14px;
   font-weight: 700;
   margin-right: ${ SmallMargin }px;

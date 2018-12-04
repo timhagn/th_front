@@ -11,25 +11,49 @@ import {
   WrapperMarginsMobile
 } from "../Utils/Constants"
 import StyledProjects from "./Projects";
+import ShowMoreButton from "./ShowMoreButton";
 
 /**
  * This Styled Component wraps the Project Section.
  *
  * @param className String    From styled components
  */
-const ProjectsSection = ({ className }) => (
-     <section className={className} id="projects">
-       <StyledProjectContainer>
-         <h2>Projects</h2>
-         <div>
-         <StyledProjects />
-         </div>
-       </StyledProjectContainer>
-     </section>
-)
+class ProjectsSection extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      projectsToShow: 3,
+    }
+  }
+
+  handleClick = event => {
+    console.log(this.state.projectsToShow)
+    this.setState({
+      projectsToShow: this.state.projectsToShow + 3,
+    })
+  }
+
+  render() {
+    return (
+        <StyledProjectsSection id="projects">
+          <StyledProjectContainer>
+            <h2>Projects</h2>
+            <StyledLoader>
+              <StyledProjects projectsToShow={this.state.projectsToShow}/>
+              <ShowMoreButton onClick={this.handleClick}/>
+            </StyledLoader>
+          </StyledProjectContainer>
+        </StyledProjectsSection>
+    )
+  }
+}
+
+const StyledLoader = styled.div`
+  width: 100%;
+`
 
 const StyledProjectContainer = styled.div`
-  position: relative;
+  //position: relative;
   max-width: ${ WrapperMaxWidthMobile }px;
   margin: ${ DefaultMarginAndFontSizeMobile }px ${ WrapperMarginsMobile }px;
   
@@ -47,10 +71,10 @@ const StyledProjectContainer = styled.div`
   `}
 `
 
-const StyledProjectsSection = styled(ProjectsSection)`
+const StyledProjectsSection = styled.section`
   position: relative;
   overflow: hidden;
   width: 100%;
 `
 
-export default StyledProjectsSection
+export default ProjectsSection

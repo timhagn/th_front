@@ -52,7 +52,7 @@ const StyledImageContainer = styled.div`
 
 const StyledProject = styled(Project)`
   p.project-text-content {
-    min-height: 150px;
+    min-height: 160px;
     a {
       font-weight: 500;
       color: #07D8AE;

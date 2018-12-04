@@ -6,17 +6,20 @@ import {
   media,
   WrapperMarginsMobile,
   // DefaultMarginAndFontSizeMobile,
-  GridGapLineHeightBottomMargin, LargeMargin
+  GridGapLineHeightBottomMargin,
+  // LargeMargin
 } from '../Utils/Constants'
 // import { stripGutenbergTags } from '../Utils/HelperFunctions'
-import StyledProject from './Project'
+// import StyledProject from './Project'
+import {mapProjects} from "../Utils/HelperFunctions";
 
 /**
  * Displays the Projects.
  *
  * @param className String    From styled components
+ * @param projectsToShow
  */
-const Projects = ({ className }) => (
+const Projects = ({ className, projectsToShow = 3 }) => (
     <StaticQuery query={graphql`
       query {
         projects: allNodeProject {
@@ -65,29 +68,8 @@ const Projects = ({ className }) => (
     `}
      render={ data => {
        // const defaultLink = `https://timhagn.com`
-       console.log(data.projects)
-
-       const projects = data.projects.edges.map((item, key) => {
-         const projectData = {
-           projectImageData:
-               item.node.relationships.field_project_image !== null ?
-               item.node.relationships.field_project_image
-                   .localFile.childImageSharp.fluid :
-               data.dummyImage.childImageSharp.fluid,
-           projectTitle: item.node.title,
-           projectText: item.node.body.processed,
-           projectLink: item.node.field_project_link !== null ?
-               item.node.field_project_link.uri : '',
-           projectLinkTitle: item.node.field_project_link !== null ?
-               item.node.field_project_link.title : '',
-           projectCodeLink: item.node.field_project_source_link !== null ?
-               item.node.field_project_source_link.uri : '',
-           projectCodeLinkTitle: item.node.field_project_source_link !== null ?
-               item.node.field_project_source_link.title : '',
-         }
-         console.log(projectData)
-         return <StyledProject key={key} projectData={projectData} />
-       })
+       // console.log(data.projects)
+       const projects = mapProjects(data.projects, data.dummyImage, projectsToShow)
        return (
            <div className={className}>
              {projects}

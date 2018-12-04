@@ -8,7 +8,7 @@ import {
   WrapperMarginsMobile,
   DefaultMargin,
   LargeMargin,
-  Width
+  Width, WrapperMaxWidthDesktop
 } from "../Utils/Constants"
 // import { stripGutenbergTags } from "../Utils/HelperFunctions"
 
@@ -77,18 +77,23 @@ const StyledWelcomeContent = styled(WelcomeContent)`
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: calc(${ DefaultMargin } + 104px);
+  margin: ${ GridGapLineHeightBottomMargin }px ${ WrapperMarginsMobile }px 0;
   
-  ${media.lessThan("medium")`
+  h1 {
+    max-width: ${ WrapperMaxWidthDesktop }px;
+  }
+  
+  ${media.greaterThan("medium")`
+    // margin: calc(${ LargeMargin }px + 75px) ${ WrapperMarginsMobile }px 0;
+    margin-top: calc(${ DefaultMargin } + 104px);
+  `}
+  
+  ${media.greaterThan("small")`
     margin: calc(${ LargeMargin }px + 75px) ${ WrapperMarginsMobile }px 0;
   `}
   
-  ${media.lessThan("small")`
+  ${media.greaterThan("321px")`
     margin: ${ LargeMargin }px ${ WrapperMarginsMobile }px 0;
-  `}
-  
-  ${media.lessThan("321px")`
-    margin: ${ GridGapLineHeightBottomMargin }px ${ WrapperMarginsMobile }px 0;
   `}
 `
 
