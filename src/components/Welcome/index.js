@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import {
   DefaultMargin,
-  HeaderHeight,
+  // HeaderHeight,
   HeaderHeightMobile,
   LargeMargin,
   Width
@@ -65,11 +65,12 @@ const StyledContainer = styled.div`
   position: absolute;
   left: 0;
   top: 0;
-  padding-top: calc(${ HeaderHeight }px + ${ DefaultMargin }px);
+  padding-top: calc(${ HeaderHeightMobile }px + ${ LargeMargin }px);
   width: 100%;
   height: 100vh;
-  ${media.lessThan("medium")`
-    padding-top: calc(${ HeaderHeightMobile }px + ${ LargeMargin }px);
+  
+  ${media.greaterThan("small")`
+    padding-top: calc(${ DefaultMargin }px);    
   `}
 `
 
