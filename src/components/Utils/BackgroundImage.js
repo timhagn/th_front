@@ -240,6 +240,7 @@ class BackgroundImage extends React.Component {
       if (image.tracedSVG) nextImage = `'${ image.tracedSVG }'`
       if (image.base64 && !image.tracedSVG) nextImage = image.base64
       if (this.state.isVisible) nextImage = image.src
+
       // Switch bgImage & nextImage and opacity accordingly.
       bgImage = bgImage === `` ? nextImage : ``
       const afterOpacity = nextImage !== bgImage ? 1 : 0
@@ -250,10 +251,27 @@ class BackgroundImage extends React.Component {
       this.bgImage = bgImage
 
       return (
-        <>
-          <style dangerouslySetInnerHTML={{
-            __html:
-              `.my-special-div:after {
+          <Tag
+              id={id}
+              className={`${className ? className : ``} after-background-image-${id} gatsby-image-wrapper`}
+              style={{
+                position: `relative`,
+                overflow: `hidden`,
+                backgroundColor: bgImage === `` ? bgColor : `transparent`,
+                backgroundImage: `url(${ bgImage })`,
+                // backgroundRepeat: `no-repeat`,
+                backgroundSize: `cover`,
+                transition: `background 0.2s ease-in-out`,
+                // zIndex: -1,
+                ...style,
+                ...this.backgroundStyles,
+              }}
+              ref={this.handleRef}
+              key={`fluid-${JSON.stringify(image.srcSet)}`}
+          >
+            <style dangerouslySetInnerHTML={{
+              __html:
+                  `.after-background-image-${id}:after {
                   background: url(${nextImage}) repeat;
                   content: "";
                   opacity: ${afterOpacity};
@@ -262,29 +280,14 @@ class BackgroundImage extends React.Component {
                   position: absolute;
                   top: 0;
                   left: 0;
+                  z-index: -1;
                   transition: opacity 0.25s ease-in-out;
                   -webkit-transition: opacity 0.25s ease-in-out;
                   -moz-transition: opacity 0.25s ease-in-out;
                   -o-transition: opacity 0.25s ease-in-out;
               }`
-          }}>
-          </style>
-          <Tag
-              id={id}
-              className={`${className ? className : ``} my-special-div gatsby-image-wrapper`}
-              style={{
-                position: `relative`,
-                overflow: `hidden`,
-                backgroundImage: `url(${ bgImage })`,
-                // backgroundRepeat: `no-repeat`,
-                backgroundSize: `cover`,
-                transition: `background 0.2s ease-in-out`,
-                ...style,
-                ...this.backgroundStyles,
-              }}
-              ref={this.handleRef}
-              key={`fluid-${JSON.stringify(image.srcSet)}`}
-          >
+            }}>
+            </style>
             {/* Show the blurry base64 image. */}
             {image.base64 && (
                 <Img
@@ -311,7 +314,7 @@ class BackgroundImage extends React.Component {
                 />
             )}
 
-            {/* Show a solid background color. */}
+             {/*Show a solid background color. */}
             {/*{bgColor && (*/}
                 {/*<Tag*/}
                     {/*title={title}*/}
@@ -367,7 +370,6 @@ class BackgroundImage extends React.Component {
             )}
             {children}
           </Tag>
-        </>
       )
     }
 
@@ -399,26 +401,6 @@ class BackgroundImage extends React.Component {
       // console.log(this.backgroundStyles)
 
       return (
-        <>
-          <style dangerouslySetInnerHTML={{
-            __html:
-                `.my-special-div:after {
-                background: url(${nextImage}) repeat;
-                content: "";
-                opacity: ${afterOpacity};
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                /* TRANSISITION */
-                transition: opacity 1s ease-in-out;
-                -webkit-transition: opacity 1s ease-in-out;
-                -moz-transition: opacity 1s ease-in-out;
-                -o-transition: opacity 1s ease-in-out;
-            }`
-          }}>
-          </style>
           <Tag
               id={id}
               className={`${className ? className : ``} gatsby-image-wrapper`}
@@ -429,12 +411,33 @@ class BackgroundImage extends React.Component {
                 // backgroundRepeat: `no-repeat`,
                 backgroundSize: `cover`,
                 transition: `background 0.2s ease-in-out`,
+                zIndex: -1,
                 ...divStyle,
                 ...this.backgroundStyles,
               }}
               ref={this.handleRef}
               key={`fixed-${JSON.stringify(image.srcSet)}`}
           >
+            <style dangerouslySetInnerHTML={{
+              __html:
+                  `.my-special-div:after {
+                background: url(${nextImage}) repeat;
+                content: "";
+                opacity: ${afterOpacity};
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -2;
+                /* TRANSISITION */
+                transition: opacity 1s ease-in-out;
+                -webkit-transition: opacity 1s ease-in-out;
+                -moz-transition: opacity 1s ease-in-out;
+                -o-transition: opacity 1s ease-in-out;
+            }`
+            }}>
+            </style>
             {/* Show the blurry base64 image. */}
             {image.base64 && (
                 <Img
@@ -521,7 +524,6 @@ class BackgroundImage extends React.Component {
                 />
             )}
           </Tag>
-        </>
       )
     }
 

@@ -1,4 +1,4 @@
-import { generateMedia } from "styled-media-query"
+import { generateMedia } from 'styled-media-query'
 
 /**
  * Basic Sizes.
@@ -33,23 +33,23 @@ export const DefaultMarginAndFontSizeMobile = 39
 /**
  * Base Colors.
  */
-export const DarkBackground = '#00446f'
-export const BtnLinkBackground = '#07d8ae'
-export const DarkTextColor = '#bcd1de'
-export const LightTextColor = '#656b6f'
-export const DarkLinkHoverVisited = '#00f9c7'
-export const DarkHeadingColor = '#bcd1de'
-export const LightHeadingColor = '#00446f'
+export const DarkBackground = `#00446f`
+export const BtnLinkBackground = `#07d8ae`
+export const DarkTextColor = `#bcd1de`
+export const LightTextColor = `#656b6f`
+export const DarkLinkHoverVisited = `#00f9c7`
+export const DarkHeadingColor = `#bcd1de`
+export const LightHeadingColor = `#00446f`
 
 /**
  * Media breakpoints
  * @type {Object}
  */
 const customBreakpoints = {
-  huge: '1440px',
-  large: '1170px',
-  medium: '801px',
-  small: '450px',
+  huge: `1440px`,
+  large: `1170px`,
+  medium: `801px`,
+  small: `450px`,
 }
 
 export const media = generateMedia(customBreakpoints)
