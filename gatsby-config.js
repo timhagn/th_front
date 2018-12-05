@@ -23,6 +23,17 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // This type will contain remote schema Query type
+        typeName: "DrupalGraqhQL",
+        // This is field under which it's accessible
+        fieldName: "Drupal",
+        // Url to query from
+        url: `${SITE_URL}/graphql`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -96,17 +107,6 @@ module.exports = {
             type: `image/png`,
           },
         ],
-      },
-    },
-    {
-      resolve: "gatsby-source-graphql",
-      options: {
-        // This type will contain remote schema Query type
-        typeName: "DrupalGraqhQL",
-        // This is field under which it's accessible
-        fieldName: "Drupal",
-        // Url to query from
-        url: `${SITE_URL}/graphql`,
       },
     },
     'gatsby-plugin-styled-components',

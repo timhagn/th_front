@@ -43,6 +43,13 @@ const Projects = ({ className, projectsToShow = 3 }) => (
                 uri
                 title
               }
+              fields {
+                markdownBody {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
+              }
               relationships {
                 field_project_image {
                   localFile {

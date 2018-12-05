@@ -12,6 +12,7 @@ import React from "react";
  */
 export const mapProjects = (projects, dummyImage, projectsToShow = 3) =>
   projects.edges.slice(0, projectsToShow).map((item, key) => {
+    console.log(item.node)
     const projectData = {
       projectImageData:
           item.node.relationships.field_project_image !== null ?
@@ -19,7 +20,7 @@ export const mapProjects = (projects, dummyImage, projectsToShow = 3) =>
                   .localFile.childImageSharp.fluid :
               dummyImage.childImageSharp.fluid,
       projectTitle: item.node.title,
-      projectText: item.node.body.processed,
+      projectText: item.node.fields.markdownBody.childMarkdownRemark.html,//item.node.body.processed,
       projectLink: item.node.field_project_link !== null ?
           item.node.field_project_link.uri : '',
       projectLinkTitle: item.node.field_project_link !== null ?
