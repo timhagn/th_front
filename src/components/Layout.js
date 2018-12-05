@@ -11,7 +11,7 @@ const Layout = ({ notFound = false, children }) => {
   // For fCC Testing.
   const fccScript = `
     (function(document, script) {
-      window.onLoad = () => {
+      window.onload = () => {
         const projectName = 'portfolio'
         localStorage.setItem('example_project', 'Personal Portfolio')
       }
@@ -20,7 +20,7 @@ const Layout = ({ notFound = false, children }) => {
   // And a little smooth scrolling.
   const smoothScroll = `
     (function(document) {
-      window.onLoad = () => {
+      window.onload = () => {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function (e) {
             e.preventDefault()
