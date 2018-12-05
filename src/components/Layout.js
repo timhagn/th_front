@@ -42,7 +42,7 @@ const Layout = ({ notFound = false, children }) => {
       }
     `}
       render={data => (
-          <React.Fragment>
+          <>
             <Helmet
                 title={data.site.siteMetadata.title}
                 meta={[
@@ -58,12 +58,12 @@ const Layout = ({ notFound = false, children }) => {
             >
               <html lang="en"/>
               <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-              <script type="text/javascript">{notFound ? `` : fccScript}</script>
               <script type="text/javascript">{smoothScroll}</script>
             </Helmet>
             <StyledHeader notFound={notFound ? '/' : ''}/>
             {children}
-          </React.Fragment>
+            <script type="text/javascript">{notFound ? `` : fccScript}</script>
+          </>
       )}
   />
   )
