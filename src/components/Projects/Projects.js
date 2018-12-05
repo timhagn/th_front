@@ -74,15 +74,7 @@ const Projects = ({ className, projectsToShow = 3 }) => (
       }
     `}
      render={ data => {
-       // const defaultLink = `https://timhagn.com`
-       // console.log(data.projects)
        const projects = mapProjects(data.projects, data.dummyImage, projectsToShow)
-       // Hide ShowMoreButton on no more data (Hack).
-       if (projectsToShow >= data.projects.edges.length) {
-         const showMore = document.querySelector(`#show-more`)
-         showMore.style.opacity = 0
-         showMore.style.height = 0
-       }
        return (
            <div className={className}>
              {projects}

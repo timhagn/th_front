@@ -3,15 +3,36 @@ import styled from 'styled-components'
 import {
   DarkLinkHoverVisited,
 } from '../Utils/Constants'
+import { graphql, StaticQuery } from 'gatsby'
 
 /**
  * "Loads" more projects.
  */
-const ShowMore = ({ className, onClick, children, ...other }) => (
-    <button id="show-more" className={className} onClick={onClick} {...other}>
-      show more
-    </button>
+const ShowMore = ({ className, onClick, projectCount, children, ...other }) => (
+    <StaticQuery query={graphql`
+      query {
+        projects: allNodeProject {
+            totalCount
+        }
+      }
+    `}
+     render={ data => {
+         // Hide ShowMoreButton on no more data.
+         const hideButtonClass =
+             projectCount >= data.projects.totalCount ? ` hide-show-more` : ``
+         return (
+             <button id="show-more"
+                     className={`${className}${hideButtonClass}`}
+                     onClick={onClick}
+                     {...other}>
+               show more
+             </button>
+         )
+       }
+     }
+    />
 )
+
 
 const ShowMoreButton = styled(ShowMore)`
   width: 100%;

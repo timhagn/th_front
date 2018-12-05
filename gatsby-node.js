@@ -26,7 +26,10 @@ exports.onCreateNode = ({ node, actions, createNodeId }) => {
       (node.hasOwnProperty('body') || node.hasOwnProperty('field_body')))  {
     const { createNode, createNodeField } = actions
 
-    if (_.get(node, `body.value`) || _.get(node, `field_body.value`)) {
+    if ((_.get(node, `body.value`) || _.get(node, `field_body.value`)) &&
+        _.get(node, `status`) === true  &&
+        (_.get(node, `field_body.format`) === `markdown` ||
+         _.get(node, `body.format`) === `markdown`)) {
       // take markdown content
       const content =
           _.get(node, `body.value`) ||

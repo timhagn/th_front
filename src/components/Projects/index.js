@@ -63,9 +63,10 @@ class ProjectsSection extends React.Component {
           <StyledProjectContainer>
             <h2>Projects</h2>
             <StyledLoader>
-              <StyledProjects projectsToShow={this.state.projectsToShow}/>
+              <StyledProjects projectsToShow={this.state.projectsToShow} />
               <ShowMoreButton onClick={this.handleClick}
-                              style={this.state.showMoreStyle}/>
+                              style={this.state.showMoreStyle}
+                              projectCount={this.state.projectsToShow}/>
             </StyledLoader>
           </StyledProjectContainer>
         </StyledProjectsSection>

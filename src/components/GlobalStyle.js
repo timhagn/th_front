@@ -110,6 +110,11 @@ const GlobalStyle = createGlobalStyle`
     //   height: calc(${ HeaderHeightMobile }px + 75px);
     // `}
   }
+  
+  .hide-show-more {
+    opacity: 0;
+    height: 0;
+  }
 `
 
 export default GlobalStyle

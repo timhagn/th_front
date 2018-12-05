@@ -41,9 +41,6 @@ const BottomSection = ({ className }) => (
                            className={className}
                            fluid={imageData}
                            backgroundColor={BlueBackground}
-                           // style={{
-                           //   backgroundRepeat: `repeat-y`,
-                           // }}
           >
             <StyledProjectsSection />
             <StyledCopyrightSection />
