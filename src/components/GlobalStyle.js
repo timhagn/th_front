@@ -113,7 +113,7 @@ const GlobalStyle = createGlobalStyle`
   
   .hide-show-more {
     opacity: 0;
-    height: 0;
+    height: 0 !important;
   }
 `
 
