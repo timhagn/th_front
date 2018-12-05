@@ -48,12 +48,9 @@ class ProjectsSection extends React.Component {
             behavior: 'smooth',
           })
         }
-        else {
-          this.setState({
-            projectsToShow: this.state.projectsToShow - 3,
-            showMoreStyle: {}
-          })
-        }
+        this.setState({
+          showMoreStyle: {}
+        })
       }
     })
   }
