@@ -19,7 +19,7 @@ export const mapProjects = (projects, dummyImage, projectsToShow = 3) =>
                   .localFile.childImageSharp.fluid :
               dummyImage.childImageSharp.fluid,
       projectTitle: item.node.title,
-      projectText: item.node.fields.markdownBody.childMarkdownRemark.html,//item.node.body.processed,
+      projectText: item.node.fields.markdownBody.childMarkdownRemark.html,
       projectLink: item.node.field_project_link !== null ?
           item.node.field_project_link.uri : '',
       projectLinkTitle: item.node.field_project_link !== null ?

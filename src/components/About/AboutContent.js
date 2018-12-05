@@ -48,16 +48,17 @@ const AboutContent = ({ className }) => (
     `}
      render={ data => {
        const title = data.aboutNode.title
-       const strippedText = data.aboutNode.fields.markdownBody.childMarkdownRemark.html//data.aboutNode.field_body.value
+       const strippedText = data.aboutNode.fields
+           .markdownBody.childMarkdownRemark.html
        const aboutImageData = data.aboutNode.relationships
            .field_additional_image.localFile.childImageSharp.fluid
        return (
              <div className={className}>
                <article>
                  <h2 className="light-heading">{title}</h2>
-                 <p className="light-text">
-                   {strippedText}
-                 </p>
+                 <p className="light-text" dangerouslySetInnerHTML={{
+                   __html: strippedText,
+                 }} />
                </article>
                <StyledAboutImage fluid={aboutImageData}/>
              </div>

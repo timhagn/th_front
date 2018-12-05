@@ -79,6 +79,9 @@ const GlobalStyle = createGlobalStyle`
   .light-text {
     color: ${ LightTextColor };
   }
+  .light-text p {
+    color: ${ LightTextColor };
+  }
   
   a {
     text-decoration: none;
