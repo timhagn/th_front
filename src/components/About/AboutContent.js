@@ -56,7 +56,7 @@ const AboutContent = ({ className }) => (
              <div className={className}>
                <article>
                  <h2 className="light-heading">{title}</h2>
-                 <p className="light-text" dangerouslySetInnerHTML={{
+                 <div className="light-text" dangerouslySetInnerHTML={{
                    __html: strippedText,
                  }} />
                </article>

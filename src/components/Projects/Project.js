@@ -30,10 +30,10 @@ const Project = ({ className, id, projectData }) => {
           <StyledProjectImage fluid={projectImageData}/>
         </StyledImageContainer>
         <h3>{projectTitle}</h3>
-        <p className="project-text-content"
-           dangerouslySetInnerHTML={{
-          __html: projectText,
-        }} />
+        <div className="project-text-content"
+             dangerouslySetInnerHTML={{
+              __html: projectText,
+             }} />
         <StyledProjectButtons projectData={projectData} />
       </article>
   )

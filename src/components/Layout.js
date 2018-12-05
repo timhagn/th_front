@@ -20,7 +20,6 @@ const Layout = ({ notFound = false, children }) => {
   // And a little smooth scrolling.
   const smoothScroll = `
     (function(document) {
-      window.onload = () => {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function (e) {
             e.preventDefault()
@@ -30,7 +29,6 @@ const Layout = ({ notFound = false, children }) => {
             })
           })
         })
-      }
     }(document))
   `
   return (
