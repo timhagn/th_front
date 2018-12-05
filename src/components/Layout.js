@@ -11,10 +11,8 @@ const Layout = ({ notFound = false, children }) => {
   // For fCC Testing.
   const fccScript = `
     (function(document, script) {
-      window.onload = () => {
-        const projectName = 'portfolio'
-        localStorage.setItem('example_project', 'Personal Portfolio')
-      }
+      const projectName = 'portfolio'
+      localStorage.setItem('example_project', 'Personal Portfolio')
     }(document, 'script'))
   `
   // And a little smooth scrolling.
