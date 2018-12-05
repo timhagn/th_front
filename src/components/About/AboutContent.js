@@ -25,6 +25,13 @@ const AboutContent = ({ className }) => (
             format
             processed
           }
+          fields {
+            markdownBody {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
           relationships {
             field_additional_image {
               localFile {
@@ -41,7 +48,7 @@ const AboutContent = ({ className }) => (
     `}
      render={ data => {
        const title = data.aboutNode.title
-       const strippedText = data.aboutNode.field_body.value
+       const strippedText = data.aboutNode.fields.markdownBody.childMarkdownRemark.html//data.aboutNode.field_body.value
        const aboutImageData = data.aboutNode.relationships
            .field_additional_image.localFile.childImageSharp.fluid
        return (

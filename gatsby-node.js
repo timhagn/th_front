@@ -4,35 +4,33 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 const _ = require('lodash')
-const Promise = require('bluebird')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const {
-  GraphQLObjectType,
-  GraphQLBoolean,
-  GraphQLString,
-  GraphQLInt,
-  GraphQLFloat,
-} = require(`gatsby/graphql`)
 const crypto = require(`crypto`)
+
 
 const createContentDigest = input => {
   const content = typeof input !== `string` ? JSON.stringify(input) : input
-
   return crypto
       .createHash(`md5`)
       .update(content)
       .digest(`hex`)
 }
 
+/**
+ * Parse all Nodes with Markdown.
+ * @param node
+ * @param actions
+ * @param createNodeId
+ */
 exports.onCreateNode = ({ node, actions, createNodeId }) => {
   if (node.internal.type.indexOf(`node__`) !== -1 &&
-      node.hasOwnProperty('body'))  {
+      (node.hasOwnProperty('body') || node.hasOwnProperty('field_body')))  {
     const { createNode, createNodeField } = actions
 
-    if (_.get(node, `body.value`)) {
+    if (_.get(node, `body.value`) || _.get(node, `field_body.value`)) {
       // take markdown content
-      const content = node.body.value
+      const content =
+          _.get(node, `body.value`) ||
+          _.get(node, `field_body.value`)
 
       // create node with body content
       const textNode = {
