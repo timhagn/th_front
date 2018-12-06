@@ -65,12 +65,12 @@ const StyledContainer = styled.div`
   position: absolute;
   left: 0;
   top: 0;
-  padding-top: calc(${ HeaderHeightMobile }px + ${ LargeMargin }px);
+  padding-top: ${ LargeMargin }px;//calc(${ HeaderHeightMobile }px + ${ LargeMargin }px);
   width: 100%;
   height: 100vh;
   
   ${media.greaterThan("small")`
-    padding-top: calc(${ DefaultMargin }px);    
+    padding-top: ${ DefaultMargin };    
   `}
 `
 
