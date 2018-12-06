@@ -27,7 +27,7 @@ class ProjectsSection extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      projectsToShow: 13,
+      projectsToShow: 3,
       showMoreStyle: {}
     }
   }
