@@ -59,6 +59,11 @@ const StyledProject = styled(Project)`
   //minmax(auto, max-content) 58px minmax(min-content, auto) minmax(auto, min-content);
   margin-bottom: ${ LargeMargin }px;
   
+  h3 {
+    margin-bottom: ${ SmallMargin }px;
+    height: 2em;
+  }
+  
   .project-text-content {
     margin-bottom: ${ SmallMargin }px;
 
@@ -76,10 +81,6 @@ const StyledProject = styled(Project)`
       &:visited {
         color: #00f9c7;
       }
-    }
-    
-    h3 {
-      margin-bottom: ${ SmallMargin }px;
     }
   }  
   

@@ -92,8 +92,6 @@ const StyledProjects = styled(Projects)`
   ${media.greaterThan("medium")`
     display: grid;
     margin: 0 ${ WrapperMarginsMobile }px;
-  `}
-  ${media.greaterThan("large")`
     grid-gap: ${ GridGapLineHeightBottomMargin }px;
   `}
 `
