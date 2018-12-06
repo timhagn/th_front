@@ -24,7 +24,7 @@ const Project = ({ className, id, projectData }) => {
   } = projectData;
   // console.log(id)
   return (
-      <article className={`project-tile ${className}`} >
+      <article id={id} className={`project-tile ${className}`} >
         <StyledImageContainer>
           <StyledProjectImage fluid={projectImageData}/>
         </StyledImageContainer>
