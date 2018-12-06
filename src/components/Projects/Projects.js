@@ -22,7 +22,9 @@ import {mapProjects} from "../Utils/HelperFunctions";
 const Projects = ({ className, projectsToShow = 3 }) => (
     <StaticQuery query={graphql`
       query {
-        projects: allNodeProject {
+        projects: allNodeProject(filter: {status: {eq: true},}
+  							 sort: {fields: [sticky, changed]
+                				order: DESC}) {
           edges {
             node {
               id
