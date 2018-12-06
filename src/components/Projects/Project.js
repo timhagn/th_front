@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import {
-  DefaultMarginAndFontSizeMobile, LargeMargin,
+  DefaultMarginAndFontSizeMobile, GridGapLineHeightBottomMargin, LargeMargin,
   media,
   SmallMargin
 } from '../Utils/Constants'
@@ -50,14 +50,18 @@ const StyledProjectImage = styled(Img)`
 
 const StyledImageContainer = styled.div`
   margin-bottom: ${ SmallMargin }px;
-  min-height: 180px;
+
 `
 
 const StyledProject = styled(Project)`
+  display: grid;
+  grid-template-rows: 0 200px max-content 1fr 0.3fr;
+  //minmax(auto, max-content) 58px minmax(min-content, auto) minmax(auto, min-content);
   margin-bottom: ${ LargeMargin }px;
   
   .project-text-content {
-    min-height: 170px;
+    margin-bottom: ${ SmallMargin }px;
+
     p {
       margin-bottom: 0;
     }
@@ -73,11 +77,15 @@ const StyledProject = styled(Project)`
         color: #00f9c7;
       }
     }
+    
+    h3 {
+      margin-bottom: ${ SmallMargin }px;
+    }
   }  
   
   ${media.lessThan("medium")`
     display: block;
-    margin-bottom: ${ DefaultMarginAndFontSizeMobile  }px;
+    margin-bottom: ${ DefaultMarginAndFontSizeMobile }px;
     
     p.project-text-content {
       min-height: auto;

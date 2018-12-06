@@ -51,13 +51,15 @@ ProjectButtons.propTypes = {
 
 export const StyledProjectButton = styled(Button)`
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   margin-right: ${ SmallMargin }px;
   transition: all 400ms;
+  max-height: 39px;
 `
 
 const StyledProjectButtons = styled(ProjectButtons)`
   display: flex;
+  
 `
 
 export default StyledProjectButtons
