@@ -8,6 +8,7 @@ import {
   DefaultMarginAndFontSizeMobile,
   GridGapLineHeightBottomMargin
 } from '../Utils/Constants'
+import TechnologySlider from "./TechnologySlider";
 // import { stripGutenbergTags } from "../Utils/HelperFunctions"
 
 /**
@@ -59,6 +60,7 @@ const AboutContent = ({ className }) => (
                  <div className="light-text" dangerouslySetInnerHTML={{
                    __html: strippedText,
                  }} />
+                 <TechnologySlider />
                </article>
                <StyledAboutImage fluid={aboutImageData}/>
              </div>
