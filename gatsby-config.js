@@ -61,8 +61,8 @@ module.exports = {
         name: 'timhagn',
         short_name: 'th',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#fff',
+        theme_color: '#00446f',
         display: 'minimal-ui',
         icon: 'src/images/logo-black.svg',
         icons: [
