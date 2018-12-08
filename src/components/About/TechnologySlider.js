@@ -47,7 +47,6 @@ const TechnologySlider = ({ className }) => (
               }
             </div>
         ))
-        console.log(sliderContents)
         return (
            <div className={className}>
              <h3 className="light-heading">{title}</h3>
