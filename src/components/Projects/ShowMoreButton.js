@@ -4,6 +4,8 @@ import {
   DarkLinkHoverVisited,
 } from '../Utils/Constants'
 import { graphql, StaticQuery } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/pro-solid-svg-icons'
 
 /**
  * "Loads" more projects.
@@ -26,6 +28,13 @@ const ShowMore = ({ className, onClick, projectCount, children, ...other }) => (
                      onClick={onClick}
                      {...other}>
                show more
+               <FontAwesomeIcon icon={faAngleDown}
+                                size="lg"
+                                style={{
+                                  marginLeft: 13,
+                                  fontSize: `2rem`,
+                                  verticalAlign: `-0.725rem`,
+                                }} />
              </button>
          )
        }

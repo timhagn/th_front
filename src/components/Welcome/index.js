@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import {
   DefaultMargin,
   // HeaderHeight,
-  HeaderHeightMobile,
+  // HeaderHeightMobile,
   LargeMargin,
   Width
 } from "../Utils/Constants";
@@ -65,12 +65,12 @@ const StyledContainer = styled.div`
   position: absolute;
   left: 0;
   top: 0;
-  padding-top: ${ LargeMargin }px;//calc(${ HeaderHeightMobile }px + ${ LargeMargin }px);
+  padding-top: ${ LargeMargin }px;
   width: 100%;
   height: 100vh;
   
   ${media.greaterThan("small")`
-    padding-top: ${ DefaultMargin };    
+    padding-top: ${ DefaultMargin }px;    
   `}
 `
 

@@ -3,7 +3,9 @@ import PropTypes from "prop-types"
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import {
-  DefaultMarginAndFontSizeMobile, GridGapLineHeightBottomMargin, LargeMargin,
+  DefaultMarginAndFontSizeMobile,
+  // GridGapLineHeightBottomMargin,
+  LargeMargin,
   media,
   SmallMargin
 } from '../Utils/Constants'
