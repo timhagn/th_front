@@ -5,7 +5,6 @@ import {
 } from '../Utils/Constants'
 import { graphql, StaticQuery } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown } from '@fortawesome/pro-solid-svg-icons'
 
 /**
  * "Loads" more projects.
@@ -28,7 +27,7 @@ const ShowMore = ({ className, onClick, projectCount, children, ...other }) => (
                      onClick={onClick}
                      {...other}>
                show more
-               <FontAwesomeIcon icon={faAngleDown}
+               <FontAwesomeIcon icon="angle-down"
                                 size="lg"
                                 style={{
                                   marginLeft: 13,
