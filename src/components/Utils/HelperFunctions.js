@@ -2,6 +2,7 @@
 
 import StyledProject from "../Projects/Project";
 import React from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 /**
@@ -37,6 +38,27 @@ export const mapProjects = (projects, dummyImage, projectsToShow = 3) =>
   })
 
 /**
+ * Maps sliderData to slides.
+ * @param sliderData
+ * @return {*}
+ */
+export const mapSlides = (sliderData) => sliderData.map((slide, index) => (
+      <div className="slide-wrapper" key={`tech-slide-${index}`}>
+        {slide.field_fontawesome_icon.trim().indexOf('own-') !== -1 ?
+            <span>
+                    {slide.field_fontawesome_icon.trim().replace('own-', '')}
+                  </span>
+            : <FontAwesomeIcon
+                icon={['fab', slide.field_fontawesome_icon.trim()]}/>
+        }
+        {/*<div className="slider-info"*/}
+             {/*dangerouslySetInnerHTML={{*/}
+               {/*__html: slide.fields.markdownDescription.childMarkdownRemark.html,*/}
+             {/*}} />*/}
+      </div>
+  ))
+
+/**
  * Strips the WordPress and Paragraph Tags from a given Drupal Node's Body.
  *
  * @param drupalText String   The given Drupal Text.
@@ -63,9 +85,6 @@ export const stripGutenbergTags = drupalText => {
   return ''
 }
 
-export const getMenuLinks = async () => {
-  // TODO: create menu links from Drupal.
-}
 
 /**
  * Add event listener to link removing every other nav-link-active.

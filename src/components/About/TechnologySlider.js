@@ -5,7 +5,13 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import styled from "styled-components";
-import {LightTextColor, SmallMargin} from "../Utils/Constants";
+import {
+  DarkBackground,
+  DarkHeadingColor, DarkTextColor,
+  LightTextColor,
+  SmallMargin
+} from "../Utils/Constants";
+import {mapSlides} from "../Utils/HelperFunctions";
 
 const TechnologySlider = ({ className }) => (
     <StaticQuery query={graphql`
@@ -17,6 +23,13 @@ const TechnologySlider = ({ className }) => (
               field_title
               field_description {
                 value
+              }
+              fields {
+                markdownDescription {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
               }
               field_fontawesome_icon
             }
@@ -31,22 +44,14 @@ const TechnologySlider = ({ className }) => (
           infinite: true,
           slidesToShow: 3,
           centerPadding: `0`,
-          autoplay: true,
-          speed: 500
+          autoplay: false,
+          speed: 500,
+          pauseOnFocus: true,
         }
         const title = data.slider.title
         const sliderData = data.slider.relationships.field_slider_content
-        const sliderContents = sliderData.map((slide, index) => (
-            <div key={`tech-slide-${index}`}>
-              {slide.field_fontawesome_icon.trim().indexOf('own-') !== -1 ?
-                  <span>
-                    {slide.field_fontawesome_icon.trim().replace('own-', '')}
-                  </span>
-                  : <FontAwesomeIcon
-                      icon={['fab', slide.field_fontawesome_icon.trim()]}/>
-              }
-            </div>
-        ))
+        console.log(sliderData)
+        const sliderContents = mapSlides(sliderData)
         return (
            <div className={className}>
              <h3 className="light-heading">{title}</h3>
@@ -62,7 +67,6 @@ const TechnologySlider = ({ className }) => (
 
 const StyledTechnologySlider = styled(TechnologySlider)`
   width: 320px;
-  overflow: hidden;
   
   h3 {
     margin-bottom: ${ SmallMargin }px;
