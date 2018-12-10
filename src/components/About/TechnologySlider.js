@@ -81,7 +81,7 @@ class TechnologySlider extends React.Component {
        }
        const title = data.slider.title
        const sliderData = data.slider.relationships.field_slider_content
-       console.log(sliderData)
+       // console.log(sliderData)
        const sliderContents = mapSlides(sliderData)
        const sliderDescriptions = mapSlideDescriptions(sliderData)
        return (
