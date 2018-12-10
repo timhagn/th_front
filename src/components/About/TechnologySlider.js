@@ -24,10 +24,8 @@ class TechnologySlider extends React.Component {
     this.descriptionSlider = React.createRef()
   }
 
-  handleBeforeChange = (current, next) => {
-    console.log(current,next)
-    this.descriptionSlider.current.slickGoTo(next);
-  }
+  handleBeforeChange = (current, next) =>
+    this.descriptionSlider.current.slickGoTo(next)
 
   render() {
     return (
@@ -61,7 +59,7 @@ class TechnologySlider extends React.Component {
          centerMode: true,
          infinite: true,
          slidesToShow: 3,
-         centerPadding: `0`,
+         centerPadding: `-1px`,
          autoplay: true,
          speed: 500,
          pauseOnFocus: true,
