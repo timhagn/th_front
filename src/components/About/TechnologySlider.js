@@ -1,20 +1,37 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styled from 'styled-components'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import styled from "styled-components";
 import {
-  DarkBackground,
-  DarkHeadingColor, DarkTextColor,
+  media,
+  DefaultMarginAndFontSizeMobile,
   LightTextColor,
   SmallMargin
-} from "../Utils/Constants";
-import {mapSlides} from "../Utils/HelperFunctions";
+} from '../Utils/Constants'
+import { mapSlideDescriptions, mapSlides } from '../Utils/HelperFunctions'
 
-const TechnologySlider = ({ className }) => (
-    <StaticQuery query={graphql`
+/**
+ * Returns the Technology Slider Component.
+ * @param className
+ * @return {*}
+ * @constructor
+ */
+class TechnologySlider extends React.Component {
+  constructor(props) {
+    super(props)
+    this.descriptionSlider = React.createRef()
+  }
+
+  handleBeforeChange = (current, next) => {
+    console.log(current,next)
+    this.descriptionSlider.current.slickGoTo(next);
+  }
+
+  render() {
+    return (
+      <StaticQuery query={graphql`
       {
         slider: nodeTechnologiesSlider {
           title
@@ -37,55 +54,92 @@ const TechnologySlider = ({ className }) => (
         }
       }
       `}
-      render={ data => {
-        const settings = {
-          className: "center",
-          centerMode: true,
-          infinite: true,
-          slidesToShow: 3,
-          centerPadding: `0`,
-          autoplay: false,
-          speed: 500,
-          pauseOnFocus: true,
-        }
-        const title = data.slider.title
-        const sliderData = data.slider.relationships.field_slider_content
-        console.log(sliderData)
-        const sliderContents = mapSlides(sliderData)
-        return (
-           <div className={className}>
+      render={data => {
+       const sliderSettings = {
+         className: "tech-icon-slider",
+         arrows: false,
+         centerMode: true,
+         infinite: true,
+         slidesToShow: 3,
+         centerPadding: `0`,
+         autoplay: true,
+         speed: 500,
+         pauseOnFocus: true,
+         beforeChange: (current, next) => this.handleBeforeChange(current, next),
+       }
+       const descriptionSettings = {
+         className: "center",
+         centerMode: true,
+         infinite: true,
+         slidesToShow: 1,
+         centerPadding: `0`,
+         pauseOnHover: false,
+         autoplay: false,
+         draggable: false,
+         swipe: false,
+         touchMove: false,
+       }
+       const title = data.slider.title
+       const sliderData = data.slider.relationships.field_slider_content
+       console.log(sliderData)
+       const sliderContents = mapSlides(sliderData)
+       const sliderDescriptions = mapSlideDescriptions(sliderData)
+       return (
+           <StyledTechnologySliderWrapper>
              <h3 className="light-heading">{title}</h3>
-             <Slider {...settings}>
+             <Slider {...sliderSettings}>
                {sliderContents}
              </Slider>
-           </div>
-          )
-        }
+             <Slider ref={this.descriptionSlider} {...descriptionSettings}>
+               {sliderDescriptions}
+             </Slider>
+           </StyledTechnologySliderWrapper>
+         )
+       }
       }
-    />
-)
+      />
+    )
+  }
+}
 
-const StyledTechnologySlider = styled(TechnologySlider)`
+const StyledTechnologySliderWrapper = styled.div`
   width: 320px;
   
   h3 {
     margin-bottom: ${ SmallMargin }px;
   }
   
-  svg, span {
-    color: ${ LightTextColor };
-    font-size: 2rem;
-    height: 4rem;
-    transition: all 200ms linear;
-    filter: blur(1px);
-  }
-  
-  .slick-current {
-    svg, span {
-      font-size: 4rem;  
-      filter: none;
+  .tech-icon-slider {
+    .slide-wrapper {
+      svg, span {
+        color: ${LightTextColor};
+        font-size: 2rem;
+        height: 4rem;
+        transition: all 200ms linear;
+        filter: blur(1px);
+      }
+    }
+    .slick-current {
+      svg, span {
+        font-size: 4rem;
+        filter: none;
+      }
     }
   }
+  
+  .slide-wrapper, .slide-description-wrapper { 
+    max-width: 320px;
+  }
+  
+  .slider-info p {
+    color: ${ LightTextColor };
+  }
+ 
+  
+  ${media.lessThan("medium")`
+    display: block;
+    margin-bottom: ${ DefaultMarginAndFontSizeMobile }px;
+  `}
 `
 
-export default StyledTechnologySlider
+export default TechnologySlider

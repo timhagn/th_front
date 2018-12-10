@@ -74,6 +74,10 @@ const StyledAboutImage = styled(Img)`
   width: 100%;
   height: auto;
   
+  img {
+    object-fit: contain !important;
+  }
+  
   ${media.lessThan("medium")`
      margin-top: ${ DefaultMarginAndFontSizeMobile }px;
   `}
@@ -81,7 +85,7 @@ const StyledAboutImage = styled(Img)`
 
 const StyledAboutContent = styled(AboutContent)`
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 2fr;
   grid-gap: ${ GridGapLineHeightBottomMargin }px; 
   
   ${media.lessThan("large")`

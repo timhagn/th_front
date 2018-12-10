@@ -37,26 +37,39 @@ export const mapProjects = (projects, dummyImage, projectsToShow = 3) =>
         projectData={projectData} />
   })
 
+
 /**
  * Maps sliderData to slides.
  * @param sliderData
  * @return {*}
  */
 export const mapSlides = (sliderData) => sliderData.map((slide, index) => (
-      <div className="slide-wrapper" key={`tech-slide-${index}`}>
-        {slide.field_fontawesome_icon.trim().indexOf('own-') !== -1 ?
-            <span>
-                    {slide.field_fontawesome_icon.trim().replace('own-', '')}
-                  </span>
-            : <FontAwesomeIcon
-                icon={['fab', slide.field_fontawesome_icon.trim()]}/>
-        }
-        {/*<div className="slider-info"*/}
-             {/*dangerouslySetInnerHTML={{*/}
-               {/*__html: slide.fields.markdownDescription.childMarkdownRemark.html,*/}
-             {/*}} />*/}
-      </div>
-  ))
+    <div className="slide-wrapper" key={`tech-slide-${index}`}>
+      {slide.field_fontawesome_icon.trim().indexOf('own-') !== -1 ?
+          <span>
+                  {slide.field_fontawesome_icon.trim().replace('own-', '')}
+                </span>
+          : <FontAwesomeIcon
+              icon={['fab', slide.field_fontawesome_icon.trim()]}/>
+      }
+    </div>
+))
+
+
+/**
+ * Maps sliderData description to slides.
+ * @param sliderData
+ * @return {*}
+ */
+export const mapSlideDescriptions = (sliderData) => sliderData.map((slide, index) => (
+    <div className="slide-description-wrapper" key={`tech-slide-${index}`}>
+      <div className="slider-info"
+           dangerouslySetInnerHTML={{
+             __html: slide.fields.markdownDescription.childMarkdownRemark.html,
+           }} />
+    </div>
+))
+
 
 /**
  * Strips the WordPress and Paragraph Tags from a given Drupal Node's Body.
