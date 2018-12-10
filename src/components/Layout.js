@@ -57,7 +57,7 @@ const Layout = ({ notFound = false, children }) => {
             >
               <html lang="en"/>
               <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" defer></script>
-              <script type="text/javascript">{notFound ? `` : fccScript}</script>
+              {/*<script type="text/javascript">{notFound ? `` : fccScript}</script>*/}
               <script type="text/javascript">{smoothScroll}</script>
             </Helmet>
             <StyledHeader notFound={notFound ? '/' : ''}/>
