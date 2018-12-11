@@ -1,5 +1,3 @@
-// import cheerio from 'cheerio'
-
 import StyledProject from "../Projects/Project";
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -79,22 +77,12 @@ export const mapSlideDescriptions = (sliderData) => sliderData.map((slide, index
  * @return String             The matched inner Text.
  */
 export const stripGutenbergTags = drupalText => {
-  // Use cheerio first to try getting the inner paragraph's html.
-  // console.log(drupalText)
-  // const gutenText = cheerio.load(drupalText)('p')
-  // gutenText.find('br').replaceWith('-br-')
-  // const result = gutenText.text()
-  // if (result) {
-  //   return result.replace('-br-', '<br>')
-  // }
-  // else {
-    const gutenbergRegEx = /.*<p>((.|\n)*?)<\/p>.*/
-    const regExResult = drupalText.match(gutenbergRegEx)
+  const gutenbergRegEx = /.*<p>((.|\n)*?)<\/p>.*/
+  const regExResult = drupalText.match(gutenbergRegEx)
 
-    if (Array.isArray(regExResult) && regExResult.length > 0) {
-      return regExResult[1]
-    }
-  // }
+  if (Array.isArray(regExResult) && regExResult.length > 0) {
+    return regExResult[1]
+  }
   return ''
 }
 

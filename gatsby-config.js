@@ -55,6 +55,9 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-styled-components',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -109,9 +112,6 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-styled-components',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     'gatsby-plugin-offline',
   ],
 }
