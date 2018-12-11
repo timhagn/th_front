@@ -33,6 +33,9 @@ module.exports = {
         url: `${SITE_URL}/graphql`,
       },
     },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -55,9 +58,6 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-styled-components',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
