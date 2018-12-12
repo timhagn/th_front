@@ -1,9 +1,11 @@
-const SITE_URL = `http://th_back.web.test`
+const BACKEND_URL = `http://th_back.web.test`
 // const SITE_URL = `https://be.timhagn.com/`
+const FRONTEND_URL = `https://devserv.timhagn.com`
 
 module.exports = {
   siteMetadata: {
     title: 'timhagn.com',
+    siteUrl: FRONTEND_URL,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -15,7 +17,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-drupal',
       options: {
-        baseUrl: `${SITE_URL}/`,
+        baseUrl: `${BACKEND_URL}/`,
         apiBase: `jsonapi`,
         // rateLimit: 1000,
       },
@@ -35,7 +37,7 @@ module.exports = {
         // This is field under which it's accessible
         fieldName: "Drupal",
         // Url to query from
-        url: `${SITE_URL}/graphql`,
+        url: `${BACKEND_URL}/graphql`,
       },
     },
     {
@@ -112,6 +114,13 @@ module.exports = {
             type: `image/png`,
           },
         ],
+      },
+    },
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', disallow: '' }],
       },
     },
     'gatsby-plugin-offline',
