@@ -7,6 +7,11 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
+    // Adds in Gatsby image handling
+    // `gatsby-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-source-drupal',
       options: {
@@ -33,9 +38,6 @@ module.exports = {
         url: `${SITE_URL}/graphql`,
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
