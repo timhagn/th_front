@@ -27,12 +27,17 @@ const inImageCache = props => {
       ? convertedProps.fluid.src
       : convertedProps.fixed.src
 
-  if (imageCache[src]) {
-    return true
-  } else {
-    imageCache[src] = true
-    return false
-  }
+  return imageCache[src] || false
+}
+
+const activateCacheForImage = props => {
+  const convertedProps = convertProps(props)
+  // Find src
+  const src = convertedProps.fluid
+    ? convertedProps.fluid.src
+    : convertedProps.fixed.src
+
+  imageCache[src] = true
 }
 
 let io
@@ -75,25 +80,29 @@ const noscriptImg = props => {
   // HTML validation issues caused by empty values like width="" and height=""
   const src = props.src ? `src="${props.src}" ` : `src="" ` // required attribute
   const sizes = props.sizes ? `sizes="${props.sizes}" ` : ``
-  const srcSetWebp = props.srcSetWebp ? `<source type='image/webp' srcSet="${props.srcSetWebp}" ${sizes}/>` : ``
-  const srcSet = props.srcSet ? `<source srcSet="${props.srcSet}" ${sizes}/>` : ``
+  const srcSetWebp = props.srcSetWebp
+    ? `<source type='image/webp' srcSet="${props.srcSetWebp}" ${sizes}/>`
+    : ``
+  const srcSet = props.srcSet
+    ? `<source srcSet="${props.srcSet}" ${sizes}/>`
+    : ``
   const title = props.title ? `title="${props.title}" ` : ``
   const alt = props.alt ? `alt="${props.alt}" ` : `alt="" ` // required attribute
   const width = props.width ? `width="${props.width}" ` : ``
   const height = props.height ? `height="${props.height}" ` : ``
   const opacity = props.opacity ? props.opacity : `1`
   const transitionDelay = props.transitionDelay ? props.transitionDelay : `0.5s`
-  return (`<picture>${srcSetWebp}${srcSet}<img ${width}${height}${src}${alt}${title}style="position:absolute;top:0;left:0;transition:opacity 0.5s;transition-delay:${transitionDelay};opacity:${opacity};width:100%;height:100%;object-fit:cover;object-position:center"/></picture>`)
+  return `<picture>${srcSetWebp}${srcSet}<img ${width}${height}${src}${alt}${title}style="position:absolute;top:0;left:0;transition:opacity 0.5s;transition-delay:${transitionDelay};opacity:${opacity};width:100%;height:100%;object-fit:cover;object-position:center"/></picture>`
 }
 
 const Img = React.forwardRef((props, ref) => {
   const { style, onLoad, onError, alt, ...otherProps } = props
-
-  return <img
+  return (
+    <img
       {...otherProps}
+      alt={alt}
       onLoad={onLoad}
       onError={onError}
-      alt={alt}
       ref={ref}
       style={{
         position: `absolute`,
@@ -106,6 +115,7 @@ const Img = React.forwardRef((props, ref) => {
         ...style,
       }}
   />
+  )
 })
 
 Img.propTypes = {
@@ -118,10 +128,9 @@ class BackgroundImage extends React.Component {
   constructor(props) {
     super(props)
 
-    // If this browser doesn't support the IntersectionObserver API
-    // we default to start downloading the image right away.
+    // default settings for browser without Intersection Observer available
     let isVisible = true
-    let imgLoaded = true
+    let imgLoaded = false
     let IOSupported = false
     let fadeIn = props.fadeIn
 
@@ -129,25 +138,24 @@ class BackgroundImage extends React.Component {
     // already in the browser cache so it's cheap to just show directly.
     const seenBefore = inImageCache(props)
 
+    // browser with Intersection Observer available
     if (
         !seenBefore &&
         typeof window !== `undefined` &&
         window.IntersectionObserver
     ) {
       isVisible = false
-      imgLoaded = false
       IOSupported = true
     }
 
-    // Always don't render image while server rendering
+    // Never render image during SSR
     if (typeof window === `undefined`) {
       isVisible = false
-      imgLoaded = false
     }
 
+    // Force render for critical images
     if (props.critical) {
       isVisible = true
-      imgLoaded = false
       IOSupported = false
     }
 
@@ -173,6 +181,9 @@ class BackgroundImage extends React.Component {
   }
 
   componentDidMount() {
+    if (this.state.isVisible && typeof this.props.onStartLoad === `function`) {
+      this.props.onStartLoad({ wasCached: inImageCache(this.props) })
+    }
     if (this.props.critical) {
       const img = this.imageRef.current
       if (img && img.complete) {
@@ -185,12 +196,20 @@ class BackgroundImage extends React.Component {
   handleRef(ref) {
     if (this.state.IOSupported && ref) {
       listenToIntersections(ref, () => {
-        this.setState({ isVisible: true })
+        if (
+          !this.state.isVisible &&
+          typeof this.props.onStartLoad === `function`
+        ) {
+          this.props.onStartLoad({ wasCached: inImageCache(this.props) })
+        }
+
+        this.setState({ isVisible: true, imgLoaded: false })
       })
     }
   }
 
   handleImageLoaded() {
+    activateCacheForImage(this.props)
     this.setState({ imgLoaded: true })
     if (this.state.seenBefore) {
       this.setState({ fadeIn: false })
@@ -206,6 +225,7 @@ class BackgroundImage extends React.Component {
       style = {},
       imgStyle = {},
       placeholderStyle = {},
+      placeholderClassName,
       fluid,
       fixed,
       backgroundColor,
@@ -214,7 +234,8 @@ class BackgroundImage extends React.Component {
       children
     } = convertProps(this.props)
 
-    const bgColor = typeof backgroundColor === `boolean` ? `lightgray` : backgroundColor
+    const bgColor =
+      typeof backgroundColor === `boolean` ? `lightgray` : backgroundColor
 
     const imagePlaceholderStyle = {
       opacity: this.state.imgLoaded ? 0 : 1,
@@ -228,6 +249,13 @@ class BackgroundImage extends React.Component {
       opacity: this.state.imgLoaded || this.state.fadeIn === false ? 1 : 0,
       transition: this.state.fadeIn === true ? `opacity 0.5s` : `none`,
       ...imgStyle,
+    }
+
+    const placeholderImageProps = {
+      title,
+      alt: !this.state.isVisible ? alt : ``,
+      style: imagePlaceholderStyle,
+      className: placeholderClassName,
     }
 
     if (fluid) {
@@ -256,7 +284,7 @@ class BackgroundImage extends React.Component {
               style={{
                 position: `relative`,
                 overflow: `hidden`,
-                backgroundColor: bgColor,
+                backgroundColor: bgImage === `` ? bgColor : ``,
                 backgroundImage: `url(${ bgImage })`,
                 // backgroundRepeat: `no-repeat`,
                 backgroundSize: `cover`,
@@ -270,8 +298,8 @@ class BackgroundImage extends React.Component {
               key={`fluid-${JSON.stringify(image.srcSet)}`}
           >
             <style dangerouslySetInnerHTML={{
-              __html:
-                  `.after-background-image-${id}:after {
+              __html:`
+                .after-background-image-${id}:after {
                   background: url(${nextImage}) repeat;
                   content: "";
                   opacity: ${afterOpacity};
@@ -285,7 +313,8 @@ class BackgroundImage extends React.Component {
                   -webkit-transition: opacity 0.25s ease-in-out;
                   -moz-transition: opacity 0.25s ease-in-out;
                   -o-transition: opacity 0.25s ease-in-out;
-              }`
+                }
+              `
             }}>
             </style>
             {/* Show the blurry base64 image. */}
@@ -298,6 +327,7 @@ class BackgroundImage extends React.Component {
                       // Prevent Gatsby Image from being shown, as we only need it for the Backgrounds.
                       display: `none`,
                     }}
+										{...placeholderImageProps}
                 />
             )}
 
@@ -311,6 +341,7 @@ class BackgroundImage extends React.Component {
                       // Prevent Gatsby Image from being shown, as we only need it for the Backgrounds.
                       display: `none`,
                     }}
+										{...placeholderImageProps}
                 />
             )}
 
@@ -448,6 +479,7 @@ class BackgroundImage extends React.Component {
                       // Prevent Gatsby Image from being shown, as we only need it for the Backgrounds.
                       display: `none`,
                     }}
+										{...placeholderImageProps}
                 />
             )}
 
@@ -461,6 +493,7 @@ class BackgroundImage extends React.Component {
                       // Prevent Gatsby Image from being shown, as we only need it for the Backgrounds.
                       display: `none`,
                     }}
+										{...placeholderImageProps}
                 />
             )}
 
@@ -573,9 +606,11 @@ BackgroundImage.propTypes = {
   style: PropTypes.object,
   imgStyle: PropTypes.object,
   placeholderStyle: PropTypes.object,
+  placeholderClassName: PropTypes.string,
   backgroundColor: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   onLoad: PropTypes.func,
   onError: PropTypes.func,
+  onStartLoad: PropTypes.func,
   Tag: PropTypes.string,
   id: PropTypes.string,
 }
