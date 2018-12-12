@@ -258,6 +258,19 @@ class BackgroundImage extends React.Component {
       className: placeholderClassName,
     }
 
+    const backgroundSize =
+      this.backgroundStyles.hasOwnProperty(`backgroundSize`) ?
+        this.backgroundStyles.backgroundSize :
+        `cover`
+
+    const backgroundRepeat = `background-repeat: ${
+      this.backgroundStyles.hasOwnProperty(`backgroundRepeat`) ?
+        this.backgroundStyles.backgroundRepeat :
+        `no-repeat`
+      };`
+
+    const transitionDelay = this.state.imgLoaded ? `0.5s` : `0.25s`
+
     if (fluid) {
       const image = fluid
 
@@ -284,13 +297,6 @@ class BackgroundImage extends React.Component {
               style={{
                 position: `relative`,
                 overflow: `hidden`,
-                backgroundColor: bgImage === `` ? bgColor : ``,
-                backgroundImage: `url(${ bgImage })`,
-                // backgroundRepeat: `no-repeat`,
-                backgroundSize: `cover`,
-                transition: `background 0.2s ease-in-out`,
-                // transitionDelay: transitionDelay,
-                // zIndex: -1,
                 ...style,
                 ...this.backgroundStyles,
               }}
@@ -299,20 +305,32 @@ class BackgroundImage extends React.Component {
           >
             <style dangerouslySetInnerHTML={{
               __html:`
+                .after-background-image-${id}:before,
                 .after-background-image-${id}:after {
-                  background: url(${nextImage}) repeat;
-                  content: "";
-                  opacity: ${afterOpacity};
+                  background-size: ${backgroundSize};
+                  content: '';
+                  display: block;
+                  position: absolute;
                   width: 100%;
                   height: 100%;
-                  position: absolute;
                   top: 0;
                   left: 0;
-                  z-index: -1;
-                  transition: opacity 0.25s ease-in-out;
-                  -webkit-transition: opacity 0.25s ease-in-out;
-                  -moz-transition: opacity 0.25s ease-in-out;
-                  -o-transition: opacity 0.25s ease-in-out;
+                  transition: opacity ${transitionDelay} ease-in-out;
+                  -webkit-transition: opacity ${transitionDelay} ease-in-out;
+                  -moz-transition: opacity ${transitionDelay} ease-in-out;
+                  -o-transition: opacity ${transitionDelay} ease-in-out;
+                }
+                .after-background-image-${id}:before {
+                  z-index: -101;
+                  background-image: url(${bgImage});
+                  ${backgroundRepeat}
+                }
+                .after-background-image-${id}:after {
+                  z-index: -100;
+                  background-image: url(${nextImage});
+                  ${backgroundRepeat}
+                  content: "";
+                  opacity: ${afterOpacity};
                 }
               `
             }}>
@@ -345,22 +363,22 @@ class BackgroundImage extends React.Component {
                 />
             )}
 
-             {/*Show a solid background color. */}
-            {/*{bgColor && (*/}
-                {/*<Tag*/}
-                    {/*title={title}*/}
-                    {/*style={{*/}
-                      {/*backgroundColor: bgColor,*/}
-                      {/*position: `absolute`,*/}
-                      {/*top: 0,*/}
-                      {/*bottom: 0,*/}
-                      {/*opacity: !this.state.imgLoaded ? 1 : 0,*/}
-                      {/*transitionDelay: `0.35s`,*/}
-                      {/*right: 0,*/}
-                      {/*left: 0,*/}
-                    {/*}}*/}
-                {/*/>*/}
-            {/*)}*/}
+
+            {/* Show a solid background color. */}
+            {bgColor && (
+              <Tag
+                title={title}
+                style={{
+                  backgroundColor: bgImage === `` ? bgColor : ``,
+                  backgroundSize: backgroundSize,
+                  zIndex: -103,
+                  width: image.width,
+                  opacity: !this.state.imgLoaded ? 1 : 0,
+                  transitionDelay: `0.25s`,
+                  height: image.height,
+                }}
+              />
+            )}
 
             {/* Once the image is visible (or the browser doesn't support IntersectionObserver), start downloading the image */}
             {this.state.isVisible && (
@@ -420,11 +438,12 @@ class BackgroundImage extends React.Component {
       }
 
       // Set the backgroundImage according to images available.
-      let bgImage = ``,
-          nextImage = ``
+      let bgImage = this.bgImage,
+        nextImage = ``
       if (image.tracedSVG) nextImage = `'${ image.tracedSVG }'`
       if (image.base64 && !image.tracedSVG) nextImage = image.base64
       if (this.state.isVisible) nextImage = image.src
+
       // Switch bgImage & nextImage and opacity accordingly.
       bgImage = bgImage === `` ? nextImage : ``
       const afterOpacity = nextImage !== bgImage ? 1 : 0
@@ -433,40 +452,50 @@ class BackgroundImage extends React.Component {
 
       return (
           <Tag
-              id={id}
-              className={`${className ? className : ``} gatsby-image-wrapper`}
-              style={{
-                position: `relative`,
-                overflow: `hidden`,
-                backgroundImage: `url(${ bgImage })`,
-                // backgroundRepeat: `no-repeat`,
-                backgroundSize: `cover`,
-                transition: `background 0.2s ease-in-out`,
-                zIndex: -1,
-                ...divStyle,
-                ...this.backgroundStyles,
-              }}
+            id={id}
+            className={`${className ? className : ``} after-background-image-${id} gatsby-image-wrapper`}
+            style={{
+              position: `relative`,
+              overflow: `hidden`,
+              backgroundColor: bgImage === `` ? bgColor : ``,
+              backgroundSize: backgroundSize,
+              zIndex: -103,
+              ...style,
+              ...this.backgroundStyles,
+            }}
               ref={this.handleRef}
               key={`fixed-${JSON.stringify(image.srcSet)}`}
           >
             <style dangerouslySetInnerHTML={{
-              __html:
-                  `.my-special-div:after {
-                background: url(${nextImage}) repeat;
-                content: "";
-                opacity: ${afterOpacity};
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -2;
-                /* TRANSISITION */
-                transition: opacity 1s ease-in-out;
-                -webkit-transition: opacity 1s ease-in-out;
-                -moz-transition: opacity 1s ease-in-out;
-                -o-transition: opacity 1s ease-in-out;
-            }`
+              __html:`
+                .after-background-image-${id}:before,
+                .after-background-image-${id}:after {
+                  background-size: ${backgroundSize};
+                  content: '';
+                  display: block;
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  top: 0;
+                  left: 0;
+                  transition: opacity ${transitionDelay} ease-in-out;
+                  -webkit-transition: opacity ${transitionDelay} ease-in-out;
+                  -moz-transition: opacity ${transitionDelay} ease-in-out;
+                  -o-transition: opacity ${transitionDelay} ease-in-out;
+                }
+                .after-background-image-${id}:before {
+                  z-index: -101;
+                  background-image: url(${bgImage});
+                  ${backgroundRepeat}
+                }
+                .after-background-image-${id}:after {
+                  z-index: -100;
+                  background-image: url(${nextImage});
+                  ${backgroundRepeat}
+                  content: "";
+                  opacity: ${afterOpacity};
+                }
+              `
             }}>
             </style>
             {/* Show the blurry base64 image. */}
@@ -502,7 +531,9 @@ class BackgroundImage extends React.Component {
                 <Tag
                     title={title}
                     style={{
-                      backgroundColor: bgColor,
+                      backgroundColor: bgImage === `` ? bgColor : ``,
+                      backgroundSize: backgroundSize,
+                      zIndex: -103,
                       width: image.width,
                       opacity: !this.state.imgLoaded ? 1 : 0,
                       transitionDelay: `0.25s`,

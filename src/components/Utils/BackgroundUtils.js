@@ -56,7 +56,7 @@ const rulesForCssText = function (styleContent) {
 const getBackgroundStylesForSingleClass = className => {
   const style = getStyle(`.${className}`)
   const cssStyleRules = rulesForCssText(style)
-  // console.log(className, style, cssStyleRules)
+   // console.log(className, style, cssStyleRules)
   if (cssStyleRules.length > 0 &&
       typeof(cssStyleRules[0].style) !== 'undefined') {
     // Filter out background(-*) rules that contain a definition.
