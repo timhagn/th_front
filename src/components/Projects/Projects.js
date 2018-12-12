@@ -1,17 +1,12 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-// import Img from 'gatsby-image'
 import styled from 'styled-components'
 import {
   media,
   WrapperMarginsMobile,
-  // DefaultMarginAndFontSizeMobile,
   GridGapLineHeightBottomMargin,
-  // LargeMargin
 } from '../Utils/Constants'
-// import { stripGutenbergTags } from '../Utils/HelperFunctions'
-// import StyledProject from './Project'
-import {mapProjects} from "../Utils/HelperFunctions";
+import { mapProjects } from "./ProjectHelpers";
 
 /**
  * Displays the Projects.

@@ -10,7 +10,7 @@ import {
   LightTextColor,
   SmallMargin
 } from '../Utils/Constants'
-import { mapSlideDescriptions, mapSlides } from '../Utils/HelperFunctions'
+import mapSlides from './AboutHelpers'
 
 /**
  * Returns the Technology Slider Component.
@@ -80,8 +80,7 @@ class TechnologySlider extends React.Component {
        const title = data.slider.title
        const sliderData = data.slider.relationships.field_slider_content
        // console.log(sliderData)
-       const sliderContents = mapSlides(sliderData)
-       const sliderDescriptions = mapSlideDescriptions(sliderData)
+       const {sliderContents, sliderDescriptions} = mapSlides(sliderData)
        return (
            <StyledTechnologySliderWrapper>
              <h3 className="light-heading">{title}</h3>
