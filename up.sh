@@ -9,16 +9,19 @@ if [[ -n "$1" ]]; then
     rm -rf .cache
     rm -rf public
 fi
+
 # Now copy backuped dependency lists and lock file
 #echo "Copying old conf & lock files..."
 #cp ./fix/package.json .
 #cp ./fix/yarn.lock .
+
 # Run yarn (install) in main and build styled-media-query
 echo "Running yarn & building styled-media-query..."
 yarn
 cd ./node_modules/styled-media-query/
 yarn
 yarn build
+
 # Copy gatsby-source-drupal from gatsby repo.
 echo "Fetching gatsby-source-drupal from gatsby repo..."
 #gatsby-dev -s --packages gatsby-source-drupal
