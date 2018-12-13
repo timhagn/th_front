@@ -702,7 +702,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.2.0.tgz#b03e42eeddf5898e00646e4c840fa07ba8dcad7f"
   integrity sha512-oouEibCbHMVdZSDlJBO6bZmID/zA/G/Qx3H1d3rSNPTD+L8UNKvCat7aKWSJ74zYbm5zWGh0GQN0hKj8zYFTCg==
@@ -794,36 +794,36 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.3.tgz#6310a047f12d21a1036fb031317219892440416f"
   integrity sha512-4zAPlpDEh2VwXswwr/t8xGNDGg8RQiPxtxZ3qQEXyQsBV39ptTdESCjuBvGze1nLMVrxmTIKmnO/nAV8Tqjjzg==
 
-"@fortawesome/fontawesome-common-types@^0.2.9":
-  version "0.2.9"
-  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.9.tgz#f307509ec8ac542965ae1ef96a9be0ebea837949"
-  integrity sha512-tLNNifyheh8mmgzOgxl2XSe03usa1UMTZNLDre6gxvqgIwCDi8Wya2D1MMMry/nc7vsqWf33KEF6L+ULtXZk2A==
+"@fortawesome/fontawesome-common-types@^0.2.10":
+  version "0.2.10"
+  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.10.tgz#ae0e6858daf6f9ff1e2396f9fbea87b244628343"
+  integrity sha512-FbrzSgFDzoC6Dm8w7gCWxgdffFbYV7O/4THOtYDQEplZVOpYIA3vjgnxCXApY49YaIQ91mxIGROS3d7wS+fO3A==
 
 "@fortawesome/fontawesome-pro@^5.5.0":
   version "5.6.0"
   resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/fontawesome-pro-5.6.0.tgz#7af35d4428576e19e422a407493a972b6579769d"
   integrity sha512-iZUJ/MRN1r+eKfJ4ITPQzlWBEK6Lxd0tYH4eKt8bvPkkY7/jqgywLHbQNanV3XxG/YtFH3tJfCdFu45wtvBANA==
 
-"@fortawesome/fontawesome-svg-core@^1.2.9":
-  version "1.2.9"
-  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.9.tgz#73fd513e219e7e781a3a06221691f42a8f2ab065"
-  integrity sha512-XErESbPjLQ9t9t0oCTwSKX2rZCqjVm3MRETErbA7lPszt3Sx/4d2oBQZ/oIsVr5O97ev0ECshpxrjEjsl/CjmA==
+"@fortawesome/fontawesome-svg-core@^1.2.10":
+  version "1.2.10"
+  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.10.tgz#235f82b209f36c94792a79b9aea127dfa29651c9"
+  integrity sha512-x9rYQ4jPVWnXgsle/MzaV2qDwNfc1Gm5DB0T76WOp4RDZ/esjEE0OvKtMa2qFvG1NqYbelgN4gChA+ttAqPtaw==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.9"
+    "@fortawesome/fontawesome-common-types" "^0.2.10"
 
-"@fortawesome/free-brands-svg-icons@^5.6.0":
-  version "5.6.0"
-  resolved "https://npm.fontawesome.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.6.0.tgz#1d80c0ba7f9dbecc3dcccdc95b136d7fba60e4b9"
-  integrity sha512-fMCUewReABIPWmtl+ZyY8GmO1VDYEvemnEIbNKE8mJD54TbMC+ZpXt4YE2WlsgHko5bseotx+h4gUhqcbu1ibA==
+"@fortawesome/free-brands-svg-icons@^5.6.1":
+  version "5.6.1"
+  resolved "https://npm.fontawesome.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.6.1.tgz#5f96bb8eb17cc62f962546e7d0e76086bfcec696"
+  integrity sha512-rrlucemW9+Az26+faQ9O7D50PPrBD+0ATi86yufqnyy44HapoWPuu/0AJhdUCV4hDEWMrAVAvGUEVg9oxHoTHQ==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.9"
+    "@fortawesome/fontawesome-common-types" "^0.2.10"
 
-"@fortawesome/pro-solid-svg-icons@^5.6.0":
-  version "5.6.0"
-  resolved "https://npm.fontawesome.com/@fortawesome/pro-solid-svg-icons/-/pro-solid-svg-icons-5.6.0.tgz#92194c3e09a60f141bd28d890ef8d608b92b7004"
-  integrity sha512-H9lc2bs8H1b9XO89Nyqucmzm84nVHNlQ3Z8JGtHHcwuyj1mVHUJw8it4SrDBv33lXnoGT+60Z7w5ba0cRpvoPA==
+"@fortawesome/pro-solid-svg-icons@5.6.1":
+  version "5.6.1"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-solid-svg-icons/-/pro-solid-svg-icons-5.6.1.tgz#7f6eee68dacc9d4f519d76ca0eaf6ba7fd2ae510"
+  integrity sha512-4nPqU4q1KgIgDO7QJN6uuVqagH+X77DmoQawTwrPs2CPkbtfJTNUn8N5ctXQWpJa/cYs1nxCNS5tkInYUMMq5Q==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.9"
+    "@fortawesome/fontawesome-common-types" "^0.2.10"
 
 "@fortawesome/react-fontawesome@^0.1.3":
   version "0.1.3"
@@ -2063,7 +2063,7 @@ babel-template@^6.24.1, babel-template@^6.26.0:
     babylon "^6.18.0"
     lodash "^4.17.4"
 
-babel-traverse@6.26.0, babel-traverse@^6.24.1, babel-traverse@^6.26.0:
+babel-traverse@^6.24.1, babel-traverse@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-traverse/-/babel-traverse-6.26.0.tgz#46a9cbd7edcc62c8e5c064e2d2d8d0f4035766ee"
   integrity sha1-RqnL1+3MYsjlwGTi0tjQ9ANXZu4=
@@ -5471,6 +5471,14 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+gatsby-background-image@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/gatsby-background-image/-/gatsby-background-image-0.1.5.tgz#4d9808b1eb5c5750523e33471597187cee1c2005"
+  integrity sha512-6whILHyLucWmF2i7GM9bhAM42+WfN0jADBXOjs1hAkn7zwPQJ3hc/YpKOdHuV4cUlkbO28OYg5gmWYf0lpQ7Yg==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    prop-types "^15.6.2"
+
 gatsby-cli@^2.4.6:
   version "2.4.6"
   resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.4.6.tgz#97a293d2d3ac3f5bd3abe88728e77d3c093a47cc"
@@ -5497,10 +5505,10 @@ gatsby-cli@^2.4.6:
     yargs "^11.1.0"
     yurnalist "^0.2.1"
 
-gatsby-image@^2.0.23:
-  version "2.0.23"
-  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.0.23.tgz#64e6b01a02234ef71e7e93500207fd9e7f77df86"
-  integrity sha512-Ab1wQI9nJQxF4TTgdYqENs5tFJg6voBp1YCRUl7ppjSJadKvmaoneVQFCSGm29WSK/DgsRE0MVQ1Fe3L+ke9mg==
+gatsby-image@^2.0.25:
+  version "2.0.25"
+  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.0.25.tgz#30547589701db4c4c3e954609201fce2103ec8de"
+  integrity sha512-Czjwf1m/8p7OX1hEh5YKHIFgqGZylGYKqXcDQ9myOQW3qOZ3Mw82ERjT6YSSHTQsELK27LgrKacL0YvvPR+ZJQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
     prop-types "^15.6.1"
@@ -5739,10 +5747,10 @@ gatsby-transformer-sharp@^2.1.9:
     probe-image-size "^4.0.0"
     sharp "^0.21.0"
 
-gatsby@^2.0.66:
-  version "2.0.66"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.66.tgz#18a3421bb680dcf818c88c37442e0e61682bb6c1"
-  integrity sha512-WVrGTDAMRi9IpXivPN8edhS5fXPwgeFCz4gzW4k7YQZMe1nHf/Eqhbuoe/BoNuzt1lz4S7SZ3o8GTCTYKNEhRA==
+gatsby@^2.0.67:
+  version "2.0.67"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.67.tgz#c7c8d183057b9f6654220fc9ccbbc2c6a5804582"
+  integrity sha512-Y7a8EvI2hyw4QaqaKeJWP+H0P9Qzjfi8iuTubr0weugeah9YK9A9Ds/BNQKVmg5Mz9kdgFhsB/YB5MWzwtZEmQ==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -5761,7 +5769,6 @@ gatsby@^2.0.66:
     babel-plugin-dynamic-import-node "^1.2.0"
     babel-plugin-remove-graphql-queries "^2.5.2"
     babel-preset-gatsby "^0.1.6"
-    babel-traverse "6.26.0"
     better-queue "^3.8.6"
     bluebird "^3.5.0"
     browserslist "3.2.8"

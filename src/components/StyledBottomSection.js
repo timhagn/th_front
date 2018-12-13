@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 
-import BackgroundImage from './Utils/BackgroundImage'
+import BackgroundImage from 'gatsby-background-image'
 import StyledCopyrightSection from './Footer'
 import StyledProjectsSection from './Projects'
 import {
