@@ -57,6 +57,9 @@ const StyledBottomSection = styled(BottomSection)`
   
   ${media.lessThan("medium")`
     background-size: contain !important;
+    &:after, &:before {
+      background-size: contain !important;
+    }
   `}
 `
 

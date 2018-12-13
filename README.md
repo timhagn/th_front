@@ -6,15 +6,14 @@
 * After `yarn` run `yarn & yarn build` in `node_modules/styled-media-queries/`.
 * Use `gatsby-source-drupal` from local gatsby repo with `gatsby-dev --packages gatsby-source-drupal`.
 
-## Fixing Errors:
+## Scripts:
 
-* Now has a quickfix script: `fix_sharp.sh` which does the above for you.
-* Uses sharp.node, package.json & yarn.lock from the fix folder  
+* Now has a update script: `up.sh` which does the above for you.  
 
 
 ### Made with:
 
 ![Gatsby](https://www.gatsbyjs.org/monogram.svg)
-##Gatsby v2
+###Gatsby v2
 
 
