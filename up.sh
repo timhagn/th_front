@@ -10,11 +10,6 @@ if [[ -n "$1" ]]; then
     rm -rf public
 fi
 
-# Now copy backuped dependency lists and lock file
-#echo "Copying old conf & lock files..."
-#cp ./fix/package.json .
-#cp ./fix/yarn.lock .
-
 # Run yarn (install) in main and build styled-media-query
 echo "Running yarn & building styled-media-query..."
 yarn
@@ -23,9 +18,5 @@ yarn
 yarn build
 
 # Copy gatsby-source-drupal from gatsby repo.
-echo "Fetching gatsby-source-drupal from gatsby repo..."
-#gatsby-dev -s --packages gatsby-source-drupal
-# Now restore sharp.node (not necessary atm).
-# echo "Finally restoring sharp.node..."
-# cd ../..
-# cp ./fix/sharp.node ./node_modules/sharp/build/Release/sharp.node
+# echo "Fetching gatsby-source-drupal from gatsby repo..."
+# gatsby-dev -s --packages gatsby-source-drupal
