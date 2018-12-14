@@ -63,7 +63,7 @@ const CertificateSlider = () => (
      pauseOnFocus: true,
      responsive: [
        {
-         breakpoint: 641,
+         breakpoint: 801,
          settings: {
            arrows: true,
            dots: true,
@@ -92,9 +92,14 @@ const CertificateSlider = () => (
 
 const StyledCertificateSliderWrapper = styled.div`
   .cert-slider {
+    .slick-track {
+      display: flex;
+      align-items: center;
+    }
+    
     .slide-wrapper {
       border: 1px solid black;
-      box-shadow: 10px 5px 5px black;
+      box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.05);
       transition: all 200ms linear;
       filter: blur(1px);
       transform: scale(0.5);
