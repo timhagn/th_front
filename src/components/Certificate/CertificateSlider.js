@@ -105,11 +105,6 @@ const StyledCertificateSliderWrapper = styled.div`
     }
   }
   
-  ${media.lessThan("medium")`
-    display: block;
-    margin-bottom: ${DefaultMarginAndFontSizeMobile}px;
-  `}
-  
   ${media.lessThan("large")`
      margin: 0 ${ WrapperMarginsMobile }px;
   `}
