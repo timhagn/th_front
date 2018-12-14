@@ -26,7 +26,6 @@ export const mapProjects = (projects, dummyImage, projectsToShow = 3) =>
       projectCodeLinkTitle: item.node.field_project_source_link !== null ?
         item.node.field_project_source_link.title : '',
     }
-    // console.log(projectData)
     return <StyledProject
       id={`styled-project-${key}`}
       key={`styled-project-${key}`}

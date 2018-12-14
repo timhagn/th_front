@@ -33,7 +33,6 @@ class ProjectsSection extends React.Component {
   }
 
   handleClick = event => {
-    // console.log(this.state.projectsToShow)
     this.setState({
       projectsToShow: this.state.projectsToShow + 3,
       showMoreStyle: {

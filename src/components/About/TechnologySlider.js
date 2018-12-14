@@ -79,7 +79,6 @@ class TechnologySlider extends React.Component {
        }
        const title = data.slider.title
        const sliderData = data.slider.relationships.field_slider_content
-       // console.log(sliderData)
        const {sliderContents, sliderDescriptions} = mapSlides(sliderData)
        return (
            <StyledTechnologySliderWrapper>
