@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import BackgroundImage from 'gatsby-background-image'
 import StyledCopyrightSection from './Footer'
+import StyledCertificateSection from './Certificate'
 import StyledProjectsSection from './Projects'
 import {
   Width,
@@ -11,7 +12,7 @@ import {
   // DarkBackground,
   BlueBackground
 } from './Utils/Constants'
-import StyledContactSection from './Contact'
+
 
 const BottomSection = ({ className }) => (
     <StaticQuery query={graphql`
@@ -44,7 +45,7 @@ const BottomSection = ({ className }) => (
                            backgroundColor={BlueBackground}
           >
             <StyledProjectsSection />
-            <StyledContactSection />
+            <StyledCertificateSection />
             <StyledCopyrightSection />
           </BackgroundImage>
        )

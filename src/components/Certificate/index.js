@@ -3,14 +3,12 @@ import styled from "styled-components"
 import {
   DefaultMargin, LightTextColor,
   media,
-  WrapperMarginsMobile, WrapperMaxWidthDesktop,
+  WrapperMarginsMobile,
+  WrapperMaxWidthDesktop,
   WrapperMaxWidthMobile,
-} from '../Utils/Constants'
-import {
-  LargeMargin,
   DefaultMarginAndFontSizeMobile,
-  GridGapLineHeightBottomMargin,
-} from "../Utils/Constants"
+} from '../Utils/Constants'
+import CertificateSlider from './CerificateSlider'
 
 /**
  * This Styled Component wraps the Contact Form.
@@ -20,7 +18,7 @@ import {
 const ContactSection = ({ className }) => (
   <section className={className}>
     <StyledContactWrapper>
-      &copy; Tim Hagn
+      <CertificateSlider />
     </StyledContactWrapper>
   </section>
 )
@@ -45,8 +43,16 @@ const StyledContactSection = styled(ContactSection)`
   position: relative;
   overflow: hidden;
   width: 100%;
-  min-height: 15rem;
   background-color: #fff;
+  margin-bottom: ${ DefaultMarginAndFontSizeMobile }px;
+  
+  ${media.greaterThan("small")`
+    margin-bottom: ${ DefaultMarginAndFontSizeMobile }px;
+  `}
+  
+  ${media.greaterThan("medium")`
+    margin-bottom: ${ DefaultMargin }px;
+  `}  
 `
 
 export default StyledContactSection
