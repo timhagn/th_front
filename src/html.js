@@ -12,7 +12,7 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <link rel="canonical" href="https://devserv.timhagn.com"/>
+          <link rel="canonical" href="https://fcc.timhagn.com"/>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>

@@ -1,6 +1,6 @@
 const BACKEND_URL = `http://th_back.web.test`
 // const SITE_URL = `https://be.timhagn.com/`
-const FRONTEND_URL = `https://devserv.timhagn.com`
+const FRONTEND_URL = `https://fcc.timhagn.com`
 
 module.exports = {
   siteMetadata: {
