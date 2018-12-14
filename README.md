@@ -1,5 +1,5 @@
-![TH](https://be.timhagn.com/themes/custom/thstark/logo.svg)
-#Front End to Tim Hagn's Portfolio Site.
+![TH](https://be.timhagn.com/themes/custom/thstark/logo.svg  | width=100)
+# Front End to Tim Hagn's Portfolio Site.
 
 ## Important for now:
 
@@ -13,7 +13,7 @@
 
 ### Made with:
 
-![Gatsby](https://www.gatsbyjs.org/monogram.svg)
-###Gatsby v2
+![Gatsby](https://www.gatsbyjs.org/monogram.svg | width=100)
+##### Gatsby v2
 
 
