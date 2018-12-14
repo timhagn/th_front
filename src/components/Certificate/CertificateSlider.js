@@ -6,19 +6,17 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import {
   media,
-  DefaultMarginAndFontSizeMobile,
-  LightTextColor,
+  DefaultMarginAndFontSizeMobile, WrapperMarginsMobile,
+  // LightTextColor,
   // SmallMargin
 } from '../Utils/Constants'
 import mapCertSlides from './CertificateHelpers'
 
 /**
  * Returns the Certificate Slider Component.
- * @param className
  * @return {*}
- * @constructor
  */
-const CertificateSlider = ({className}) => (
+const CertificateSlider = () => (
   <StaticQuery query={graphql`
   {
     slider: nodeCertificatesSlider {
@@ -57,19 +55,27 @@ const CertificateSlider = ({className}) => (
   render={data => {
    const sliderSettings = {
      className: "cert-slider",
-     arrows: false,
      centerMode: true,
      infinite: true,
      slidesToShow: 3,
-     // centerPadding: `2rem`,
      autoplay: true,
      speed: 500,
      pauseOnFocus: true,
-     // beforeChange: (current, next) => this.handleBeforeChange(current, next),
+     responsive: [
+       {
+         breakpoint: 641,
+         settings: {
+           arrows: true,
+           dots: true,
+           centerMode: false,
+           slidesToShow: 1,
+           autoplay: false,
+         }
+       },
+     ]
    }
    const title = data.slider.title
    const sliderData = data.slider.relationships.field_certificates_slider
-   // console.log(sliderData)
    const { sliderContents } = mapCertSlides(sliderData)
    return (
        <StyledCertificateSliderWrapper>
@@ -86,10 +92,6 @@ const CertificateSlider = ({className}) => (
 
 const StyledCertificateSliderWrapper = styled.div`
   .cert-slider {
-    .slick-slide {
-      
-    }
-    
     .slide-wrapper {
       border: 1px solid black;
       box-shadow: 10px 5px 5px black;
@@ -103,14 +105,13 @@ const StyledCertificateSliderWrapper = styled.div`
     }
   }
   
-  .slider-info p {
-    color: ${LightTextColor};
-  }
- 
-  
   ${media.lessThan("medium")`
     display: block;
     margin-bottom: ${DefaultMarginAndFontSizeMobile}px;
+  `}
+  
+  ${media.lessThan("large")`
+     margin: 0 ${ WrapperMarginsMobile }px;
   `}
 `
 

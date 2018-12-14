@@ -8,7 +8,7 @@ import {
   WrapperMaxWidthMobile,
   DefaultMarginAndFontSizeMobile,
 } from '../Utils/Constants'
-import CertificateSlider from './CerificateSlider'
+import CertificateSlider from './CertificateSlider'
 
 /**
  * This Styled Component wraps the Contact Form.
@@ -16,7 +16,7 @@ import CertificateSlider from './CerificateSlider'
  * @param className String    From styled components
  */
 const ContactSection = ({ className }) => (
-  <section className={className}>
+  <section id="certificates" className={className}>
     <StyledContactWrapper>
       <CertificateSlider />
     </StyledContactWrapper>
