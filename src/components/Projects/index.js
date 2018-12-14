@@ -5,7 +5,6 @@ import {
   DarkLinkHoverVisited,
   LightHeadingColor,
   media,
-  // Width
 } from '../Utils/Constants'
 import {
   LargeMargin,

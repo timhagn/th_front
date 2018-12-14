@@ -104,11 +104,6 @@ const GlobalStyle = createGlobalStyle`
       margin-top: -${ HeaderHeightMobile }px; 
       height: ${ HeaderHeightMobile }px; 
     `}
-    
-    //  ${media.lessThan("small")`
-    //   margin-top: calc(-${ HeaderHeightMobile }px - 75px);
-    //   height: calc(${ HeaderHeightMobile }px + 75px);
-    // `}
   }
   
   .hide-show-more {

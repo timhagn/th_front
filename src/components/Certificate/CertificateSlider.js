@@ -6,9 +6,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import {
   media,
-  DefaultMarginAndFontSizeMobile, WrapperMarginsMobile,
-  // LightTextColor,
-  // SmallMargin
+  WrapperMarginsMobile,
 } from '../Utils/Constants'
 import mapCertSlides from './CertificateHelpers'
 
@@ -99,13 +97,13 @@ const StyledCertificateSliderWrapper = styled.div`
     
     .slide-wrapper {
       border: 1px solid black;
-      box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.05);
+      box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.05);
       transition: all 200ms linear;
       filter: blur(1px);
       transform: scale(0.5);
     }
     .slick-current .slide-wrapper {
-      transform: scale(0.9) ;
+      transform: scale(1) ;
       filter: none;
     }
   }

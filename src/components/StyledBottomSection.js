@@ -9,7 +9,6 @@ import StyledProjectsSection from './Projects'
 import {
   Width,
   media,
-  // DarkBackground,
   BlueBackground
 } from './Utils/Constants'
 

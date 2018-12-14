@@ -10,7 +10,6 @@ import {
   LargeMargin,
   Width, WrapperMaxWidthDesktop
 } from "../Utils/Constants"
-// import { stripGutenbergTags } from "../Utils/HelperFunctions"
 
 /**
  * The Welcome Content displays the children of the Welcome Screen.
@@ -84,7 +83,6 @@ const StyledWelcomeContent = styled(WelcomeContent)`
   }
   
   ${media.greaterThan("medium")`
-    // margin: calc(${ LargeMargin }px + 75px) ${ WrapperMarginsMobile }px 0;
     margin-top: calc(${ DefaultMargin } + 104px);
   `}
   

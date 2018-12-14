@@ -12,7 +12,6 @@ import {
   LargeMargin,
   SmallMargin,
 } from "../Utils/Constants"
-// import { stripGutenbergTags } from "../Utils/HelperFunctions"
 import Button from "../Utils/Button"
 
 /**
@@ -43,7 +42,6 @@ const NotFoundContent = ({ className }) => (
       }
     `}
      render={ data => {
-       // Switch Image according to size on desktop / mobile.
        const imageData = data.notFoundImage.childImageSharp.fluid
        const strippedText = data.lostNode.field_body.value
        return (

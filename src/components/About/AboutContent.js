@@ -9,7 +9,6 @@ import {
   GridGapLineHeightBottomMargin
 } from '../Utils/Constants'
 import TechnologySlider from "./TechnologySlider";
-// import { stripGutenbergTags } from "../Utils/HelperFunctions"
 
 /**
  * The About Content displays the children of the About Screen.

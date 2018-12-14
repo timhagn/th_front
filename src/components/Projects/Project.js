@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import {
   DefaultMarginAndFontSizeMobile,
-  // GridGapLineHeightBottomMargin,
   LargeMargin,
   media,
   SmallMargin
@@ -56,7 +55,6 @@ const StyledImageContainer = styled.div`
 const StyledProject = styled(Project)`
   display: grid;
   grid-template-rows: 0 200px max-content 1fr 0.3fr;
-  //minmax(auto, max-content) 58px minmax(min-content, auto) minmax(auto, min-content);
   margin-bottom: ${ LargeMargin }px;
   
   h3 {
