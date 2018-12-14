@@ -11,6 +11,7 @@ import {
   // DarkBackground,
   BlueBackground
 } from './Utils/Constants'
+import StyledContactSection from './Contact'
 
 const BottomSection = ({ className }) => (
     <StaticQuery query={graphql`
@@ -43,6 +44,7 @@ const BottomSection = ({ className }) => (
                            backgroundColor={BlueBackground}
           >
             <StyledProjectsSection />
+            <StyledContactSection />
             <StyledCopyrightSection />
           </BackgroundImage>
        )

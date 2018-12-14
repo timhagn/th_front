@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://devserv.timhagn.com/sitemap.xml
-Host: https://devserv.timhagn.com
