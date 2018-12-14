@@ -13,9 +13,9 @@ import {
  * @param className String    From styled components
  */
 const CopyrightSection = ({ className }) => (
-    <div className={className}>
+    <footer className={className}>
       <StyledParagraph>&copy; Tim Hagn</StyledParagraph>
-    </div>
+    </footer>
 )
 
 const StyledParagraph = styled.p`
