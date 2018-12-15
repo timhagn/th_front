@@ -14,6 +14,9 @@ import {
 } from "./Utils/Constants"
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-display: auto;  
+  }
   *, html, body {
     margin: 0;
     padding: 0;

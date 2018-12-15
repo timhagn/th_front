@@ -24,6 +24,44 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
+          <script type="text/javascript" dangerouslySetInnerHTML={{ __html:`
+            (function(document, script) {
+            const projectName = 'portfolio'
+            localStorage.setItem('example_project', 'Personal Portfolio')
+            localStorage.setItem('fCC_null_hide', 'true')
+          }(document, 'script'))
+          `}}></script>
+          <script type="text/javascript" dangerouslySetInnerHTML={{ __html:`
+            (function(document) {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+              anchor.addEventListener('click', function (e) {
+                e.preventDefault()
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                  behavior: 'smooth'
+                })
+              })
+            })
+          }(document))
+          `}}></script>
+          <script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+          <script type="text/javascript" dangerouslySetInnerHTML={{ __html:`
+            (function (document) {
+              // Fix freeCodeCamp testers SEO "problem".
+              function fixSEO() {
+                const shadow = document.getElementById('fcc_test_suite_wrapper')
+                if (shadow && typeof shadow.shadowRoot !== 'undefined') {
+                  // console.log(shadow)
+                  shadow.shadowRoot
+                  // Bug report anchor.
+                    .querySelector('a[href^="https://github.com/freeCodeCamp"]')
+                    .setAttribute('rel', 'noopener noreferrer')
+                }
+              }
+
+              window.addEventListener("load", fixSEO)
+            }(document))
+        `}} defer="defer" async="false"></script>
         </body>
       </html>
     )

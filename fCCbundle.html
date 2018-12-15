@@ -3,10 +3,10 @@
 
 <script type="text/javascript">
   (function(document, script) {
-  const projectName = 'portfolio'
-  localStorage.setItem('example_project', 'Personal Portfolio')
-  localStorage.setItem('fCC_null_hide', 'true')
-}(document, 'script'))
+    const projectName = 'portfolio'
+    localStorage.setItem('example_project', 'Personal Portfolio')
+    localStorage.setItem('fCC_null_hide', 'true')
+  }(document, 'script'))
 </script><script data-react-helmet="true" type="text/javascript">
   (function(document) {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -19,6 +19,36 @@
       })
     })
   }(document))
-  </script><script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  (function (document) {
+    function fixSEO() {
+      // Fix freeCodeCamp testers SEO "problem".
+      // document.getElementById('fcc_test_suite_wrapper').shadowRoot
+      //   // #fcc_test_ui
+      //   .childNodes[1]
+      //   // #fcc_foldout_menu
+      //   .childNodes[5]
+      //   // #fcc_foldout_menu_inner
+      //   .childNodes[0]
+      //   // #fcc_report-bug
+      //   .childNodes[9]
+      //
+      //   .childNodes[0].setAttribute('rel', 'noopener noreferrer')
+      const shadow = document.getElementById('fcc_test_suite_wrapper')
+      if (shadow && typeof shadow.shadowRoot !== 'undefined') {
+        console.log(shadow)
+        shadow.shadowRoot
+        // Bug report anchor.
+          .querySelector('a[href^="https://github.com/freeCodeCamp"]')
+          .setAttribute('rel', 'nooopener noreferer')
+      }
+      // document.querySelectorAll('a[href^="https://github.com/freeCodeCamp"]').shadow.forEach(anchor => {
+      //   console.log('should add rel')
+      //   anchor.setAttribute('rel', 'noopener noreferrer')
+      // })
+    }
+
+    window.addEventListener("load", fixSEO)
+  }(document))
+</script><script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
 </html>
