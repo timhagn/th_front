@@ -15,6 +15,11 @@ import {
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
+    font-family:slick;
+    font-display: auto;  
+  }
+  @font-face {
+    font-family:Rubik;
     font-display: auto;  
   }
   *, html, body {
