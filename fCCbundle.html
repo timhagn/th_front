@@ -1,0 +1,24 @@
+<html lang="en">
+<!-- Add this to the end of index.html - and look into hooks for build process... -->
+
+<script type="text/javascript">
+  (function(document, script) {
+  const projectName = 'portfolio'
+  localStorage.setItem('example_project', 'Personal Portfolio')
+  localStorage.setItem('fCC_null_hide', 'true')
+}(document, 'script'))
+</script><script data-react-helmet="true" type="text/javascript">
+  (function(document) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault()
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        })
+      })
+    })
+  }(document))
+  </script><script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+</html>
