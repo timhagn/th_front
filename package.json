@@ -36,7 +36,7 @@
     "react-slick": "^0.23.2",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.1.2",
-    "styled-media-query": "https://github.com/timhagn/styled-media-query#th-jest-tests",
+    "styled-media-query": "^2.1.1",
     "typeface-rubik": "^0.0.54"
   },
   "keywords": [

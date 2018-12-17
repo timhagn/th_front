@@ -61,7 +61,7 @@ export default class HTML extends React.Component {
 
               window.addEventListener("load", fixSEO)
             }(document))
-        `}} defer="defer" async="false"></script>
+        `}} defer="defer" async={false}></script>
         </body>
       </html>
     )
