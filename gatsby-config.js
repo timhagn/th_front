@@ -5,6 +5,8 @@ const FRONTEND_URL = `https://fcc.timhagn.com`
 module.exports = {
   siteMetadata: {
     title: 'timhagn.com',
+    description: 'Tim Hagn - Development & Design',
+    author: 'timhagn.com | Tim Hagn - https://timhagn.com',
     siteUrl: FRONTEND_URL,
   },
   plugins: [

@@ -1,34 +1,13 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
+import SEO from './SEO'
 import StyledHeader from './Header'
 
 /**
  * This describes the overall layout of the portfolio Page.
  */
-const Layout = ({ notFound = false, children }) => {
-  // // For fCC Testing.
-  // const fccScript = `
-  //   (function(document, script) {
-  //     const projectName = 'portfolio'
-  //     localStorage.setItem('example_project', 'Personal Portfolio')
-  //   }(document, 'script'))
-  // `
-  // // And a little smooth scrolling.
-  // const smoothScroll = `
-  //   (function(document) {
-  //       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  //         anchor.addEventListener('click', function (e) {
-  //           e.preventDefault()
-  //
-  //           document.querySelector(this.getAttribute('href')).scrollIntoView({
-  //             behavior: 'smooth'
-  //           })
-  //         })
-  //       })
-  //   }(document))
-  // `
+const Layout = ({ notFound = false, children, title }) => {
   return (
   <StaticQuery
       query={graphql`
@@ -36,27 +15,23 @@ const Layout = ({ notFound = false, children }) => {
         site {
           siteMetadata {
             title
+            description
           }
         }
       }
     `}
       render={data => (
           <>
-            <Helmet
-                title={data.site.siteMetadata.title}
-                meta={[
-                  {
-                    name: 'description',
-                    content: 'Tim Hagn - Development & Design'
-                  },
-                  {
-                    name: 'keywords',
-                    content: 'timhagn.com, th, php, js, drupal, react, javascript'
-                  },
-                ]}
-            >
-              <html lang="en"/>
-            </Helmet>
+            <SEO title={title || data.site.siteMetadata.description} keywords={[
+              `timhagn.com`,
+              `timhagn`,
+              `th`,
+              `php`,
+              `js`,
+              `drupal`,
+              `react`,
+              `javascript`
+            ]} />
             <StyledHeader notFound={notFound ? '/' : ''}/>
             {children}
           </>
