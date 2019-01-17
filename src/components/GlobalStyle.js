@@ -101,18 +101,18 @@ const GlobalStyle = createGlobalStyle`
   }
     
   // Quickfix for FF's faulty anchor-scroll behavior.
-  *[id]:before { 
-    display: block; 
-    content: " "; 
-    margin-top: -${ HeaderHeight }px; 
-    height: ${ HeaderHeight }px; 
-    visibility: hidden; 
-    
-    ${media.lessThan("medium")`
-      margin-top: -${ HeaderHeightMobile }px; 
-      height: ${ HeaderHeightMobile }px; 
-    `}
-  }
+  // *[id]:before { 
+  //   display: block; 
+  //   content: " "; 
+  //   margin-top: -${ HeaderHeight }px; 
+  //   height: ${ HeaderHeight }px; 
+  //   visibility: hidden; 
+  //  
+  //   ${media.lessThan("medium")`
+  //     margin-top: -${ HeaderHeightMobile }px; 
+  //     height: ${ HeaderHeightMobile }px; 
+  //   `}
+  // }
   
   .hide-show-more {
     opacity: 0;
