@@ -101,7 +101,7 @@ const GlobalStyle = createGlobalStyle`
   }
     
   // Quickfix for FF's faulty anchor-scroll behavior.
-  *[id]:before { 
+  section[id]:before { 
     display: block; 
     content: " "; 
     margin-top: -${ HeaderHeight }px; 

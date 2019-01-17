@@ -54,7 +54,7 @@ const StyledImageContainer = styled.div`
 
 const StyledProject = styled(Project)`
   display: grid;
-  grid-template-rows: 0 200px max-content 1fr 0.3fr;
+  grid-template-rows: 200px max-content 1fr 0.3fr;
   margin-bottom: ${ LargeMargin }px;
   
   h3 {
