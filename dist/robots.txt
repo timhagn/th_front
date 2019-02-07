@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://fcc.timhagn.com/sitemap.xml
-Host: https://fcc.timhagn.com
